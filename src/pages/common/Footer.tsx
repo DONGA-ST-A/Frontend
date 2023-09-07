@@ -1,10 +1,15 @@
 import { styled } from "styled-components";
 
+import Logo from "@/assets/logo/logo_white.svg";
+
 const Footer = () => {
   return (
     <Container>
       <InformationContainer>
-        {/* TODO: 기업 로고 넣기 */}
+        <img
+          alt="logo"
+          src={Logo}
+        />
         <TextContainer>
           <div>사업자등록번호 | 204-86-40122</div>
           <div>상호 | 동아에스티(주)</div>
