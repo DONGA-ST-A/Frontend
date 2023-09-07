@@ -6,10 +6,19 @@ const Footer = () => {
       <InformationContainer>
         {/* TODO: 기업 로고 넣기 */}
         <TextContainer>
-          <div>사업정보</div>
-          <div>사업정보</div>
+          <div>사업자등록번호 | 204-86-40122</div>
+          <div>상호 | 동아에스티(주)</div>
+          <div>대표자명 | 김민영</div>
+          <div>전화번호 | 02-920-8406</div>
+          <div>주소 | 서울특별시 동대문구 천호대로 64</div>
+          <div>통신판매업신고번호 | 제2022-서울동대문-1374호</div>
+          <div>의료기기판매업번호 | 제2003-3050034-00003호</div>
+          <div>&nbsp;</div>
+          <div>Copyright ⓒ 2022 DongA ST Inc.All Rights Reserved.</div>
+          <div>Hosting by cafe24</div>
         </TextContainer>
       </InformationContainer>
+      `
       <TermContainer>
         <Term>약관정보</Term>
       </TermContainer>
