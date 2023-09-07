@@ -7,4 +7,11 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
-}`;
+}
+
+body {
+  @font-face {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+}
+`;
