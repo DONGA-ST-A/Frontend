@@ -22,6 +22,5 @@ html {
   src: url('../../src/style/fonts/NotoSansKR-Bold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-  font-size: 48px;
 }
 `;
