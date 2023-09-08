@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
-import SearchIcon from "@/assets/icon/icon_search.svg";
+import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
 import { Inner } from "@/style/commonStyle";
 
@@ -46,6 +46,10 @@ const Header = () => {
 const Container = styled.div`
   background-color: #ffffff;
   padding: 64px 108px 35px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-use-select: none;
+  user-select: none;
 `;
 const Nav = styled.div`
   display: flex;
