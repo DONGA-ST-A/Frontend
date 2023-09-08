@@ -3,20 +3,19 @@ import styled from "styled-components";
 import WonjuMedicalLogo from "@/assets/hospitalLogo/logo_gangwon_state_wonju_medical_center.svg";
 import SeveranceLogo from "@/assets/hospitalLogo/logo_severance_hospital.svg";
 import WonjuSeveranceLogo from "@/assets/hospitalLogo/logo_wonju_severance_christian_hospital.svg";
-import { Inner, Title, TitleContainer, TitleEn, TitleKo, VerticalLine } from "@/style/commonStyle";
+import { Inner } from "@/style/commonStyle";
+
+import Title from "./Title";
 
 const Hospital = () => {
   return (
     <Container>
       <Inner>
         <InnerContainer>
-          <TitleContainer>
-            <VerticalLine />
-            <Title>
-              <TitleEn>Hospitals currently using HiCardi</TitleEn>
-              <TitleKo>현재 하이카디를 사용하고 있는 병원</TitleKo>
-            </Title>
-          </TitleContainer>
+          <Title
+            titleEn="Hospitals currently using HiCardi"
+            titleKo="현재 하이카디를 사용하고 있는 병원"
+          />
           <HospitalContainer>
             <HospitalBanner>
               <img
