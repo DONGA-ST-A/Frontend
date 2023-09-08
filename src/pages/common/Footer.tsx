@@ -85,7 +85,10 @@ const TermContainer = styled.div`
 `;
 
 const Term = styled.a`
-  padding-bottom: 40px;
+  margin-bottom: 40px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const RadiusLine = styled.div`
