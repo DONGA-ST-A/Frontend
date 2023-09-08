@@ -9,6 +9,7 @@ const Footer = () => {
         <img
           alt="logo"
           src={Logo}
+          width="204"
         />
         <TextContainer>
           <div>사업자등록번호 | 204-86-40122</div>
@@ -23,9 +24,11 @@ const Footer = () => {
           <div>Hosting by cafe24</div>
         </TextContainer>
       </InformationContainer>
-      `
+
       <TermContainer>
-        <Term>약관정보</Term>
+        <Term>서비스 이용약관</Term>
+        <Term>개인정보취급방침</Term>
+        <Term>이용안내</Term>
       </TermContainer>
     </Container>
   );
@@ -35,28 +38,38 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   background-color: #1e1e1e;
-  padding: 30px;
+  padding: 50px 60px 50px 60px;
   color: white;
 `;
 
 const InformationContainer = styled.div`
-  /* TODO: 배경색 삭제 */
-  /* TODO: 로고랑 TextContainer 사이에 여백 넣기 */
-  background-color: green;
+  /* TODO: 폰트랑 폰트 사이즈 적용 후 height 재설정 */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 427px;
 `;
 
 const TextContainer = styled.div`
-  /* TODO: 폰트 관련 설정 */
   flex-direction: column;
+  font-family: NotoSansRegular;
+  font-size: 16px;
+  color: var(--color_white);
+  line-height: 1.6em;
 `;
 
 const TermContainer = styled.div`
-  /* TODO: Term 사이 간격 조절 */
-  background-color: #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: var(--color_white);
+  font-family: NotoSansMedium;
+  font-size: 20px;
 `;
 
 const Term = styled.div`
   /* TODO: 폰트 관련 설정 및 언더라인 설정 */
+  padding-bottom: 20px;
 `;
 
 export default Footer;

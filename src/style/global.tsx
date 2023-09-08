@@ -12,15 +12,18 @@ html {
 }
 
 @font-face {
+  font-family: NotoSansRegular;
+  src: url('../../src/style/fonts/NotoSansKR-Regular.woff') format('woff');
+  font-style: normal;
+}
+@font-face {
   font-family: NotoSansMedium;
   src: url('../../src/style/fonts/NotoSansKR-Medium.woff') format('woff');
-  font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: NotoSansBold;
   src: url('../../src/style/fonts/NotoSansKR-Bold.woff') format('woff');
-  font-weight: normal;
   font-style: normal;
 }
 `;
