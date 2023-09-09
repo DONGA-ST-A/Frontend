@@ -87,6 +87,7 @@ const Section = styled.div`
   align-items: center;
   padding: 50px 62px;
   margin: 16px 0px;
+  border-radius: 20px;
 
   .icon {
     padding: 0px 35px;
