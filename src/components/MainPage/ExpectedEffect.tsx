@@ -6,8 +6,6 @@ import { Inner } from "@/style/commonStyle";
 import Title from "./Title";
 
 const ExpectedEffect = () => {
-  // TODO : 현재 더미 아이콘 삽입 -> 완성된 아이콘 넣기
-  // TODO : CSS 적용
   return (
     <Container>
       <Inner>
