@@ -29,18 +29,18 @@ const Footer = () => {
           </InformationContainer>
 
           <TermContainer>
-            <Term>
+            <a href="">
               서비스 이용약관
               <RadiusLine />
-            </Term>
-            <Term>
+            </a>
+            <a href="">
               개인정보취급방침
               <RadiusLine />
-            </Term>
-            <Term>
+            </a>
+            <a href="">
               이용안내
               <RadiusLine />
-            </Term>
+            </a>
           </TermContainer>
         </InnerContainer>
       </Inner>
@@ -84,13 +84,6 @@ const TermContainer = styled.div`
   font-size: var(--text_body1);
 `;
 
-const Term = styled.a`
-  margin-bottom: 40px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 const RadiusLine = styled.div`
   content: "";
   background-color: var(--color_main_skyblue);
@@ -98,6 +91,7 @@ const RadiusLine = styled.div`
   height: 4px;
   border-radius: 6px;
   margin-top: 3px;
+  margin-bottom: 40px;
 `;
 
 export default Footer;
