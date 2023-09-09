@@ -57,7 +57,7 @@ const Nav = styled.div`
   height: 56px;
   font-family: NotoSansBold;
   color: var(--color_font);
-  font-size: var(--text_body2);
+  font-size: var(--text_body1);
   line-height: 1.6em;
 `;
 
