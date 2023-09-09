@@ -4,6 +4,7 @@ import TopArrowIcon from "@/assets/icon/icon_top_arrow.svg";
 
 const Inner = styled.div`
   max-width: 1230px;
+  min-width: 1064px;
   margin: 0 auto;
   padding: 0;
   position: relative;
