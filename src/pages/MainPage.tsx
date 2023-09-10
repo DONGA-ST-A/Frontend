@@ -1,6 +1,7 @@
 import Hospital from "@/components/MainPage/Hospital";
 import Information from "@/components/MainPage/Information";
 import Introduction from "@/components/MainPage/Introduction";
+import SiteReview from "@/components/MainPage/SiteReview";
 import Statistics from "@/components/MainPage/Statistics";
 
 const MainPage = () => {
@@ -9,6 +10,7 @@ const MainPage = () => {
       <Introduction />
       <Information />
       <Statistics />
+      <SiteReview />
       <Hospital />
     </>
   );
