@@ -3,13 +3,13 @@ import styled, { css } from "styled-components";
 import MainImg from "@/assets/figure/img_advantage_2.svg";
 import { AdvantageProps, Position } from "@/types";
 
-const AdvantageElement = ({ position, title, children }: AdvantageProps) => {
+const AdvantageElement = ({ position, title, description }: AdvantageProps) => {
   return (
     <Container position={position}>
       <Background position={position} />
       <div className="text-container">
         <div className="title">{title}</div>
-        {children}
+        <p>{description}</p>
       </div>
     </Container>
   );
@@ -43,6 +43,7 @@ const Container = styled.div<{ position: Position }>`
     flex-direction: column;
     line-height: 1.6em;
     color: var(--color_sub3);
+    white-space: pre-line;
   }
 `;
 

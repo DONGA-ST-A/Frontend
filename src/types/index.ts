@@ -5,5 +5,5 @@ export type Position = "upper" | "bottom";
 export interface AdvantageProps {
   position: Position;
   title: string;
-  children: React.ReactNode;
+  description: string;
 }
