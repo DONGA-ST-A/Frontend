@@ -29,6 +29,7 @@ const LearnMore = () => {
 
 const Container = styled.div`
   position: relative;
+  overflow: hidden;
 `;
 const InnerLearnMore = styled.div`
   width: 100%;
@@ -91,6 +92,7 @@ const Background = styled.div`
   height: 756px;
   filter: blur(4px);
   -webkit-filter: blur(4px);
+  transform: scale(1.02);
 `;
 
 export default LearnMore;
