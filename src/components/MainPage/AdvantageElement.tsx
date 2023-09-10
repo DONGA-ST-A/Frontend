@@ -19,6 +19,7 @@ const Container = styled.div<{ position: Position }>`
   width: 405px;
   height: 266px;
   position: relative;
+  margin: 0px 10px;
 
   .text-container {
     position: absolute;
@@ -46,7 +47,6 @@ const Container = styled.div<{ position: Position }>`
 `;
 
 const Background = styled.div<{ position: Position }>`
-  background-color: pink;
   background-image: url(${MainImg});
   background-size: cover;
   width: inherit;
