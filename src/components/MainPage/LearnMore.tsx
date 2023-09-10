@@ -45,19 +45,17 @@ const InnerLearnMore = styled.div`
     color: var(--color_white);
     width: 955px;
     text-align: center;
-    font-weight: 700;
   }
 
   .text h1 {
-    font-family: Noto SansBold;
+    font-family: NotoSansBold;
     font-size: 48px;
   }
 
   .text p {
-    font-family: NotoSansRegular;
+    font-family: NotoSansMedium;
     font-size: 32px;
     margin: 32px auto 32px;
-    font-weight: 500;
   }
   .text button {
     width: 210px;
