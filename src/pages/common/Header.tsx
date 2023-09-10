@@ -45,7 +45,7 @@ const Header = () => {
 
 const Container = styled.div`
   background-color: #ffffff;
-  padding: 64px 108px 35px;
+  margin: 64px auto 35px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
