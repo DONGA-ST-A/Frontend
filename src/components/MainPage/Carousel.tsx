@@ -3,10 +3,37 @@ import styled from "styled-components";
 
 import arrow1 from "@/assets/carousel/carousel_arrow.svg";
 import { Inner } from "@/style/commonStyle";
+import { carouselProps } from "@/types";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import CarouselElement from "./CarouselElement";
+
+const dummydata: carouselProps[] = [
+  {
+    title: "하이카디 플러스 HiCardi +",
+    semiTitle: "실시간 원격 환자 모니터링 솔루션",
+    description:
+      "더 나은 삶을 위한 솔루션\n하이카디 플러스로 편리하게 심전도 측정, 전송 및 분석까지",
+    BtnText: "자세히 보기",
+    BtnLink: "/",
+  },
+  {
+    title: "하이카디 플러스 HiCardi +\n사용법 바로가기",
+    semiTitle: "",
+    description: "하이카디를 처음 접하셨나요?\n사용법을 확인하고 체험해보세요.",
+    BtnText: "사용법 보기",
+    BtnLink: "/",
+  },
+  {
+    title: "하이카디와 함께 사용하면\n좋은 제품",
+    semiTitle: "원격 판독권, 심전도 리필 등",
+    description: "하이카디와 함께 사용하면\n보다 편리하게 환자를 모니터링 할 수 있습니다.",
+    BtnText: "제품 보러가기",
+    BtnLink: "/",
+  },
+];
 
 const REACT_SLIDER_SETTINGS = {
   dots: true,
@@ -15,8 +42,8 @@ const REACT_SLIDER_SETTINGS = {
   slidesToScroll: 1,
   arrows: true,
   speed: 2000,
-  autoplay: true,
-  autoplaySpeed: 4000,
+  // autoplay: true,
+  // autoplaySpeed: 4000,
 };
 
 const Carousel = () => {
@@ -24,10 +51,15 @@ const Carousel = () => {
     <Container>
       <Inner>
         <Slider {...REACT_SLIDER_SETTINGS}>
-          <CarouselElement />
-          <CarouselElement />
-          <CarouselElement />
-          <CarouselElement />
+          {dummydata.map((item) => (
+            <CarouselElement
+              title={item.title}
+              semiTitle={item.semiTitle}
+              description={item.description}
+              BtnText={item.BtnText}
+              BtnLink={item.BtnLink}
+            />
+          ))}
         </Slider>
       </Inner>
     </Container>
