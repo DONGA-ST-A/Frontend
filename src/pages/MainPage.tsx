@@ -1,3 +1,4 @@
+import ExpectedEffect from "@/components/MainPage/ExpectedEffect";
 import Hospital from "@/components/MainPage/Hospital";
 import Information from "@/components/MainPage/Information";
 import Introduction from "@/components/MainPage/Introduction";
@@ -10,6 +11,7 @@ const MainPage = () => {
       <Introduction />
       <Information />
       <Statistics />
+      <ExpectedEffect />
       <Hospital />
       <LearnMore />
     </>
