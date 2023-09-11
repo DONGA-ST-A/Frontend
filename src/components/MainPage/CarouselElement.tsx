@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 import carouselImg from "@/assets/carousel/example_carousel.svg";
+import { carouselProps } from "@/types";
 
 import ArrowBtn from "./ArrowBtn";
 
-const CarouselElement = () => {
+const CarouselElement = ({ title, semiTitle, description, BtnText, BtnLink }: carouselProps) => {
   return (
     <Container>
       <ElementInner>
@@ -12,18 +13,14 @@ const CarouselElement = () => {
           <div className="title">
             <VerticalLine />
             <TitleText>
-              <Title>하이카디 플러스 HiCardi +</Title>
-              <SemiTitle>실시간 원격 환자 모니터링 솔루션</SemiTitle>
+              <Title>{title}</Title>
+              <SemiTitle>{semiTitle}</SemiTitle>
             </TitleText>
           </div>
-          <div className="description">
-            더 나은 삶을 위한 솔루션
-            <br />
-            하이카디 플러스로 편리하게 심전도 측정, 전송 및 분석까지
-          </div>
+          <div className="description">{description}</div>
           <ArrowBtn
-            text="자세히 보기"
-            link="/"
+            text={BtnText}
+            link={BtnLink}
           />
         </TitleContainer>
         <img
@@ -60,8 +57,10 @@ const ElementInner = styled.div`
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
+  white-space: pre-wrap;
   .title {
     display: flex;
+    height: auto;
   }
   .description {
     font-family: NotoSansMedium;
@@ -94,8 +93,9 @@ const VerticalLine = styled.div`
   background-color: var(--color_main_skyblue);
   width: 4px;
   border-radius: 6px;
-  height: 110px;
-  margin: auto 0;
+  height: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
 `;
 
 export default CarouselElement;
