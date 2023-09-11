@@ -1,25 +1,20 @@
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import background from "@/assets/background/learn_more.svg";
-import arrow from "@/assets/icon/icon_right_arrow.svg";
+
+import ArrowBtn from "./ArrowBtn";
 
 const LearnMore = () => {
-  const navigate = useNavigate();
   return (
     <Container>
       <InnerLearnMore>
         <div className="text">
           <h1>하이카디가 당신의 환자를 24시간 돌봐드립니다.</h1>
           <p>하이카디에 대해 더 알아 볼까요?</p>
-          <button onClick={() => navigate("/")}>
-            <div>더 알아보기</div>
-            <img
-              src={arrow}
-              alt="화살표"
-              width={18}
-            />
-          </button>
+          <ArrowBtn
+            text="더 알아보기"
+            link="/"
+          />
         </div>
       </InnerLearnMore>
       <Background></Background>
@@ -56,28 +51,6 @@ const InnerLearnMore = styled.div`
     font-family: NotoSansMedium;
     font-size: 32px;
     margin: 32px auto 32px;
-  }
-  .text button {
-    width: 210px;
-    height: 56px;
-    border-radius: 36px;
-    font-weight: 700;
-    background-color: var(--color_white);
-    color: var(--color_font);
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    font-family: Noto SansBold;
-    font-size: var(--text_body1);
-    gap: 12px;
-    text-align: center;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-use-select: none;
-    user-select: none;
   }
 `;
 
