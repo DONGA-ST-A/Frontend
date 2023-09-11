@@ -7,3 +7,8 @@ export interface AdvantageProps {
   title: string;
   description: string;
 }
+
+export interface ArrowBtnProps {
+  text: string;
+  link: string;
+}
