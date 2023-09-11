@@ -23,7 +23,7 @@ const TitleText = styled.div`
 
 const TitleEn = styled.div`
   color: var(--color_sub2);
-  font-size: var(--text_body2);
+  font-size: var(--text_body1);
   font-family: NotoSansMedium;
   line-height: 1.6em;
 `;
