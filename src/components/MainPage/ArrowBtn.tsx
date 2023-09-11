@@ -32,8 +32,8 @@ const Btn = styled.div<{ text: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: ${(props) => (props.text === "자세히 보기" ? "0 0 0 30px" : "0 auto")};
-  font-family: Noto SansBold;
+  margin: ${(props) => (props.text !== "더 알아보기" ? "0 0 0 30px" : "0 auto")};
+  font-family: NotoSansBold;
   font-size: var(--text_body1);
   gap: 12px;
   text-align: center;
