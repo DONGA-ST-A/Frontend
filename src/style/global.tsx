@@ -54,17 +54,17 @@ a{
 }
 
 
-@font-face {
+@font-face { //font-weight 400
   font-family: NotoSansRegular;
   src: url('../../src/style/fonts/NotoSansKR-Regular.woff') format('woff');
   font-style: normal;
 }
-@font-face {
+@font-face { //font-weight 500
   font-family: NotoSansMedium;
   src: url('../../src/style/fonts/NotoSansKR-Medium.woff') format('woff');
   font-style: normal;
 }
-@font-face {
+@font-face { //font-weight 700
   font-family: NotoSansBold;
   src: url('../../src/style/fonts/NotoSansKR-Bold.woff') format('woff');
   font-style: normal;

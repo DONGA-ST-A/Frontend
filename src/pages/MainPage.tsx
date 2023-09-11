@@ -1,17 +1,18 @@
+import Advantage from "@/components/MainPage/Advantage";
+import ExpectedEffect from "@/components/MainPage/ExpectedEffect";
 import Hospital from "@/components/MainPage/Hospital";
-import Information from "@/components/MainPage/Information";
-import Introduction from "@/components/MainPage/Introduction";
 import SiteReview from "@/components/MainPage/SiteReview";
-import Statistics from "@/components/MainPage/Statistics";
+import LearnMore from "@/components/MainPage/LearnMore";
+
 
 const MainPage = () => {
   return (
     <>
-      <Introduction />
-      <Information />
-      <Statistics />
+      <Advantage />
+      <ExpectedEffect />
       <SiteReview />
       <Hospital />
+      <LearnMore />
     </>
   );
 };
