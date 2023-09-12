@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import AdvantageIcon from "@/assets/icon/icon_advantage.svg";
-import ExpectedEffectIcon from "@/assets/icon/icon_expected_effect.svg";
-import HospitalIcon from "@/assets/icon/icon_hospital.svg";
-import MarketStatusIcon from "@/assets/icon/icon_market_status.svg";
-import ReviewIcon from "@/assets/icon/icon_review.svg";
+import AdvantageIcon from "@/assets/icon/icon_scroll_advantage.svg";
+import ExpectedEffectIcon from "@/assets/icon/icon_scroll_expected_effect.svg";
+import HospitalIcon from "@/assets/icon/icon_scroll_hospital.svg";
+import MarketStatusIcon from "@/assets/icon/icon_scroll_market_status.svg";
+import ReviewIcon from "@/assets/icon/icon_scroll_review.svg";
 import { Inner } from "@/style/commonStyle";
 
 const iconList = [
@@ -53,7 +53,7 @@ const IconContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
-const Icon = styled.div`
+const Icon = styled.button`
   font-family: NotoSansMedium;
   font-size: var(--text_body1);
   color: var(--color_sub2);
@@ -64,10 +64,18 @@ const Icon = styled.div`
   align-items: center;
   margin: 0px 20px;
   width: 200px;
+  height: 128px;
+  border: none;
+  background-color: var(--color_white);
+  cursor: pointer;
 
   img {
     width: 80px;
     margin-bottom: 16px;
+  }
+
+  .title {
+    text-align: center;
   }
 `;
 export default ScrollTab;
