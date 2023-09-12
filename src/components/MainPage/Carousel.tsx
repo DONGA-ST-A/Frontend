@@ -1,3 +1,5 @@
+import React from "react";
+
 import Slider from "react-slick";
 import styled from "styled-components";
 
@@ -51,14 +53,16 @@ const Carousel = () => {
     <Container>
       <Inner>
         <Slider {...REACT_SLIDER_SETTINGS}>
-          {dummydata.map((item) => (
-            <CarouselElement
-              title={item.title}
-              semiTitle={item.semiTitle}
-              description={item.description}
-              BtnText={item.BtnText}
-              BtnLink={item.BtnLink}
-            />
+          {dummydata.map((item, idx) => (
+            <React.Fragment key={idx}>
+              <CarouselElement
+                title={item.title}
+                semiTitle={item.semiTitle}
+                description={item.description}
+                BtnText={item.BtnText}
+                BtnLink={item.BtnLink}
+              />
+            </React.Fragment>
           ))}
         </Slider>
       </Inner>
