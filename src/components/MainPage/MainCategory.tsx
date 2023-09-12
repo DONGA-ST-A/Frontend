@@ -83,7 +83,7 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   padding: 20px 0;
-  z-index: 9999;
+  z-index: 15;
   background-color: var(--color_white);
 
   li {
