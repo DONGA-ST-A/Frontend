@@ -4,10 +4,13 @@ import DummyData from "@/assets/dummy_item.svg";
 import CartIcon from "@/assets/icon/icon_cart.svg";
 import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
 
-const ProductItem = ({ main }: { main: boolean }) => {
+const ProductItem = ({ main, soldOut }: { main: boolean; soldOut: boolean }) => {
+  console.log(main);
+  console.log(soldOut);
   return (
-    <Container main={main}>
+    <Container $main={main}>
       <ImgContainer>
+        {!soldOut && <SoldOut />}
         <img
           alt="더미 데이터"
           src={DummyData}
@@ -17,7 +20,7 @@ const ProductItem = ({ main }: { main: boolean }) => {
           <Tag>#기기 본체</Tag>
         </TagList>
       </ImgContainer>
-      <InfoContainer main={main}>
+      <InfoContainer $main={main}>
         <div className="product-information">
           <div className="product">
             <h1>하이카디플러스 HiCardi+</h1>
@@ -40,12 +43,12 @@ const ProductItem = ({ main }: { main: boolean }) => {
   );
 };
 
-const Container = styled.div<{ main: boolean }>`
+const Container = styled.div<{ $main: boolean }>`
   //background-color: pink;
   width: 552px;
   border-radius: 12px;
   border: solid 1px;
-  border-color: ${(props) => (props.main ? "var(--color_sub4)" : "var(--color_sub1)")};
+  border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
 `;
 
 const ImgContainer = styled.div`
@@ -73,7 +76,14 @@ const ImgContainer = styled.div`
   }
 `;
 
-const InfoContainer = styled.div<{ main: boolean }>`
+const SoldOut = styled.div`
+  content: "dd";
+  background-color: pink;
+  height: 100%;
+  width: 100%;
+`;
+
+const InfoContainer = styled.div<{ $main: boolean }>`
   display: flex;
   flex-direction: row;
   padding: 35px;
@@ -81,7 +91,7 @@ const InfoContainer = styled.div<{ main: boolean }>`
   border-radius: 0px 0px 12px 12px;
 
   ${(props) =>
-    props.main
+    props.$main
       ? css`
           background-color: var(--color_sub5);
           border-top-color: var(--color_sub4);

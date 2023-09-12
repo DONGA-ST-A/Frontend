@@ -18,7 +18,7 @@ const CategoryBar = () => {
         {categoryList.map((cate) => (
           <Button
             key={cate}
-            active={category === cate}
+            $active={category === cate}
             onClick={() => {
               setCategory(cate);
             }}
@@ -44,7 +44,7 @@ const CategoryBar = () => {
             {sortList.map((item) => (
               <DropDownItem
                 key={item}
-                active={item === dropdown}
+                $active={item === dropdown}
                 onClick={() => setDropdown(item)}
               >
                 {item === dropdown ? <HiCheck className="check" /> : <Empty />}
@@ -64,14 +64,14 @@ const Container = styled.div`
   margin: 40px 0px;
 `;
 
-const Button = styled.button<{ active: boolean }>`
+const Button = styled.button<{ $active: boolean }>`
   border-style: solid;
   border-width: 1px;
-  border-color: ${(props) => (props.active ? "var(--color_main_skyblue)" : "var(--color_sub1)")};
+  border-color: ${(props) => (props.$active ? "var(--color_main_skyblue)" : "var(--color_sub1)")};
   background-color: ${(props) =>
-    props.active ? "var(--color_main_skyblue)" : "var(--color_white)"};
+    props.$active ? "var(--color_main_skyblue)" : "var(--color_white)"};
   border-radius: 30px;
-  color: ${(props) => (props.active ? "var(--color_white)" : "var(--color_font)")};
+  color: ${(props) => (props.$active ? "var(--color_white)" : "var(--color_font)")};
   font-family: NotoSansBold;
   font-size: var(--text_body1);
   padding: 12px 40px;
@@ -110,10 +110,10 @@ const DropDownContent = styled.div`
   z-index: 10;
 `;
 
-const DropDownItem = styled.div<{ active: boolean }>`
+const DropDownItem = styled.div<{ $active: boolean }>`
   font-family: NotoSansMedium;
   font-size: var(--text_caption1);
-  color: ${(props) => (props.active ? "var(--color_white)" : "var(--color_font)")};
+  color: ${(props) => (props.$active ? "var(--color_white)" : "var(--color_font)")};
   padding: 5px 8px;
   margin: 1.5px 0px;
   display: flex;
@@ -121,7 +121,7 @@ const DropDownItem = styled.div<{ active: boolean }>`
   line-height: 1.6em;
   border-radius: 8px;
   ${(props) =>
-    props.active &&
+    props.$active &&
     css`
       background-color: var(--color_main_skyblue);
     `}
