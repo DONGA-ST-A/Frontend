@@ -55,6 +55,8 @@ const MainCategory = () => {
             item.location < scrollLocation + 10 &&
             scrollLocation < (arr[idx + 1]?.location || item.location + 600)
               ? "active"
+              : scrollLocation > 5930
+              ? "lastActive"
               : ""
           }
           onClick={() => {
@@ -85,6 +87,13 @@ const Container = styled.div`
   padding: 20px 0;
   z-index: 9999;
   background-color: var(--color_white);
+  visibility: visible;
+  opacity: 1;
+  transition: 0.45s;
+  &:has(li.lastActive) {
+    visibility: hidden;
+    opacity: 0;
+  }
 
   li {
     width: 200px;
