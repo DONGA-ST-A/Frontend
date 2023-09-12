@@ -26,3 +26,9 @@ export interface categoryProps {
   text: string;
   location: number;
 }
+
+export interface SiteReviewProps {
+  title: string;
+  description: string;
+  example?: string;
+}
