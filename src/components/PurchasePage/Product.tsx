@@ -7,7 +7,10 @@ const Product = () => {
   return (
     <Container>
       <CategoryBar />
-      <ProductItem main={true} />
+      <ProductItem
+        main={true}
+        soldOut={true}
+      />
     </Container>
   );
 };

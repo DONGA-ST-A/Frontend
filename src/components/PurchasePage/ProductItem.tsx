@@ -10,7 +10,7 @@ const ProductItem = ({ main, soldOut }: { main: boolean; soldOut: boolean }) => 
   return (
     <Container $main={main}>
       <ImgContainer>
-        {!soldOut && <SoldOut />}
+        {soldOut && <SoldOut>품절된 상품입니다.</SoldOut>}
         <img
           alt="더미 데이터"
           src={DummyData}
@@ -44,11 +44,11 @@ const ProductItem = ({ main, soldOut }: { main: boolean; soldOut: boolean }) => 
 };
 
 const Container = styled.div<{ $main: boolean }>`
-  //background-color: pink;
   width: 552px;
   border-radius: 12px;
   border: solid 1px;
   border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
+  position: relative;
 `;
 
 const ImgContainer = styled.div`
@@ -60,7 +60,6 @@ const ImgContainer = styled.div`
   position: relative;
   border-radius: 12px 12px 0px 0px;
   background-color: var(--color_white);
-  //background-color: pink;
 
   img {
     width: 295px;
@@ -77,10 +76,20 @@ const ImgContainer = styled.div`
 `;
 
 const SoldOut = styled.div`
-  content: "dd";
-  background-color: pink;
-  height: 100%;
-  width: 100%;
+  background-color: rgba(104, 104, 104, 0.7);
+  height: 347px;
+  width: 552px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color_white);
+  font-family: NotoSansMedium;
+  font-size: var(--text_subtitle1);
+  border-radius: 11px 11px 0px 0px;
+  border: none;
+  z-index: 5;
 `;
 
 const InfoContainer = styled.div<{ $main: boolean }>`
@@ -131,22 +140,18 @@ const InfoContainer = styled.div<{ $main: boolean }>`
 
     img {
       width: 55px;
+      cursor: pointer;
     }
   }
 `;
 
 const TagList = styled.div`
-  //background-color: yellow;
   display: flex;
   flex-direction: row;
-  //width: 100%;
-  //flex-grow: 1;
-  //height: 42px;
-  //padding-left: 10px;
-  //padding: 0px 37px;
   position: absolute;
   bottom: 20px;
   left: 30px;
+  z-index: 8;
 `;
 
 const Tag = styled.div`
