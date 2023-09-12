@@ -20,3 +20,9 @@ export interface carouselProps {
   BtnText: string;
   BtnLink: string;
 }
+
+export interface categoryProps {
+  img: string;
+  text: string;
+  location: number;
+}
