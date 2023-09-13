@@ -18,7 +18,12 @@ const ProductItem = ({ product }: { product: ProductData }) => {
         />
         <div className="tag-list">
           {product.tags.map((item) => (
-            <span key={item}>{item}</span>
+            <div
+              key={item}
+              className="tag"
+            >
+              #{item}
+            </div>
           ))}
         </div>
       </ImgContainer>
@@ -46,17 +51,17 @@ const ProductItem = ({ product }: { product: ProductData }) => {
 };
 
 const Container = styled.div<{ $main: boolean }>`
-  width: 552px;
-  border-radius: 12px;
-  border: solid 1px;
+  width: 397px;
+  border-radius: 9px;
+  border: solid 0.7px;
   border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
   position: relative;
 `;
 
 const SoldOut = styled.div`
   background-color: rgba(104, 104, 104, 0.7);
-  height: 347px;
-  width: 552px;
+  height: 250px;
+  width: 397px;
   position: absolute;
   top: 0;
   display: flex;
@@ -64,33 +69,33 @@ const SoldOut = styled.div`
   align-items: center;
   color: var(--color_white);
   font-family: NotoSansMedium;
-  font-size: var(--text_subtitle1);
-  border-radius: 11px 11px 0px 0px;
+  font-size: 23px;
+  border-radius: 8px 8px 0px 0px;
   border: none;
   z-index: 5;
 `;
 
 const ImgContainer = styled.div`
-  height: 347px;
+  height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  border-radius: 12px 12px 0px 0px;
+  border-radius: 9px 9px 0px 0px;
   background-color: var(--color_white);
 
   img {
-    width: 295px;
-    height: 228px;
+    width: 212px;
+    height: 164px;
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 
     &:hover {
-      width: 387px;
-      height: 287px;
+      width: 280px;
+      height: 205px;
     }
   }
 
@@ -98,32 +103,33 @@ const ImgContainer = styled.div`
     display: flex;
     flex-direction: row;
     position: absolute;
-    bottom: 20px;
-    left: 30px;
+    bottom: 10px;
+    left: 15px;
     z-index: 8;
 
-    span {
-      padding: 8px 24px;
-      border: solid 1px;
+    .tag {
+      padding: 7px 18px;
+      border: solid 0.7px;
       border-radius: 20px;
       border-color: var(--color_sub1);
       color: var(--color_font);
       background-color: var(--color_white);
       font-family: NotoSansMedium;
-      font-size: var(--text_caption1);
+      font-size: 11.5px;
       margin: 0px 6px;
+      text-align: center;
     }
   }
 `;
 
 const InfoContainer = styled.div<{ $main: boolean }>`
   height: 172px;
-  padding: 35px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-top: solid 5px;
-  border-radius: 0px 0px 12px 12px;
+  border-radius: 0px 0px 9px 9px;
 
   ${(props) =>
     props.$main
@@ -139,14 +145,14 @@ const InfoContainer = styled.div<{ $main: boolean }>`
   h1 {
     color: var(--color_font);
     font-family: NotoSansBold;
-    font-size: var(--text_subtitle1);
+    font-size: 23px;
   }
 
   .product-name-container {
     .description {
       color: var(--color_sub3);
       font-family: NotoSansMedium;
-      font-size: var(text_caption1);
+      font-size: 11.5px;
       margin-top: 15px;
     }
   }
@@ -158,10 +164,10 @@ const InfoContainer = styled.div<{ $main: boolean }>`
 
     .icon-container {
       display: flex;
-      gap: 20px;
+      gap: 15px;
 
       img {
-        width: 55px;
+        width: 41px;
         cursor: pointer;
       }
     }
