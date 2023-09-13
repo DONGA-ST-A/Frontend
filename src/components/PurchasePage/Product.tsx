@@ -1,16 +1,36 @@
+import { useState, useEffect } from "react";
+
 import styled from "styled-components";
+
+import { getProducts } from "@/API";
+import { ProductData } from "@/types";
 
 import CategoryBar from "./CategoryBar";
 import ProductItem from "./ProductItem";
 
 const Product = () => {
+  const [products, setProducts] = useState<ProductData[]>([]);
+
+  const GetProducts = async () => {
+    const productData = await getProducts();
+    console.log(productData);
+    setProducts(productData.content);
+  };
+
+  useEffect(() => {
+    GetProducts();
+  }, []);
+
   return (
     <Container>
       <CategoryBar />
-      <ProductItem
-        main={true}
-        soldOut={true}
-      />
+      {products &&
+        products.map((product) => (
+          <ProductItem
+            key={product.id}
+            product={product}
+          />
+        ))}
     </Container>
   );
 };

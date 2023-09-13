@@ -20,3 +20,23 @@ export interface carouselProps {
   BtnText: string;
   BtnLink: string;
 }
+
+export interface ProductData {
+  id: number;
+  name: string;
+  subname: string;
+  tags: string[];
+  previewImage: string;
+  price: number;
+  status: string;
+  stock: number;
+}
+
+export interface ProductGetResponse {
+  content: ProductData[];
+  hasNextPages: boolean;
+  numberOfElements: number;
+  pageNumber: number;
+  totalElements: number;
+  tatalPages: number;
+}
