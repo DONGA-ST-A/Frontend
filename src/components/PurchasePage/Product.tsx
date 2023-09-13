@@ -10,10 +10,10 @@ import ProductItem from "./ProductItem";
 
 const Product = () => {
   const [products, setProducts] = useState<ProductData[]>([]);
+  const [category, setCategory] = useState<string>("전체");
 
   const GetProducts = async () => {
     const productData = await getProducts();
-    console.log(productData);
     setProducts(productData.content);
   };
 
@@ -23,15 +23,27 @@ const Product = () => {
 
   return (
     <Container>
-      <CategoryBar />
+      <CategoryBar
+        category={category}
+        setCategory={setCategory}
+      />
       <ProductContainer>
         {products &&
-          products.map((product) => (
-            <ProductItem
-              key={product.id}
-              product={product}
-            />
-          ))}
+          (category === "전체"
+            ? products.map((product) => (
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                />
+              ))
+            : products
+                .filter((product) => product.tags.includes(category))
+                .map((product) => (
+                  <ProductItem
+                    key={product.id}
+                    product={product}
+                  />
+                )))}
       </ProductContainer>
     </Container>
   );

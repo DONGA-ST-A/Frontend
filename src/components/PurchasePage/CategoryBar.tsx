@@ -7,8 +7,13 @@ import styled, { css } from "styled-components";
 const categoryList = ["전체", "기기 본체", "추가 용품", "추가 서비스"];
 const sortList = ["신상품", "상품명", "낮은가격", "높은가격", "제조사", "사용후기"];
 
-const CategoryBar = () => {
-  const [category, setCategory] = useState<string>("전체");
+const CategoryBar = ({
+  category,
+  setCategory,
+}: {
+  category: string;
+  setCategory: (category: string) => void;
+}) => {
   const [dropdown, setDropdown] = useState<string>("신상품");
   const [activeDropdown, setActvieDropdown] = useState<boolean>(false);
 

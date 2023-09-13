@@ -5,11 +5,8 @@ import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
 import { ProductData } from "@/types";
 
 const ProductItem = ({ product }: { product: ProductData }) => {
-  const main = product.tags.includes("기기 본체");
-  const price = product.price | 0;
-  console.log(price);
   return (
-    <Container $main={main}>
+    <Container $main={product.tags.includes("기기 본체")}>
       <ImgContainer>
         {product.status === "품절" && <SoldOut>품절된 상품입니다.</SoldOut>}
         <img
@@ -27,13 +24,13 @@ const ProductItem = ({ product }: { product: ProductData }) => {
           ))}
         </div>
       </ImgContainer>
-      <InfoContainer $main={main}>
+      <InfoContainer $main={product.tags.includes("기기 본체")}>
         <div className="product-name-container">
           <h1>{product.name}</h1>
           <div className="description">{product.subname}</div>
         </div>
         <div className="product-container">
-          <h1>{product.price ? `${price.toLocaleString()}원` : null}</h1>
+          <h1>{product.price ? `${product.price.toLocaleString()}원` : null}</h1>
           <div className="icon-container">
             <img
               alt="장바구니"
