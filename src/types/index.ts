@@ -32,3 +32,22 @@ export interface SiteReviewProps {
   description: string;
   example?: string;
 }
+
+export interface GetDto<T> {
+  content: T[];
+  hasNextPages: boolean;
+  numberOfElements: number;
+  pageNumber: number;
+  totalElements: number;
+  tatalPages: number;
+}
+
+/** QnA */
+export interface QnAData {
+  answer: string;
+  category: string;
+  id: number;
+  question: string;
+}
+
+export type GetQnaResponse = GetDto<QnAData>;
