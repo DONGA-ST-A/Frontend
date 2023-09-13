@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import UsageGraph from "@/assets/figure/graph_usage.svg";
+import UsageGraph from "@/assets/figure/hicardi_main_graph.gif";
 import { Inner } from "@/style/commonStyle";
 
 import MarketStatusElement from "./MarketStatusElement";

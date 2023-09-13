@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import WonjuMedicalLogo from "@/assets/hospitalLogo/logo_gangwon_state_wonju_medical_center.svg";
-import SeveranceLogo from "@/assets/hospitalLogo/logo_severance_hospital.svg";
-import WonjuSeveranceLogo from "@/assets/hospitalLogo/logo_wonju_severance_christian_hospital.svg";
+import KosinLogo from "@/assets/hospitalLogo/logo_kosin_university_gospel_hospital.svg";
+import SeoulLogo from "@/assets/hospitalLogo/logo_seoul_national_university_hospital.svg";
+import WonjuLogo from "@/assets/hospitalLogo/logo_wonju_severance_christian_hospital.svg";
 import { Inner } from "@/style/commonStyle";
 
 import Title from "./Title";
@@ -20,35 +20,23 @@ const Hospital = () => {
             <HospitalBanner>
               <img
                 alt="원주세브란스기독병원"
-                src={WonjuSeveranceLogo}
-                height="55"
+                src={WonjuLogo}
               />
-              <div>
-                <div>생체신호 모니터링 심층 서비스</div>
-                <div>신생아 집중치료실</div>
-              </div>
+              <div>강원 원주세브란스기독병원</div>
             </HospitalBanner>
             <HospitalBanner>
               <img
-                alt="세브란스병원"
-                src={SeveranceLogo}
-                height="55"
+                alt="서울대학교병원"
+                src={SeoulLogo}
               />
-              <div>
-                <div>응급실 / 중환자실</div>
-                <div>&nbsp;</div>
-              </div>
+              <div>종로구 서울대학교병원</div>
             </HospitalBanner>
             <HospitalBanner>
               <img
-                alt="강원특별자치도원주의료원"
-                src={WonjuMedicalLogo}
-                height="55"
+                alt="고신대학교복음병원"
+                src={KosinLogo}
               />
-              <div>
-                <div>COVID 19 강원 치료센터</div>
-                <div>&nbsp;</div>
-              </div>
+              <div>부산 고신대학교복음병원</div>
             </HospitalBanner>
           </HospitalContainer>
         </InnerContainer>
@@ -81,10 +69,15 @@ const HospitalBanner = styled.div`
   align-items: center;
   color: var(--color_sub2);
   font-family: NotoSansMedium;
-  font-size: 14.8px;
+  font-size: var(--text_body1);
   height: 120px;
   line-height: 1.6em;
   text-align: center;
+
+  img {
+    height: 73px;
+    margin-bottom: 24px;
+  }
 `;
 
 export default Hospital;
