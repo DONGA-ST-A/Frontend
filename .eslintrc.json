@@ -20,7 +20,8 @@
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
-    "indent": ["error", 2],
+    "indent": "off",
+
     //"quotes": ["error", "single"]
     //"semi": ["error", "never"],
     "@typescript-eslint/no-empty-function": ["error", { "allow": ["arrowFunctions"] }],

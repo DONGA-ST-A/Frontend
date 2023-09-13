@@ -3,10 +3,11 @@ import styled from "styled-components";
 import background from "@/assets/background/site_review_background.svg";
 import heart from "@/assets/icon/heart_icon.svg";
 import { Inner } from "@/style/commonStyle";
+import { SiteReviewProps } from "@/types";
 
 import Title from "./Title";
 
-const device = [
+const device: SiteReviewProps[] = [
   {
     title: "합리적인 가격",
     description:
@@ -23,7 +24,7 @@ const device = [
   },
 ];
 
-const skill = [
+const skill: SiteReviewProps[] = [
   {
     title: "환자의 상태 파악에 용이",
     description:
@@ -59,8 +60,8 @@ const SiteReview = () => {
                   />
                 </h1>
                 <ul className="device">
-                  {device.map((item) => (
-                    <li>
+                  {device.map((item, idx) => (
+                    <li key={idx}>
                       <h1>"{item.title}"</h1>
                       <p>{item.description}</p>
                     </li>
@@ -79,8 +80,8 @@ const SiteReview = () => {
                   />
                 </h1>
                 <ul className="skill">
-                  {skill.map((item) => (
-                    <li>
+                  {skill.map((item, idx) => (
+                    <li key={idx}>
                       <h1>"{item.title}"</h1>
                       <p>{item.description}</p>
                       {item.example ? <p className="example">{item.example}</p> : ""}

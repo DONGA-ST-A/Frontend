@@ -20,3 +20,15 @@ export interface carouselProps {
   BtnText: string;
   BtnLink: string;
 }
+
+export interface categoryProps {
+  img: string;
+  text: string;
+  location: number;
+}
+
+export interface SiteReviewProps {
+  title: string;
+  description: string;
+  example?: string;
+}

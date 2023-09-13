@@ -1,3 +1,5 @@
+import React from "react";
+
 import Slider from "react-slick";
 import styled from "styled-components";
 
@@ -42,8 +44,8 @@ const REACT_SLIDER_SETTINGS = {
   slidesToScroll: 1,
   arrows: true,
   speed: 2000,
-  // autoplay: true,
-  // autoplaySpeed: 4000,
+  autoplay: true,
+  autoplaySpeed: 4000,
 };
 
 const Carousel = () => {
@@ -51,14 +53,16 @@ const Carousel = () => {
     <Container>
       <Inner>
         <Slider {...REACT_SLIDER_SETTINGS}>
-          {dummydata.map((item) => (
-            <CarouselElement
-              title={item.title}
-              semiTitle={item.semiTitle}
-              description={item.description}
-              BtnText={item.BtnText}
-              BtnLink={item.BtnLink}
-            />
+          {dummydata.map((item, idx) => (
+            <React.Fragment key={idx}>
+              <CarouselElement
+                title={item.title}
+                semiTitle={item.semiTitle}
+                description={item.description}
+                BtnText={item.BtnText}
+                BtnLink={item.BtnLink}
+              />
+            </React.Fragment>
           ))}
         </Slider>
       </Inner>
@@ -76,6 +80,7 @@ const Container = styled.div`
   .slick-dots {
     position: absolute;
     bottom: 0;
+    padding: 0 0 0 65px;
   }
 
   .slick-prev {
@@ -116,15 +121,15 @@ const Container = styled.div`
     line-height: 12px;
     opacity: 1;
   }
+  .slick-dots li button {
+    background: var(--color_white);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+  }
 
   .slick-dots li button:before {
-    width: 20px;
-    height: 20px;
-    color: var(--color_white);
-    border-radius: 50%;
-    display: inline-block;
-    line-height: 12px;
-    font-size: 12px;
+    font-size: 0;
   }
 
   .slick-dots li.slick-active button:before {
