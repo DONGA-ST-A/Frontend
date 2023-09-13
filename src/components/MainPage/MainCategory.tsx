@@ -2,31 +2,36 @@ import { useState, useEffect } from "react";
 
 import styled from "styled-components";
 
+import MarketStatusIcon from "@/assets/icon/main_category1.svg";
+import AdvantageIcon from "@/assets/icon/main_category2.svg";
+import ExpectedEffectIcon from "@/assets/icon/main_category3.svg";
+import ReviewIcon from "@/assets/icon/main_category4.svg";
+import HospitalIcon from "@/assets/icon/main_category5.svg";
 import { categoryProps } from "@/types";
 
 const categoryBtn: categoryProps[] = [
   {
-    img: "src/assets/icon/main_category1.svg",
+    img: MarketStatusIcon,
     text: "심전도 침상감지 현황",
     location: 1250,
   },
   {
-    img: "src/assets/icon/main_category2.svg",
+    img: AdvantageIcon,
     text: "하이카디만의 장점",
     location: 2050,
   },
   {
-    img: "src/assets/icon/main_category3.svg",
+    img: ExpectedEffectIcon,
     text: "기대 효과",
     location: 3100,
   },
   {
-    img: "src/assets/icon/main_category4.svg",
+    img: ReviewIcon,
     text: "실제 현장 후기",
     location: 4380,
   },
   {
-    img: "src/assets/icon/main_category5.svg",
+    img: HospitalIcon,
     text: "  현재 하이카디를\n사용하고 있는 병원",
     location: 5290,
   },
