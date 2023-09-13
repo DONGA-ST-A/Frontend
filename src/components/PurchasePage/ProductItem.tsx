@@ -1,42 +1,42 @@
 import styled, { css } from "styled-components";
 
-import DummyData from "@/assets/dummy_item.svg";
 import CartIcon from "@/assets/icon/icon_cart.svg";
 import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
+import { ProductData } from "@/types";
 
-const ProductItem = ({ main, soldOut }: { main: boolean; soldOut: boolean }) => {
-  console.log(main);
-  console.log(soldOut);
+const ProductItem = ({ product }: { product: ProductData }) => {
+  const main = product.tags.includes("기기 본체");
   return (
     <Container $main={main}>
       <ImgContainer>
-        {soldOut && <SoldOut>품절된 상품입니다.</SoldOut>}
+        {product.status === "품절" && <SoldOut>품절된 상품입니다.</SoldOut>}
         <img
-          alt="더미 데이터"
-          src={DummyData}
+          alt={product.name}
+          src={product.previewImage}
         />
-        <TagList>
-          <Tag>#Smakrt Patch</Tag>
-          <Tag>#기기 본체</Tag>
-        </TagList>
+        <div className="tag-list">
+          {product.tags.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
       </ImgContainer>
       <InfoContainer $main={main}>
-        <div className="product-information">
-          <div className="product">
-            <h1>하이카디플러스 HiCardi+</h1>
-            <div className="description">편리하게 심전도 측정, 전송 및 분석.</div>
-          </div>
-          <h1>2,046,000원</h1>
+        <div className="product-name-container">
+          <h1>{product.name}</h1>
+          <div className="description">{product.subname}</div>
         </div>
-        <div className="icon-container">
-          <img
-            alt="장바구니"
-            src={CartIcon}
-          />
-          <img
-            alt="찜"
-            src={FavoriteIcon}
-          />
+        <div className="product-container">
+          <h1>{product.price}</h1>
+          <div className="icon-container">
+            <img
+              alt="장바구니"
+              src={CartIcon}
+            />
+            <img
+              alt="찜"
+              src={FavoriteIcon}
+            />
+          </div>
         </div>
       </InfoContainer>
     </Container>
@@ -49,6 +49,23 @@ const Container = styled.div<{ $main: boolean }>`
   border: solid 1px;
   border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
   position: relative;
+`;
+
+const SoldOut = styled.div`
+  background-color: rgba(104, 104, 104, 0.7);
+  height: 347px;
+  width: 552px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color_white);
+  font-family: NotoSansMedium;
+  font-size: var(--text_subtitle1);
+  border-radius: 11px 11px 0px 0px;
+  border: none;
+  z-index: 5;
 `;
 
 const ImgContainer = styled.div`
@@ -71,31 +88,38 @@ const ImgContainer = styled.div`
 
     &:hover {
       width: 387px;
+      height: 287px;
+    }
+  }
+
+  .tag-list {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    z-index: 8;
+
+    span {
+      padding: 8px 24px;
+      border: solid 1px;
+      border-radius: 20px;
+      border-color: var(--color_sub1);
+      color: var(--color_font);
+      background-color: var(--color_white);
+      font-family: NotoSansMedium;
+      font-size: var(--text_caption1);
+      margin: 0px 6px;
     }
   }
 `;
 
-const SoldOut = styled.div`
-  background-color: rgba(104, 104, 104, 0.7);
-  height: 347px;
-  width: 552px;
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--color_white);
-  font-family: NotoSansMedium;
-  font-size: var(--text_subtitle1);
-  border-radius: 11px 11px 0px 0px;
-  border: none;
-  z-index: 5;
-`;
-
 const InfoContainer = styled.div<{ $main: boolean }>`
-  display: flex;
-  flex-direction: row;
+  height: 172px;
   padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-top: solid 5px;
   border-radius: 0px 0px 12px 12px;
 
@@ -110,59 +134,35 @@ const InfoContainer = styled.div<{ $main: boolean }>`
           border-top-color: var(--color_sub1);
         `}
 
-  .product-information {
-    height: 172px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    .description {
-      margin-top: 15px;
-    }
-  }
-
   h1 {
     color: var(--color_font);
     font-family: NotoSansBold;
     font-size: var(--text_subtitle1);
   }
 
-  .description {
-    color: var(--color_sub3);
-    font-family: NotoSansMedium;
-    font-size: var(text_caption1);
-  }
-
-  .icon-container {
-    display: flex;
-    align-items: flex-end;
-    gap: 20px;
-
-    img {
-      width: 55px;
-      cursor: pointer;
+  .product-name-container {
+    .description {
+      color: var(--color_sub3);
+      font-family: NotoSansMedium;
+      font-size: var(text_caption1);
+      margin-top: 15px;
     }
   }
-`;
 
-const TagList = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
-  z-index: 8;
-`;
+  .product-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-const Tag = styled.div`
-  padding: 8px 24px;
-  border: solid 1px;
-  border-radius: 20px;
-  border-color: var(--color_sub1);
-  color: var(--color_font);
-  background-color: var(--color_white);
-  font-family: NotoSansMedium;
-  font-size: var(--text_caption1);
-  margin: 0px 6px;
+    .icon-container {
+      display: flex;
+      gap: 20px;
+
+      img {
+        width: 55px;
+        cursor: pointer;
+      }
+    }
+  }
 `;
 export default ProductItem;
