@@ -40,3 +40,14 @@ export interface ProductGetResponse {
   totalElements: number;
   tatalPages: number;
 }
+export interface categoryProps {
+  img: string;
+  text: string;
+  location: number;
+}
+
+export interface SiteReviewProps {
+  title: string;
+  description: string;
+  example?: string;
+}

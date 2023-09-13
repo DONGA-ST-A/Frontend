@@ -26,4 +26,7 @@ export const TopButton = styled.button`
   position: fixed;
   bottom: 40px;
   right: 30px;
+  z-index: 9999;
+  transform: translateX(100px);
+  transition: 0.7s;
 `;

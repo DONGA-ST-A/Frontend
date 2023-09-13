@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-import DummyIcon from "@/assets/icon/icon_dummy.svg";
+import HospitalIcon from "@/assets/icon/icon_hospital.svg";
+import MedicalStaffIcon from "@/assets/icon/icon_medical_staff.svg";
+import PatientIcon from "@/assets/icon/icon_patient.svg";
 import { Inner } from "@/style/commonStyle";
 
 import Title from "./Title";
@@ -18,7 +20,7 @@ const ExpectedEffect = () => {
             <img
               className="icon"
               alt="dummy"
-              src={DummyIcon}
+              src={PatientIcon}
               width="165"
             />
             <div className="text-container">
@@ -33,7 +35,7 @@ const ExpectedEffect = () => {
             <img
               className="icon"
               alt="dummy"
-              src={DummyIcon}
+              src={MedicalStaffIcon}
               width="165"
             />
             <div className="text-container">
@@ -48,7 +50,7 @@ const ExpectedEffect = () => {
             <img
               className="icon"
               alt="dummy"
-              src={DummyIcon}
+              src={HospitalIcon}
               width="165"
             />
             <div className="text-container">
