@@ -24,13 +24,15 @@ const Product = () => {
   return (
     <Container>
       <CategoryBar />
-      {products &&
-        products.map((product) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-          />
-        ))}
+      <ProductContainer>
+        {products &&
+          products.map((product) => (
+            <ProductItem
+              key={product.id}
+              product={product}
+            />
+          ))}
+      </ProductContainer>
     </Container>
   );
 };
@@ -38,6 +40,13 @@ const Product = () => {
 const Container = styled.div`
   width: 1230px;
   margin: 0 auto;
+  margin-bottom: 152px;
+`;
+
+const ProductContainer = styled.div`
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 `;
 
 export default Product;

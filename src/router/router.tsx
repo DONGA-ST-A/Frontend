@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Product from "@/components/PurchasePage/Product";
 import Layout from "@/layout/Layout";
 import MainPage from "@/pages/MainPage";
+import PurchasePage from "@/pages/PurchasePage";
 
 const Router = () => {
   return (
@@ -15,7 +15,7 @@ const Router = () => {
           />
           <Route
             path="/product"
-            element={<Product />}
+            element={<PurchasePage />}
           />
         </Route>
       </Routes>
