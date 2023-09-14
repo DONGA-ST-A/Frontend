@@ -39,7 +39,7 @@ export interface GetDto<T> {
   numberOfElements: number;
   pageNumber: number;
   totalElements: number;
-  tatalPages: number;
+  totalPages: number;
 }
 
 /** QnA */
