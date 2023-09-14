@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 
-import { getKeywordQna, getQna } from "@/API";
+import { getCategoryQna, getKeywordQna, getQna } from "@/API";
 import Inquiry from "@/components/QnAPage/Inquiry";
 import QnACategoryBar from "@/components/QnAPage/QnACategoryBar";
 import QnAPagination from "@/components/QnAPage/QnAPagination";
@@ -32,6 +32,15 @@ const QnAPage = () => {
     console.log(qnaData);
   };
 
+  const getCategoryQnA = async (category: string) => {
+    const qnaData = await getCategoryQna({ category, page });
+    setQna(qnaData.content);
+    setPage(1);
+    setTotalPage(qnaData.totalPages);
+    console.log(qna);
+    console.log(qnaData);
+  };
+
   useEffect(() => {
     getQnA();
     console.log("test");
@@ -45,7 +54,10 @@ const QnAPage = () => {
             <h1>QnA</h1>
             <div>구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요.</div>
           </Banner>
-          <QnACategoryBar getKeywordQnA={getKeywordQnA} />
+          <QnACategoryBar
+            getKeywordQnA={getKeywordQnA}
+            getCategoryQnA={getCategoryQnA}
+          />
           <QnATable qna={qna} />
           <QnAPagination
             currentPage={page}

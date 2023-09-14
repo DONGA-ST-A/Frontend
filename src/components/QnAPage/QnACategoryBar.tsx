@@ -8,8 +8,10 @@ const categoryList = ["전체", "사용법", "배송", "기기", "기타"];
 
 const QnACategoryBar = ({
   getKeywordQnA,
+  getCategoryQnA,
 }: {
   getKeywordQnA: (keyword: string) => Promise<void>;
+  getCategoryQnA: (category: string) => Promise<void>;
 }) => {
   const [category, setCategory] = useState<string>("전체");
   const [keyword, setKeyword] = useState<string>("");
@@ -18,7 +20,7 @@ const QnACategoryBar = ({
     e.preventDefault();
     if (keyword !== "") getKeywordQnA(keyword);
     else getKeywordQnA(" ");
-    setKeyword("");
+    setCategory("전체");
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +35,8 @@ const QnACategoryBar = ({
             $active={category === cate}
             onClick={() => {
               setCategory(cate);
+              getCategoryQnA(cate);
+              setKeyword("");
             }}
           >
             {cate}
