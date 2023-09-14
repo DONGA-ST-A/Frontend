@@ -30,10 +30,10 @@ const MarketStatus = () => {
               src={UsageGraph}
               width="464"
             />
-            <p>
+            <div className="graph-explanation">
               <div>지난 5년 간 심전도 침상감지 실시 건수는</div>
               <div>약 50% 증가했습니다.</div>
-            </p>
+            </div>
           </GraphContainer>
           <ProblemContainer>
             <h1>환자감시장치의 문제점</h1>
@@ -46,10 +46,10 @@ const MarketStatus = () => {
                 />
               ))}
             </div>
-            <p>
+            <div className="problem-explanation">
               <div>심전도 침상감시가 필요한 상황이지만</div>
               <div>환자감시장치 (산소 포화도, 혈압, 호흡 등) 기기가 사용되고 있습니다.</div>
-            </p>
+            </div>
           </ProblemContainer>
         </InnerContainer>
       </Inner>
@@ -70,7 +70,7 @@ const InnerContainer = styled.div`
 `;
 
 const GraphContainer = styled.div`
-  p {
+  .graph-explanation {
     font-family: NotoSansBold;
     font-size: 24px;
     line-height: 1.6em;
@@ -88,7 +88,7 @@ const ProblemContainer = styled.div`
     font-size: 24px;
   }
 
-  p {
+  .problem-explanation {
     font-family: NotoSansMedium;
     font-size: 15px;
     text-align: center;
