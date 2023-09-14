@@ -30,28 +30,30 @@ const ProductItem = ({ product }: { product: ProductData }) => {
             ))}
           </div>
         </ImgContainer>
-        <InfoContainer $main={product.tags.includes("기기 본체")}>
-          <div className="product-name-container">
-            <h1>{product.name}</h1>
-            <div className="description">{product.subname}</div>
-          </div>
-          <div className="product-container">
-            <h1>{product.price ? `${product.price.toLocaleString()}원` : null}</h1>
-            <div className="icon-container">
-              <img
-                alt="장바구니"
-                src={CartIcon}
-                onClick={handleIconClick}
-              />
-              <img
-                alt="찜"
-                src={FavoriteIcon}
-                onClick={handleIconClick}
-              />
-            </div>
-          </div>
-        </InfoContainer>
       </Link>
+      <InfoContainer $main={product.tags.includes("기기 본체")}>
+        <div className="product-name-container">
+          <Link to={`/product/${product.id}`}>
+            <h1>{product.name}</h1>
+          </Link>
+          <div className="description">{product.subname}</div>
+        </div>
+        <div className="product-container">
+          <h1>{product.price ? `${product.price.toLocaleString()}원` : null}</h1>
+          <div className="icon-container">
+            <img
+              alt="장바구니"
+              src={CartIcon}
+              onClick={handleIconClick}
+            />
+            <img
+              alt="찜"
+              src={FavoriteIcon}
+              onClick={handleIconClick}
+            />
+          </div>
+        </div>
+      </InfoContainer>
     </Container>
   );
 };
@@ -177,6 +179,7 @@ const InfoContainer = styled.div<{ $main: boolean }>`
 
       img {
         width: 41px;
+        cursor: pointer;
       }
     }
   }
