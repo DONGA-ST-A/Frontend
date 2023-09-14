@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import styled, { css } from "styled-components";
 
 import { QnAData } from "@/types";
@@ -22,7 +22,7 @@ const QnATableItem = ({ qna }: { qna: QnAData }) => {
         <td width="8%">
           {active ? (
             <IoIosArrowUp
-              size="25"
+              size="30"
               className="toggle"
               onClick={() => {
                 setActvie(false);
@@ -30,7 +30,7 @@ const QnATableItem = ({ qna }: { qna: QnAData }) => {
             />
           ) : (
             <IoIosArrowDown
-              size="25"
+              size="30"
               className="toggle"
               onClick={() => {
                 setActvie(true);
@@ -64,6 +64,8 @@ const Question = styled.tr<{ $active: boolean }>`
 
   td {
     padding: 18px 0px;
+    text-align: center;
+    vertical-align: middle;
   }
 
   .question {
@@ -78,7 +80,6 @@ const Question = styled.tr<{ $active: boolean }>`
 `;
 
 const Answer = styled.tr`
-  //background-color: pink;
   height: 110px;
   border-bottom: solid 1px;
   border-color: var(--color_sub2);
