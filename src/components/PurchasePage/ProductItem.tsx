@@ -11,9 +11,9 @@ const ProductItem = ({ product }: { product: ProductData }) => {
   };
 
   return (
-    <Link to={`/product/${product.id}`}>
-      <Container $main={product.tags.includes("기기 본체")}>
-        <ImgContainer>
+    <Container>
+      <Link to={`/product/${product.id}`}>
+        <ImgContainer $main={product.tags.includes("기기 본체")}>
           {product.status === "품절" && <SoldOut>품절된 상품입니다.</SoldOut>}
           <img
             alt={product.name}
@@ -51,18 +51,16 @@ const ProductItem = ({ product }: { product: ProductData }) => {
             </div>
           </div>
         </InfoContainer>
-      </Container>
-    </Link>
+      </Link>
+    </Container>
   );
 };
 
-const Container = styled.div<{ $main: boolean }>`
+const Container = styled.div`
   width: 397px;
+  height: 478px;
   border-radius: 9px;
-  border: solid 0.7px;
-  border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
   position: relative;
-  margin-bottom: 14px;
 `;
 
 const SoldOut = styled.div`
@@ -82,7 +80,7 @@ const SoldOut = styled.div`
   z-index: 5;
 `;
 
-const ImgContainer = styled.div`
+const ImgContainer = styled.div<{ $main: boolean }>`
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -90,6 +88,8 @@ const ImgContainer = styled.div`
   align-items: center;
   position: relative;
   border-radius: 9px 9px 0px 0px;
+  border: solid 0.7px;
+  border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
   background-color: var(--color_white);
 
   img {
@@ -130,13 +130,15 @@ const ImgContainer = styled.div`
 `;
 
 const InfoContainer = styled.div<{ $main: boolean }>`
-  height: 172px;
+  height: 175px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top: solid 5px;
   border-radius: 0px 0px 9px 9px;
+  border: solid 0.7px;
+  border-top: solid 5px;
+  border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
 
   ${(props) =>
     props.$main
@@ -175,7 +177,6 @@ const InfoContainer = styled.div<{ $main: boolean }>`
 
       img {
         width: 41px;
-        cursor: pointer;
       }
     }
   }
