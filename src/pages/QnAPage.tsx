@@ -5,37 +5,55 @@ import styled from "styled-components";
 import { getQna } from "@/API";
 import Inquiry from "@/components/QnAPage/Inquiry";
 import QnACategoryBar from "@/components/QnAPage/QnACategoryBar";
+import QnAPagination from "@/components/QnAPage/QnAPagination";
 import QnATable from "@/components/QnAPage/QnATable";
 import { Inner } from "@/style/commonStyle";
 import { QnAData } from "@/types";
 
 const QnAPage = () => {
   const [qna, setQna] = useState<QnAData[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [totalPage, setTotalPage] = useState<number>(0);
 
   const GetQnA = async () => {
-    const qnaData = await getQna();
+    const qnaData = await getQna({ page });
     setQna(qnaData.content);
+    setTotalPage(qnaData.totalPages);
     console.log(qna);
     console.log(qnaData);
   };
 
   useEffect(() => {
     GetQnA();
-  }, []);
+    console.log("test");
+  }, [page]);
+
   return (
     <React.Fragment>
-      <Inner>
-        <Banner>
-          <h1>QnA</h1>
-          <div>구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요.</div>
-        </Banner>
-        <QnACategoryBar />
-        <QnATable />
-      </Inner>
+      <Container>
+        <Inner>
+          <Banner>
+            <h1>QnA</h1>
+            <div>구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요.</div>
+          </Banner>
+          <QnACategoryBar />
+          <QnATable qna={qna} />
+          <QnAPagination
+            currentPage={page}
+            setCurrentPage={setPage}
+            totalPage={totalPage}
+          />
+        </Inner>
+      </Container>
       <Inquiry />
     </React.Fragment>
   );
 };
+
+const Container = styled.div`
+  padding-top: 123px;
+  padding-bottom: 100px;
+`;
 
 const Banner = styled.div`
   padding-bottom: 33px;

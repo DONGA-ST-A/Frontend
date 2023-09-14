@@ -7,8 +7,12 @@ const client = axios.create({
   baseURL,
 });
 
-// 조회
-export const getQna = async () => {
-  const response = await client.get<GetQnaResponse>("/faqs");
+// QnA 조회
+export const getQna = async ({ page }: { page: number }) => {
+  const response = await client.get<GetQnaResponse>("/faqs", {
+    params: {
+      page: page - 1,
+    },
+  });
   return response.data;
 };
