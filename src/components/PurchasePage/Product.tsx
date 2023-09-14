@@ -57,7 +57,7 @@ const Container = styled.div`
 
 const ProductContainer = styled.div`
   display: flex;
-  gap: 14px;
+  justify-content: space-between;
   flex-wrap: wrap;
 `;
 

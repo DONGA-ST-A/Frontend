@@ -17,6 +17,10 @@ const Router = () => {
             path="/product"
             element={<PurchasePage />}
           />
+          {/* <Route
+            path="/product/:id"
+            element={}
+          /> */}
         </Route>
       </Routes>
     </BrowserRouter>

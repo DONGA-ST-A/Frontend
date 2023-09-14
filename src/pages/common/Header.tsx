@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 
 import SearchIcon from "@/assets/icon/search_icon.svg";
@@ -20,7 +20,9 @@ const Header = () => {
             />
             <ul>
               <li>하이카디란?</li>
-              <li>제품 소개</li>
+              <li>
+                <Link to="/product">제품 소개</Link>
+              </li>
               <li>FAQ</li>
               <li>공지사항</li>
             </ul>

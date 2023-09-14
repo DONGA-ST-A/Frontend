@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 import CartIcon from "@/assets/icon/icon_cart.svg";
@@ -5,45 +6,53 @@ import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
 import { ProductData } from "@/types";
 
 const ProductItem = ({ product }: { product: ProductData }) => {
+  const handleIconClick = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <Container $main={product.tags.includes("기기 본체")}>
-      <ImgContainer>
-        {product.status === "품절" && <SoldOut>품절된 상품입니다.</SoldOut>}
-        <img
-          alt={product.name}
-          src={product.previewImage}
-        />
-        <div className="tag-list">
-          {product.tags.map((item) => (
-            <div
-              key={item}
-              className="tag"
-            >
-              #{item}
-            </div>
-          ))}
-        </div>
-      </ImgContainer>
-      <InfoContainer $main={product.tags.includes("기기 본체")}>
-        <div className="product-name-container">
-          <h1>{product.name}</h1>
-          <div className="description">{product.subname}</div>
-        </div>
-        <div className="product-container">
-          <h1>{product.price ? `${product.price.toLocaleString()}원` : null}</h1>
-          <div className="icon-container">
-            <img
-              alt="장바구니"
-              src={CartIcon}
-            />
-            <img
-              alt="찜"
-              src={FavoriteIcon}
-            />
+    <Link to={`/product/${product.id}`}>
+      <Container $main={product.tags.includes("기기 본체")}>
+        <ImgContainer>
+          {product.status === "품절" && <SoldOut>품절된 상품입니다.</SoldOut>}
+          <img
+            alt={product.name}
+            src={product.previewImage}
+          />
+          <div className="tag-list">
+            {product.tags.map((item) => (
+              <div
+                key={item}
+                className="tag"
+              >
+                #{item}
+              </div>
+            ))}
           </div>
-        </div>
-      </InfoContainer>
-    </Container>
+        </ImgContainer>
+        <InfoContainer $main={product.tags.includes("기기 본체")}>
+          <div className="product-name-container">
+            <h1>{product.name}</h1>
+            <div className="description">{product.subname}</div>
+          </div>
+          <div className="product-container">
+            <h1>{product.price ? `${product.price.toLocaleString()}원` : null}</h1>
+            <div className="icon-container">
+              <img
+                alt="장바구니"
+                src={CartIcon}
+                onClick={handleIconClick}
+              />
+              <img
+                alt="찜"
+                src={FavoriteIcon}
+                onClick={handleIconClick}
+              />
+            </div>
+          </div>
+        </InfoContainer>
+      </Container>
+    </Link>
   );
 };
 
@@ -53,6 +62,7 @@ const Container = styled.div<{ $main: boolean }>`
   border: solid 0.7px;
   border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
   position: relative;
+  margin-bottom: 14px;
 `;
 
 const SoldOut = styled.div`

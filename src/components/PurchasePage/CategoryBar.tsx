@@ -82,6 +82,9 @@ const Button = styled.button<{ $active: boolean }>`
   padding: 12px 40px;
   margin-right: 16px;
   cursor: pointer;
+  &:focus {
+    outline: none;
+  }
 `;
 
 const DropDown = styled.div`
