@@ -14,8 +14,10 @@ const QnAPage = () => {
   const [qna, setQna] = useState<QnAData[]>([]);
   const [page, setPage] = useState<number>(1);
   const [totalPage, setTotalPage] = useState<number>(0);
+  const [category, setCategory] = useState<string>("전체");
+  const [keyword, setKeyword] = useState<string>("");
 
-  const getQnA = async () => {
+  const fetchQnA = async () => {
     const qnaData = await getQna({ page });
     setQna(qnaData.content);
     setTotalPage(qnaData.totalPages);
@@ -23,7 +25,7 @@ const QnAPage = () => {
     console.log(qnaData);
   };
 
-  const getKeywordQnA = async (keyword: string) => {
+  const fetchKeywordQnA = async (keyword: string) => {
     const qnaData = await getKeywordQna({ keyword, page });
     setQna(qnaData.content);
     setPage(1);
@@ -32,7 +34,7 @@ const QnAPage = () => {
     console.log(qnaData);
   };
 
-  const getCategoryQnA = async (category: string) => {
+  const fetchCategoryQnA = async (category: string) => {
     const qnaData = await getCategoryQna({ category, page });
     setQna(qnaData.content);
     setPage(1);
@@ -42,7 +44,9 @@ const QnAPage = () => {
   };
 
   useEffect(() => {
-    getQnA();
+    if (keyword !== "") fetchKeywordQnA(keyword);
+    else if (category === "전체") fetchQnA();
+    else fetchCategoryQnA(category);
     console.log("test");
   }, [page]);
 
@@ -55,8 +59,13 @@ const QnAPage = () => {
             <div>구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요.</div>
           </Banner>
           <QnACategoryBar
-            getKeywordQnA={getKeywordQnA}
-            getCategoryQnA={getCategoryQnA}
+            category={category}
+            keyword={keyword}
+            setCategory={setCategory}
+            setKeyword={setKeyword}
+            getQnA={fetchQnA}
+            getKeywordQnA={fetchKeywordQnA}
+            getCategoryQnA={fetchCategoryQnA}
           />
           <QnATable qna={qna} />
           <QnAPagination

@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
 import styled from "styled-components";
 
@@ -7,14 +7,24 @@ import SearchIcon from "@/assets/icon/icon_search_gray.svg";
 const categoryList = ["전체", "사용법", "배송", "기기", "기타"];
 
 const QnACategoryBar = ({
+  category,
+  keyword,
+  setCategory,
+  setKeyword,
+  getQnA,
   getKeywordQnA,
   getCategoryQnA,
 }: {
+  category: string;
+  keyword: string;
+  setCategory: (category: string) => void;
+  setKeyword: (keyword: string) => void;
+  getQnA: () => Promise<void>;
   getKeywordQnA: (keyword: string) => Promise<void>;
   getCategoryQnA: (category: string) => Promise<void>;
 }) => {
-  const [category, setCategory] = useState<string>("전체");
-  const [keyword, setKeyword] = useState<string>("");
+  /* const [category, setCategory] = useState<string>("전체");
+  const [keyword, setKeyword] = useState<string>(""); */
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +45,8 @@ const QnACategoryBar = ({
             $active={category === cate}
             onClick={() => {
               setCategory(cate);
-              getCategoryQnA(cate);
+              if (cate === "전체") getQnA();
+              else getCategoryQnA(cate);
               setKeyword("");
             }}
           >
