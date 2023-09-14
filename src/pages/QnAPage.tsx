@@ -21,17 +21,12 @@ const QnAPage = () => {
     const qnaData = await getQna({ page });
     setQna(qnaData.content);
     setTotalPage(qnaData.totalPages);
-    console.log(qna);
-    console.log(qnaData);
   };
 
   const fetchKeywordQnA = async (keyword: string) => {
     const qnaData = await getKeywordQna({ keyword, page });
     setQna(qnaData.content);
-    setPage(1);
     setTotalPage(qnaData.totalPages);
-    console.log(qna);
-    console.log(qnaData);
   };
 
   const fetchCategoryQnA = async (category: string) => {
@@ -39,15 +34,12 @@ const QnAPage = () => {
     setQna(qnaData.content);
     setPage(1);
     setTotalPage(qnaData.totalPages);
-    console.log(qna);
-    console.log(qnaData);
   };
 
   useEffect(() => {
     if (keyword !== "") fetchKeywordQnA(keyword);
     else if (category === "전체") fetchQnA();
     else fetchCategoryQnA(category);
-    console.log("test");
   }, [page]);
 
   return (
@@ -63,6 +55,7 @@ const QnAPage = () => {
             keyword={keyword}
             setCategory={setCategory}
             setKeyword={setKeyword}
+            setPage={setPage}
             getQnA={fetchQnA}
             getKeywordQnA={fetchKeywordQnA}
             getCategoryQnA={fetchCategoryQnA}

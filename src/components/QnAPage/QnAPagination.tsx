@@ -11,7 +11,6 @@ const QnAPagination = ({
   setCurrentPage: (page: number) => void;
   totalPage: number;
 }) => {
-  console.log(totalPage);
   return (
     <Container>
       <div

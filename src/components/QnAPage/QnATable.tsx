@@ -35,7 +35,6 @@ const Container = styled.div`
   font-family: NotoSansMedium;
   font-size: var(--text_body1);
   margin-bottom: 75px;
-  height: 420px;
 
   thead {
     background-color: var(--color_background);

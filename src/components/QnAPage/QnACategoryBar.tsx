@@ -11,6 +11,7 @@ const QnACategoryBar = ({
   keyword,
   setCategory,
   setKeyword,
+  setPage,
   getQnA,
   getKeywordQnA,
   getCategoryQnA,
@@ -19,18 +20,17 @@ const QnACategoryBar = ({
   keyword: string;
   setCategory: (category: string) => void;
   setKeyword: (keyword: string) => void;
+  setPage: (page: number) => void;
   getQnA: () => Promise<void>;
   getKeywordQnA: (keyword: string) => Promise<void>;
   getCategoryQnA: (category: string) => Promise<void>;
 }) => {
-  /* const [category, setCategory] = useState<string>("전체");
-  const [keyword, setKeyword] = useState<string>(""); */
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (keyword !== "") getKeywordQnA(keyword);
     else getKeywordQnA(" ");
     setCategory("전체");
+    setPage(1);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
