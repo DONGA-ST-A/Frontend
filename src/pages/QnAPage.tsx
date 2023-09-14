@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
 
-import { getQna } from "@/API";
+import { getKeywordQna, getQna } from "@/API";
 import Inquiry from "@/components/QnAPage/Inquiry";
 import QnACategoryBar from "@/components/QnAPage/QnACategoryBar";
 import QnAPagination from "@/components/QnAPage/QnAPagination";
@@ -15,7 +15,7 @@ const QnAPage = () => {
   const [page, setPage] = useState<number>(1);
   const [totalPage, setTotalPage] = useState<number>(0);
 
-  const GetQnA = async () => {
+  const getQnA = async () => {
     const qnaData = await getQna({ page });
     setQna(qnaData.content);
     setTotalPage(qnaData.totalPages);
@@ -23,8 +23,17 @@ const QnAPage = () => {
     console.log(qnaData);
   };
 
+  const getKeywordQnA = async (keyword: string) => {
+    const qnaData = await getKeywordQna({ keyword, page });
+    setQna(qnaData.content);
+    setPage(1);
+    setTotalPage(qnaData.totalPages);
+    console.log(qna);
+    console.log(qnaData);
+  };
+
   useEffect(() => {
-    GetQnA();
+    getQnA();
     console.log("test");
   }, [page]);
 
@@ -36,7 +45,7 @@ const QnAPage = () => {
             <h1>QnA</h1>
             <div>구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요.</div>
           </Banner>
-          <QnACategoryBar />
+          <QnACategoryBar getKeywordQnA={getKeywordQnA} />
           <QnATable qna={qna} />
           <QnAPagination
             currentPage={page}

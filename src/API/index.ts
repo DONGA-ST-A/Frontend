@@ -13,6 +13,19 @@ export const getQna = async ({ page }: { page: number }) => {
   const response = await client.get<GetQnaResponse>("/faqs", {
     params: {
       page: page - 1,
+      size: 5,
+    },
+  });
+  return response.data;
+};
+
+// QnA 키워드 검색 조회
+export const getKeywordQna = async ({ keyword, page }: { keyword: string; page: number }) => {
+  const response = await client.get<GetQnaResponse>("/faqs/keyword", {
+    params: {
+      page: page - 1,
+      size: 5,
+      search: keyword,
     },
   });
   return response.data;

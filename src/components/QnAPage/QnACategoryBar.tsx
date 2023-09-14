@@ -6,12 +6,18 @@ import SearchIcon from "@/assets/icon/icon_search_gray.svg";
 
 const categoryList = ["전체", "사용법", "배송", "기기", "기타"];
 
-const QnACategoryBar = () => {
+const QnACategoryBar = ({
+  getKeywordQnA,
+}: {
+  getKeywordQnA: (keyword: string) => Promise<void>;
+}) => {
   const [category, setCategory] = useState<string>("전체");
   const [keyword, setKeyword] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (keyword !== "") getKeywordQnA(keyword);
+    else getKeywordQnA(" ");
     setKeyword("");
   };
 
@@ -40,10 +46,12 @@ const QnACategoryBar = () => {
           value={keyword}
           onChange={handleChange}
         />
-        <img
-          alt="검색 아이콘"
-          src={SearchIcon}
-        />
+        <button>
+          <img
+            alt="검색 아이콘"
+            src={SearchIcon}
+          />
+        </button>
       </Input>
     </Container>
   );
@@ -96,8 +104,13 @@ const Input = styled.form`
     }
   }
 
-  img {
-    width: 25px;
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    img {
+      width: 25px;
+    }
   }
 `;
 
