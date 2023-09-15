@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Layout from "@/layout/Layout";
 import MainPage from "@/pages/MainPage";
+import NoticePage from "@/pages/NoticePage";
 import PurchasePage from "@/pages/PurchasePage";
 import QnAPage from "@/pages/QnAPage";
 
@@ -21,6 +22,10 @@ const Router = () => {
           <Route
             path="/product"
             element={<PurchasePage />}
+          />
+          <Route
+            path="/notice"
+            element={<NoticePage />}
           />
           {/* <Route
             path="/product/:id"

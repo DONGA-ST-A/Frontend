@@ -26,7 +26,9 @@ const Header = () => {
               <li>
                 <Link to="/qna">QnA</Link>
               </li>
-              <li>공지사항</li>
+              <li>
+                <Link to="/notice">공지사항</Link>
+              </li>
             </ul>
           </LeftNav>
           <RightNav>
