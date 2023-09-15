@@ -75,6 +75,7 @@ const GraphContainer = styled.div`
     font-size: 24px;
     line-height: 1.6em;
     margin-top: 7px;
+    text-align: center;
   }
 `;
 
