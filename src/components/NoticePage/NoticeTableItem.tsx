@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import FileIcon from "@/assets/icon/icon_file.svg";
@@ -12,8 +13,6 @@ const NoticeTableItem = ({
   main: boolean;
   id: number;
 }) => {
-  //const [active, setActvie] = useState<boolean>(false);
-  console.log(id);
   return (
     <>
       <Notice>
@@ -33,7 +32,9 @@ const NoticeTableItem = ({
           width="56%"
           className={`title ${main && "main-title"}`}
         >
-          <span>{notice.title}</span>
+          <Link to={`/notice/${notice.category}/${notice.id}`}>
+            <span>{notice.title}</span>
+          </Link>
         </td>
         <td width="11%">
           {notice.file ? (
