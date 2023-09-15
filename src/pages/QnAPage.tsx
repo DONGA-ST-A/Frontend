@@ -43,6 +43,7 @@ const QnAPage = () => {
     if (keyword !== "") fetchKeywordQnA(keyword);
     else if (category === "전체") fetchQnA();
     else fetchCategoryQnA(category);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (
