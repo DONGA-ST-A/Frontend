@@ -5,15 +5,18 @@ import CartIcon from "@/assets/icon/icon_cart.svg";
 import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
 import { ProductData } from "@/types";
 
-const ProductItem = ({ product }: { product: ProductData }) => {
+const ProductItem = ({ product, addProduct }: { product: ProductData; addProduct: string }) => {
   const handleIconClick = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
   };
 
   return (
-    <Container>
+    <Container $addProduct={addProduct}>
       <Link to={`/product/${product.id}`}>
-        <ImgContainer $main={product.tags.includes("기기 본체")}>
+        <ImgContainer
+          $main={product.tags.includes("기기 본체")}
+          $addProduct={addProduct}
+        >
           {product.status === "품절" && <SoldOut>품절된 상품입니다.</SoldOut>}
           <img
             alt={product.name}
@@ -31,7 +34,10 @@ const ProductItem = ({ product }: { product: ProductData }) => {
           </div>
         </ImgContainer>
       </Link>
-      <InfoContainer $main={product.tags.includes("기기 본체")}>
+      <InfoContainer
+        $main={product.tags.includes("기기 본체")}
+        $addProduct={addProduct}
+      >
         <div className="product-name-container">
           <Link to={`/product/${product.id}`}>
             <h1>{product.name}</h1>
@@ -58,11 +64,13 @@ const ProductItem = ({ product }: { product: ProductData }) => {
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ $addProduct: string }>`
   width: 397px;
   height: 478px;
   border-radius: 9px;
   position: relative;
+  margin-right: ${(props) => (props.$addProduct === "addProduct" ? "60px" : "")};
+  border: ${(props) => (props.$addProduct === "addProduct" ? "5px solid var(--color_sub1)" : "")};
 `;
 
 const SoldOut = styled.div`
@@ -82,7 +90,7 @@ const SoldOut = styled.div`
   z-index: 5;
 `;
 
-const ImgContainer = styled.div<{ $main: boolean }>`
+const ImgContainer = styled.div<{ $main: boolean; $addProduct: string }>`
   height: 250px;
   display: flex;
   flex-direction: column;
@@ -93,6 +101,8 @@ const ImgContainer = styled.div<{ $main: boolean }>`
   border: solid 0.7px;
   border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
   background-color: var(--color_white);
+  border-top: ${(props) =>
+    props.$addProduct === "addProduct" ? "1px solid var(--color_sub1)" : ""};
 
   img {
     width: 212px;
@@ -131,7 +141,7 @@ const ImgContainer = styled.div<{ $main: boolean }>`
   }
 `;
 
-const InfoContainer = styled.div<{ $main: boolean }>`
+const InfoContainer = styled.div<{ $main: boolean; $addProduct: string }>`
   height: 175px;
   padding: 25px;
   display: flex;
@@ -141,7 +151,8 @@ const InfoContainer = styled.div<{ $main: boolean }>`
   border: solid 0.7px;
   border-top: solid 5px;
   border-color: ${(props) => (props.$main ? "var(--color_sub4)" : "var(--color_sub1)")};
-
+  border-bottom: ${(props) =>
+    props.$addProduct === "addProduct" ? "5px solid var(--color_sub1)" : ""};
   ${(props) =>
     props.$main
       ? css`

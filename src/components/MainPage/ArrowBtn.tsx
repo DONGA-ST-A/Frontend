@@ -8,7 +8,10 @@ const ArrowBtn = ({ text, link }: ArrowBtnProps) => {
   const navigate = useNavigate();
   return (
     <Btn
-      onClick={() => navigate(link)}
+      onClick={() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        navigate(link);
+      }}
       text={text}
     >
       <div>{text}</div>
