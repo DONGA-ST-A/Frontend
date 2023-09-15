@@ -85,7 +85,7 @@ const Container = styled.div`
 `;
 
 const InnerAdvantage = styled.div`
-  max-width: 1440px;
+  max-width: 1640px;
   min-width: 1064px;
   height: 470px;
   margin: 0 auto;
