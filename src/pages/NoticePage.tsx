@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import { getCategoryNotice, getKeywordNotice, getNotice } from "@/API";
 import NoticeTable from "@/components/NoticePage/NoticeTable";
-import Inquiry from "@/components/QnAPage/Inquiry";
 import CategoryBar from "@/components/common/CategoryBar";
 import Pagination from "@/components/common/Pagination";
 import TitleBanner from "@/components/common/TitleBanner";
@@ -82,13 +81,12 @@ const NoticePage = () => {
           />
         </Inner>
       </Container>
-      <Inquiry />
     </React.Fragment>
   );
 };
 
 const Container = styled.div`
-  padding-top: 123px;
+  padding-top: 60px;
   padding-bottom: 100px;
 `;
 

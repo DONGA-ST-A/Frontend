@@ -23,12 +23,17 @@ const NoticeTableItem = ({
         >
           {main ? <Main>공지</Main> : id}
         </td>
-        <td width="11%">{notice.category}</td>
+        <td
+          width="11%"
+          className={main ? "main-title" : ""}
+        >
+          {notice.category}
+        </td>
         <td
           width="56%"
-          className="question"
+          className={`title ${main && "main-title"}`}
         >
-          {notice.title}
+          <span>{notice.title}</span>
         </td>
         <td width="11%">
           {notice.file ? (
@@ -47,9 +52,12 @@ const NoticeTableItem = ({
 const Notice = styled.tr`
   background-color: var(--color_white);
   text-align: center;
-
   border-bottom: solid 1px;
   border-color: var(--color_sub2);
+
+  span {
+    cursor: pointer;
+  }
 
   td,
   .default-td {
@@ -62,14 +70,14 @@ const Notice = styled.tr`
     padding: 8px 0px;
   }
 
-  .question {
+  .main-title {
+    font-family: NotoSansBold;
+  }
+
+  .title {
     text-align: left;
     padding-left: 35px;
     padding-right: 35px;
-  }
-
-  .toggle {
-    cursor: pointer;
   }
 `;
 
@@ -78,7 +86,7 @@ const Main = styled.div`
   background-color: var(--color_main_skyblue);
   color: var(--color_white);
   font-family: NotoSansBold;
-  font-size: bar(--text_body);
+  font-size: bar(--text_body1);
   border-radius: 20px;
   display: inline-block;
 `;

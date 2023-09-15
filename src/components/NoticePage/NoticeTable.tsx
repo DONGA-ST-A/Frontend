@@ -61,7 +61,7 @@ const Container = styled.div`
   thead {
     background-color: var(--color_background);
     color: var(--color_font);
-    border: 1px solid;
+    border-bottom: 1px solid;
     border-color: var(--color_sub2);
   }
 
