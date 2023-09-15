@@ -77,9 +77,9 @@ export interface NoticeData {
   category: string;
   title: string;
   content: string;
-  file: string;
+  file: string | null;
   isTop: boolean;
-  createdData: string;
+  createdDate: string;
 }
 
 export type GetNoticeResponse = GetDto<NoticeData>;
