@@ -22,6 +22,8 @@ const Container = styled.div`
 
   img {
     width: 100%;
+    transform: translateX(-175px);
+    border-radius: 140px;
   }
 
   .text-container {
