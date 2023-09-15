@@ -34,6 +34,7 @@ const Product = () => {
                 <ProductItem
                   key={product.id}
                   product={product}
+                  addProduct={""}
                 />
               ))
             : products
@@ -42,6 +43,7 @@ const Product = () => {
                   <ProductItem
                     key={product.id}
                     product={product}
+                    addProduct={""}
                   />
                 )))}
       </ProductContainer>

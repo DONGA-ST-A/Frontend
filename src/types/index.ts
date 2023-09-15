@@ -31,6 +31,9 @@ export interface ProductData {
   status: string;
   stock: number;
 }
+export interface ProductItemGetResponse extends ProductData {
+  images: string[];
+}
 
 export interface ProductGetResponse {
   content: ProductData[];
