@@ -7,8 +7,8 @@ import { DetailCategoryProps } from "@/types";
 const categories: DetailCategoryProps[] = [
   { category: "상품 상세정보", location: 0 },
   { category: "상품 사용법", location: 2975 },
-  { category: "상품 구성", location: 3914 },
-  { category: "상품구매안내", location: 6867 },
+  { category: "상품 구성", location: 4029 },
+  { category: "상품구매안내", location: 6910 },
 ];
 
 const DetailCategory = () => {
