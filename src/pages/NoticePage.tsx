@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { getCategoryNotice, getKeywordNotice, getNotice } from "@/API";
+import NoticeTable from "@/components/NoticePage/NoticeTable";
 import Inquiry from "@/components/QnAPage/Inquiry";
 import CategoryBar from "@/components/common/CategoryBar";
 import Pagination from "@/components/common/Pagination";
@@ -65,7 +66,7 @@ const NoticePage = () => {
             getKeywordData={fetchKeywordNotice}
             getCategoryData={fetchCategoryNotice}
           />
-          {/* <QnATable qna={qna} /> */}
+          <NoticeTable notice={notice} />
           <Pagination
             currentPage={page}
             setCurrentPage={setPage}
