@@ -9,7 +9,7 @@ const client = axios.create({
 });
 
 const QNA_SIZE = 5;
-const NOTICE_SIZE = 10;
+export const NOTICE_SIZE = 10;
 
 // QnA 조회
 export const getQna = async ({ page }: { page: number }) => {

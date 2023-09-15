@@ -1,10 +1,21 @@
 import styled from "styled-components";
 
+import { NOTICE_SIZE } from "@/API";
 import { NoticeData } from "@/types";
 
 import NoticeTableItem from "./NoticeTableItem";
 
-const NoticeTable = ({ notice }: { notice: NoticeData[] }) => {
+const NoticeTable = ({
+  notice,
+  page,
+  totalNotice,
+}: {
+  notice: NoticeData[];
+  page: number;
+  totalNotice: number;
+}) => {
+  const mainNotice = notice.filter((item) => item.isTop);
+  const subNotice = notice.filter((item) => !item.isTop);
   return (
     <Container>
       <table>
@@ -18,10 +29,20 @@ const NoticeTable = ({ notice }: { notice: NoticeData[] }) => {
           </tr>
         </thead>
         <tbody>
-          {notice.map((item) => (
+          {mainNotice.map((item, idx) => (
             <NoticeTableItem
               key={item.id}
               notice={item}
+              main={item.isTop}
+              id={idx}
+            />
+          ))}
+          {subNotice.map((item, idx) => (
+            <NoticeTableItem
+              key={item.id}
+              notice={item}
+              main={item.isTop}
+              id={totalNotice - mainNotice.length - NOTICE_SIZE * (page - 1) - idx}
             />
           ))}
         </tbody>

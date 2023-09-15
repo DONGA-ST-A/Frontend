@@ -3,12 +3,26 @@ import styled from "styled-components";
 import FileIcon from "@/assets/icon/icon_file.svg";
 import { NoticeData } from "@/types";
 
-const NoticeTableItem = ({ notice }: { notice: NoticeData }) => {
+const NoticeTableItem = ({
+  notice,
+  main,
+  id,
+}: {
+  notice: NoticeData;
+  main: boolean;
+  id: number;
+}) => {
   //const [active, setActvie] = useState<boolean>(false);
+  console.log(id);
   return (
     <>
       <Notice>
-        <td width="9%">{notice.id}</td>
+        <td
+          width="9%"
+          className={main ? "main-td" : "default-td"}
+        >
+          {main ? <Main>공지</Main> : id}
+        </td>
         <td width="11%">{notice.category}</td>
         <td
           width="56%"
@@ -37,10 +51,15 @@ const Notice = styled.tr`
   border-bottom: solid 1px;
   border-color: var(--color_sub2);
 
-  td {
+  td,
+  .default-td {
     padding: 18px 0px;
     text-align: center;
     vertical-align: middle;
+  }
+
+  .main-td {
+    padding: 8px 0px;
   }
 
   .question {
@@ -52,6 +71,16 @@ const Notice = styled.tr`
   .toggle {
     cursor: pointer;
   }
+`;
+
+const Main = styled.div`
+  padding: 11px 20px;
+  background-color: var(--color_main_skyblue);
+  color: var(--color_white);
+  font-family: NotoSansBold;
+  font-size: bar(--text_body);
+  border-radius: 20px;
+  display: inline-block;
 `;
 
 export default NoticeTableItem;

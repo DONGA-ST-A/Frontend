@@ -19,17 +19,20 @@ const NoticePage = () => {
   const [totalPage, setTotalPage] = useState<number>(0);
   const [category, setCategory] = useState<string>("전체");
   const [keyword, setKeyword] = useState<string>("");
+  const [totalNotice, setTotalNotice] = useState<number>(0);
 
   const fetchNotice = async () => {
     const noticeData = await getNotice({ page });
     setNotice(noticeData.content);
     setTotalPage(noticeData.totalPages);
+    setTotalNotice(noticeData.totalElements);
   };
 
   const fetchKeywordNotice = async (keyword: string) => {
     const noticeData = await getKeywordNotice({ keyword, page });
     setNotice(noticeData.content);
     setTotalPage(noticeData.totalPages);
+    setTotalNotice(noticeData.totalElements);
   };
 
   const fetchCategoryNotice = async (category: string) => {
@@ -37,6 +40,7 @@ const NoticePage = () => {
     setNotice(noticeData.content);
     setPage(1);
     setTotalPage(noticeData.totalPages);
+    setTotalNotice(noticeData.totalElements);
   };
 
   useEffect(() => {
@@ -66,7 +70,11 @@ const NoticePage = () => {
             getKeywordData={fetchKeywordNotice}
             getCategoryData={fetchCategoryNotice}
           />
-          <NoticeTable notice={notice} />
+          <NoticeTable
+            notice={notice}
+            page={page}
+            totalNotice={totalNotice}
+          />
           <Pagination
             currentPage={page}
             setCurrentPage={setPage}
