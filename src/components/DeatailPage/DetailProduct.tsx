@@ -40,6 +40,13 @@ const DetailProduct = ({ productImage, message }: { productImage: string[]; mess
 const Container = styled.div`
   width: 1415px;
   margin: auto;
+  div {
+    zoom: 0.8;
+    display: flex;
+  }
+  img {
+    margin: 0 auto;
+  }
 
   .image1 {
     margin-top: 135px;
@@ -51,10 +58,19 @@ const Container = styled.div`
   .image3 {
     margin-top: 330px;
   }
+  .image4 {
+    zoom: 0.9;
+  }
+  .image4 img {
+    transform: scale(1.05);
+  }
   .image5 {
     margin-top: 376px;
     position: relative;
+    flex-direction: column;
+    z-index: 12;
   }
+
   .image5::before {
     content: "구성품";
     width: auto;
@@ -63,6 +79,8 @@ const Container = styled.div`
     font-size: var(--text_title1);
     color: var(--color_font);
     font-family: NotoSansBold;
+    margin-left: 175px;
+    margin-bottom: 144px;
   }
   .image5::after {
     content: "제품 구매 시 구성품을 확인하세요.";
@@ -75,11 +93,12 @@ const Container = styled.div`
     position: absolute;
     top: 80px;
     left: 0;
-    margin-bottom: 107px;
+
+    margin-left: 175px;
   }
   .image5 img {
-    margin-top: 73px;
     background-color: var(--color_sub5);
+
     background-size: cover;
   }
   .image6 {
