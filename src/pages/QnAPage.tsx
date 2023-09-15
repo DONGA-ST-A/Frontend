@@ -4,11 +4,14 @@ import styled from "styled-components";
 
 import { getCategoryQna, getKeywordQna, getQna } from "@/API";
 import Inquiry from "@/components/QnAPage/Inquiry";
-import QnACategoryBar from "@/components/QnAPage/QnACategoryBar";
-import QnAPagination from "@/components/QnAPage/QnAPagination";
 import QnATable from "@/components/QnAPage/QnATable";
+import CategoryBar from "@/components/common/CategoryBar";
+import Pagination from "@/components/common/Pagination";
+import TitleBanner from "@/components/common/TitleBanner";
 import { Inner } from "@/style/commonStyle";
 import { QnAData } from "@/types";
+
+const categoryList = ["전체", "사용법", "배송", "기기", "기타"];
 
 const QnAPage = () => {
   const [qna, setQna] = useState<QnAData[]>([]);
@@ -46,22 +49,23 @@ const QnAPage = () => {
     <React.Fragment>
       <Container>
         <Inner>
-          <Banner>
-            <h1>QnA</h1>
-            <div>구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요.</div>
-          </Banner>
-          <QnACategoryBar
+          <TitleBanner
+            title="QnA"
+            subTitle="구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요."
+          />
+          <CategoryBar
+            categoryList={categoryList}
             category={category}
             keyword={keyword}
             setCategory={setCategory}
             setKeyword={setKeyword}
             setPage={setPage}
-            getQnA={fetchQnA}
-            getKeywordQnA={fetchKeywordQnA}
-            getCategoryQnA={fetchCategoryQnA}
+            getData={fetchQnA}
+            getKeywordData={fetchKeywordQnA}
+            getCategoryData={fetchCategoryQnA}
           />
           <QnATable qna={qna} />
-          <QnAPagination
+          <Pagination
             currentPage={page}
             setCurrentPage={setPage}
             totalPage={totalPage}
@@ -76,23 +80,6 @@ const QnAPage = () => {
 const Container = styled.div`
   padding-top: 123px;
   padding-bottom: 100px;
-`;
-
-const Banner = styled.div`
-  padding-bottom: 33px;
-
-  h1 {
-    font-family: NotoSansBold;
-    font-size: var(--text_title1);
-    color: var(color_font);
-    margin-bottom: 40px;
-  }
-
-  div {
-    font-family: NotoSansMedium;
-    font-size: var(--text_body1);
-    color: var(--color_sub3);
-  }
 `;
 
 export default QnAPage;

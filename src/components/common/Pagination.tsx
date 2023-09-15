@@ -2,7 +2,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import styled from "styled-components";
 
-const QnAPagination = ({
+const Pagination = ({
   currentPage,
   setCurrentPage,
   totalPage,
@@ -74,20 +74,4 @@ const Container = styled.div`
   }
 `;
 
-/* const Page = styled.div`
-  background-color: yellow;
-  font-size: var(--text_body1);
-  font-family: NotoSansBold;
-  color: var(--color_font);
-  width: 44px;
-  height: 43px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 50%;
-  margin: 0px 20px;
-  cursor: pointer;
-`; */
-
-export default QnAPagination;
+export default Pagination;

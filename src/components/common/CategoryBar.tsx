@@ -4,31 +4,31 @@ import styled from "styled-components";
 
 import SearchIcon from "@/assets/icon/icon_search_gray.svg";
 
-const categoryList = ["전체", "사용법", "배송", "기기", "기타"];
-
-const QnACategoryBar = ({
+const CategoryBar = ({
+  categoryList,
   category,
   keyword,
   setCategory,
   setKeyword,
   setPage,
-  getQnA,
-  getKeywordQnA,
-  getCategoryQnA,
+  getData,
+  getKeywordData,
+  getCategoryData,
 }: {
+  categoryList: string[];
   category: string;
   keyword: string;
   setCategory: (category: string) => void;
   setKeyword: (keyword: string) => void;
   setPage: (page: number) => void;
-  getQnA: () => Promise<void>;
-  getKeywordQnA: (keyword: string) => Promise<void>;
-  getCategoryQnA: (category: string) => Promise<void>;
+  getData: () => Promise<void>;
+  getKeywordData: (keyword: string) => Promise<void>;
+  getCategoryData: (category: string) => Promise<void>;
 }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (keyword !== "") getKeywordQnA(keyword);
-    else getKeywordQnA(" ");
+    if (keyword !== "") getKeywordData(keyword);
+    else getKeywordData(" ");
     setCategory("전체");
     setPage(1);
   };
@@ -45,8 +45,8 @@ const QnACategoryBar = ({
             $active={category === cate}
             onClick={() => {
               setCategory(cate);
-              if (cate === "전체") getQnA();
-              else getCategoryQnA(cate);
+              if (cate === "전체") getData();
+              else getCategoryData(cate);
               setKeyword("");
             }}
           >
@@ -129,4 +129,4 @@ const Input = styled.form`
   }
 `;
 
-export default QnACategoryBar;
+export default CategoryBar;
