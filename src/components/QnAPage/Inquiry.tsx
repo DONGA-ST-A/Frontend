@@ -30,6 +30,7 @@ const Container = styled.div`
     font-size: var(--text_body1);
     color: var(--color_font);
     padding: 12px 67px;
+    cursor: pointer;
   }
 `;
 
