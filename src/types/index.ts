@@ -54,3 +54,8 @@ export interface SiteReviewProps {
   description: string;
   example?: string;
 }
+
+export interface DetailCategoryProps {
+  category: string;
+  location: number;
+}
