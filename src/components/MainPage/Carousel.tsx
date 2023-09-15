@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import styled from "styled-components";
 
 import arrow1 from "@/assets/carousel/carousel_arrow.svg";
-import { Inner } from "@/style/commonStyle";
 import { carouselProps } from "@/types";
 
 import "slick-carousel/slick/slick.css";
@@ -51,7 +50,7 @@ const REACT_SLIDER_SETTINGS = {
 const Carousel = () => {
   return (
     <Container>
-      <Inner>
+      <CarouselInner>
         <Slider {...REACT_SLIDER_SETTINGS}>
           {dummydata.map((item, idx) => (
             <React.Fragment key={idx}>
@@ -65,7 +64,7 @@ const Carousel = () => {
             </React.Fragment>
           ))}
         </Slider>
-      </Inner>
+      </CarouselInner>
     </Container>
   );
 };
@@ -76,6 +75,10 @@ const Container = styled.div`
 
   .slick-slider {
     padding-top: 136px;
+  }
+  .slick-list {
+    width: 1230px;
+    margin: 0 auto;
   }
   .slick-dots {
     position: absolute;
@@ -145,6 +148,14 @@ const Container = styled.div`
     position: absolute;
     left: -38px;
   }
+`;
+
+const CarouselInner = styled.div`
+  max-width: 1440px;
+  min-width: 1064px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
 `;
 
 export default Carousel;
