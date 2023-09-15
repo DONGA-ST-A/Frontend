@@ -47,11 +47,12 @@ const Header = () => {
 
 const Container = styled.div`
   background-color: #ffffff;
-  margin: 64px auto 35px;
+  margin: 0 auto;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+  border-bottom: 1px solid var(--color_sub1);
 `;
 const Nav = styled.div`
   display: flex;
@@ -61,6 +62,7 @@ const Nav = styled.div`
   color: var(--color_font);
   font-size: var(--text_body1);
   line-height: 1.6em;
+  margin: 64px auto 35px;
 `;
 
 const LeftNav = styled.div`
