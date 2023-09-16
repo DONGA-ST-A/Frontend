@@ -33,12 +33,19 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>HiCardi+</title>
+    <style>
+      #root {
+        zoom: 0.75;
+      }
+      @media (max-width: 740px) {
+        #root {
+          zoom: 0.26;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div
-      id="root"
-      style="zoom: 0.75"
-    ></div>
+    <div id="root"></div>
     <script
       type="module"
       src="/src/main.tsx"
