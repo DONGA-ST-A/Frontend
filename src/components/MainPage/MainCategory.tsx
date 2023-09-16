@@ -95,6 +95,12 @@ const Container = styled.div`
   visibility: visible;
   opacity: 1;
   transition: 0.45s;
+
+  @media (max-width: 740px) {
+    & {
+      position: relative;
+    }
+  }
   &:has(li.lastActive) {
     visibility: hidden;
     opacity: 0;
