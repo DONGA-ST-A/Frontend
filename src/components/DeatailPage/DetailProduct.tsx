@@ -5,7 +5,7 @@ const DetailProduct = ({ productImage, message }: { productImage: string[]; mess
     <Container>
       {productImage &&
         productImage.map((image, idx, arr) => {
-          if (message === "first" && arr[6] !== image) {
+          if (message === "first" && arr[7] !== image) {
             return (
               <div
                 key={idx}
@@ -18,7 +18,7 @@ const DetailProduct = ({ productImage, message }: { productImage: string[]; mess
               </div>
             );
           }
-          if (message === "last" && image === arr[6]) {
+          if (message === "last" && image === arr[7]) {
             return (
               <>
                 <div
@@ -102,9 +102,12 @@ const Container = styled.div`
     background-size: cover;
   }
   .image6 {
-    margin: 240px auto 240px;
+    margin: 240px auto 254px;
   }
   .image7 {
+    margin: 0 auto 254px;
+  }
+  .image8 {
     margin: 240px auto 372px;
   }
 `;
