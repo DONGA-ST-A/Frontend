@@ -23,7 +23,9 @@ const Header = () => {
               <li>
                 <Link to="/product">제품 소개</Link>
               </li>
-              <li>FAQ</li>
+              <li>
+                <Link to="/qna">QnA</Link>
+              </li>
               <li>공지사항</li>
             </ul>
           </LeftNav>
