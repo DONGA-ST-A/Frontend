@@ -25,7 +25,7 @@ const Header = () => {
               <li className={pathname === "/product" ? "active" : ""}>
                 <Link to="/product">제품 소개</Link>
               </li>
-              <li className={pathname === "/qna" ? "active" : ""}>FAQ</li>
+              <li className={pathname === "/faq" ? "active" : ""}>FAQ</li>
               <li className={pathname === "/notice" ? "active" : ""}>공지사항</li>
             </ul>
           </LeftNav>
