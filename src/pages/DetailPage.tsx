@@ -60,7 +60,7 @@ const Background = styled.div`
   width: 100%;
   height: 787px;
   position: absolute;
-  top: 466%;
+  top: 5707px;
 `;
 
 export default DetailPage;
