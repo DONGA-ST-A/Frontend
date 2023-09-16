@@ -46,7 +46,6 @@ const NoticePage = () => {
     if (keyword !== "") fetchKeywordNotice(keyword);
     else if (category === "전체") fetchNotice();
     else fetchCategoryNotice(category);
-    console.log(notice);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 

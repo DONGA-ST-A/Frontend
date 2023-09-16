@@ -16,13 +16,12 @@ const NoticeDetailPage = () => {
   const fetchNoticeItem = async () => {
     const noticeData = await getNoticeItem({ id });
     setNoticeList(noticeData);
-    console.log(noticeList);
-    console.log(noticeData);
   };
 
   useEffect(() => {
     fetchNoticeItem();
     window.scrollTo({ top: 0, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [noticeId]);
 
   if (noticeList.length > 0)
