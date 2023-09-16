@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 import { getAddProductItem, getProductItem } from "@/API";
@@ -10,6 +11,7 @@ import ProductInfo from "@/components/DeatailPage/ProductInfo";
 import { ProductItemGetResponse, ProductData } from "@/types";
 
 const DetailPage = () => {
+  const { pathname } = useLocation();
   const [productItem, setProductItem] = useState<ProductItemGetResponse>({
     id: 0,
     name: "",
@@ -36,7 +38,10 @@ const DetailPage = () => {
   useEffect(() => {
     productItemData();
     productAddItemData();
-  }, []);
+    if (pathname === "/product/9") {
+      window.scrollTo({ top: 2975, behavior: "smooth" });
+    }
+  }, [pathname]);
   return (
     <>
       <ProductInfo productItem={productItem} />
