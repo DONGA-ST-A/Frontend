@@ -18,7 +18,7 @@ const Router = () => {
             element={<MainPage />}
           />
           <Route
-            path="/qna"
+            path="/faq"
             element={<QnAPage />}
           />
           <Route
