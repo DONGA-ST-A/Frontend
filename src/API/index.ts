@@ -1,8 +1,6 @@
 import axios from "axios";
 
-
-import { ProductGetResponse, ProductItemGetResponse, GetQnaResponse } from "@/types";
-
+import { GetQnaResponse, ProductGetResponse, ProductItemGetResponse } from "@/types";
 
 const baseURL = "https://dev-api.dongahicardi.site";
 const client = axios.create({
