@@ -8,7 +8,7 @@ const Intro = () => {
       <Background />
       <TextContainer>
         <h1>COMPANY</h1>
-        <span>글로벌 제약기업을 향해 도약하는 동아ST입니다.</span>
+        <p>글로벌 제약기업을 향해 도약하는 동아ST입니다.</p>
       </TextContainer>
     </Container>
   );
@@ -43,7 +43,7 @@ const TextContainer = styled.div`
     font-size: var(--text_title1);
   }
 
-  span {
+  p {
     font-family: NotoSansMedium;
     font-size: var(--text_body1);
   }

@@ -30,7 +30,7 @@ const About = () => {
                   alt={item.description}
                   src={item.icon}
                 />
-                <span>{item.description}</span>
+                <p>{item.description}</p>
               </div>
             ))}
           </IconContainer>
@@ -78,7 +78,7 @@ const IconContainer = styled.div`
       object-fit: scale-down;
     }
 
-    span {
+    p {
       font-family: NotoSansBold;
       font-size: var(--text_body1);
       color: var(--color_font);
