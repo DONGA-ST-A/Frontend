@@ -8,7 +8,7 @@ const categories: DetailCategoryProps[] = [
   { category: "상품 상세정보", location: 0 },
   { category: "상품 사용법", location: 2975 },
   { category: "상품 구성", location: 4029 },
-  { category: "상품구매안내", location: 6910 },
+  { category: "상품구매안내", location: 7840 },
 ];
 
 const DetailCategory = () => {
@@ -56,6 +56,11 @@ const Container = styled.div`
   position: sticky;
   top: 0;
   z-index: 9999;
+  @media (max-width: 740px) {
+    & {
+      position: relative;
+    }
+  }
 
   .category {
     max-width: 935px;
