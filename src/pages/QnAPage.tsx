@@ -80,6 +80,7 @@ const QnAPage = () => {
 const Container = styled.div`
   padding-top: 123px;
   padding-bottom: 100px;
+  min-height: 1200px;
 `;
 
 export default QnAPage;
