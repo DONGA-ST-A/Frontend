@@ -30,7 +30,7 @@ const dummydata: carouselProps[] = [
     description: "하이카디를 처음 접하셨나요?\n사용법을 확인하고 체험해보세요.",
     image: caroselImg2,
     BtnText: "사용법 보기",
-    BtnLink: "/product/2",
+    BtnLink: "/product/9",
   },
   {
     title: "함께 사용하면 좋은 제품",
