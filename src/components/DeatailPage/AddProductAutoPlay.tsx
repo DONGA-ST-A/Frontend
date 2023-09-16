@@ -66,7 +66,7 @@ const AddProducts = styled.div`
   position: relative;
   left: -100px;
   width: calc(457px * 10);
-  animation: autoPlay 14s linear infinite;
+  animation: autoPlay 17s linear infinite;
 
   @keyframes autoPlay {
     0% {
