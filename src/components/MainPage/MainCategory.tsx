@@ -13,27 +13,27 @@ const categoryBtn: categoryProps[] = [
   {
     img: MarketStatusIcon,
     text: "심전도 침상감지 현황",
-    location: 1250,
+    location: 924,
   },
   {
     img: AdvantageIcon,
     text: "하이카디만의 장점",
-    location: 2050,
+    location: 1536,
   },
   {
     img: ExpectedEffectIcon,
     text: "기대 효과",
-    location: 3100,
+    location: 2348,
   },
   {
     img: ReviewIcon,
     text: "실제 현장 후기",
-    location: 4380,
+    location: 3280,
   },
   {
     img: HospitalIcon,
     text: "  현재 하이카디를\n사용하고 있는 병원",
-    location: 5290,
+    location: 3964,
   },
 ];
 
@@ -60,7 +60,7 @@ const MainCategory = () => {
             item.location < scrollLocation + 10 &&
             scrollLocation < (arr[idx + 1]?.location || item.location + 600)
               ? "active"
-              : scrollLocation > 5930
+              : scrollLocation > 4444
               ? "lastActive"
               : ""
           }
@@ -95,6 +95,12 @@ const Container = styled.div`
   visibility: visible;
   opacity: 1;
   transition: 0.45s;
+
+  @media (max-width: 740px) {
+    & {
+      position: relative;
+    }
+  }
   &:has(li.lastActive) {
     visibility: hidden;
     opacity: 0;

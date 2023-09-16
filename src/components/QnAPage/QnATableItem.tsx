@@ -17,7 +17,13 @@ const QnATableItem = ({ qna }: { qna: QnAData }) => {
           width="72%"
           className="question"
         >
-          {qna.question}
+          <span
+            onClick={() => {
+              setActvie(!active);
+            }}
+          >
+            {qna.question}
+          </span>
         </td>
         <td width="8%">
           {active ? (
@@ -43,7 +49,13 @@ const QnATableItem = ({ qna }: { qna: QnAData }) => {
         <Answer>
           <td width="8%"></td>
           <td width="12%"></td>
-          <td width="72%">{qna.answer}</td>
+          <td width="72%">
+            <ul>
+              {qna.answer.split("@").map((item) => (
+                <li>{item} </li>
+              ))}
+            </ul>
+          </td>
           <td width="8%"></td>
         </Answer>
       )}
@@ -66,6 +78,10 @@ const Question = styled.tr<{ $active: boolean }>`
     padding: 18px 0px;
     text-align: center;
     vertical-align: middle;
+
+    span {
+      cursor: pointer;
+    }
   }
 
   .question {
@@ -90,6 +106,13 @@ const Answer = styled.tr`
     font-size: var(--text_body1);
     color: var(--color_font);
     line-height: 1.6em;
+
+    ul {
+      line-height: 1.6em;
+      list-style: "⦁  ";
+      list-style-position: outside;
+      padding-inline-start: 0.9em;
+    }
   }
 `;
 

@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import ScrollToTop from "@/components/etc/ScrollToTop";
 import Layout from "@/layout/Layout";
+import DetailPage from "@/pages/DetailPage";
 import MainPage from "@/pages/MainPage";
 import NoticeDetailPage from "@/pages/NoticeDetailPage";
 import NoticePage from "@/pages/NoticePage";
@@ -10,6 +12,7 @@ import QnAPage from "@/pages/QnAPage";
 const Router = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
           <Route
@@ -17,7 +20,7 @@ const Router = () => {
             element={<MainPage />}
           />
           <Route
-            path="/qna"
+            path="/faq"
             element={<QnAPage />}
           />
           <Route
@@ -31,6 +34,10 @@ const Router = () => {
           <Route
             path="/notice/:category/:noticeId"
             element={<NoticeDetailPage />}
+          />
+          <Route
+            path="/product/:id"
+            element={<DetailPage />}
           />
         </Route>
       </Routes>

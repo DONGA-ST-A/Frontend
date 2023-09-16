@@ -31,6 +31,9 @@ export interface ProductData {
   status: string;
   stock: number;
 }
+export interface ProductItemGetResponse extends ProductData {
+  images: string[];
+}
 
 export interface ProductGetResponse {
   content: ProductData[];
@@ -52,6 +55,10 @@ export interface SiteReviewProps {
   example?: string;
 }
 
+export interface DetailCategoryProps {
+  category: string;
+  location: number;
+}
 export interface GetDto<T> {
   content: T[];
   hasNextPages: boolean;
@@ -61,7 +68,6 @@ export interface GetDto<T> {
   totalPages: number;
 }
 
-/** QnA */
 export interface QnAData {
   answer: string;
   category: string;
