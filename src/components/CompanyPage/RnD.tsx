@@ -6,6 +6,8 @@ import Img3 from "@/assets/figure/img_rd_3.svg";
 import Img4 from "@/assets/figure/img_rd_4.svg";
 import { Inner } from "@/style/commonStyle";
 
+import CompanyTitle from "./CompanyTitle";
+
 const RnDList = [
   {
     img: Img1,
@@ -30,7 +32,7 @@ const RnD = () => {
   return (
     <Container>
       <Inner>
-        <h1>R&D</h1>
+        <CompanyTitle title="R&D" />
         <RnDContainer>
           {RnDList.map((item) => (
             <RnDItem>
@@ -55,13 +57,6 @@ const Container = styled.div`
   padding-top: 54px;
   padding-bottom: 80px;
   text-align: center;
-
-  h1 {
-    font-family: NotoSansBold;
-    font-size: var(--text_title1);
-    color: var(--color_font);
-    margin-bottom: 60px;
-  }
 `;
 
 const RnDContainer = styled.div`
