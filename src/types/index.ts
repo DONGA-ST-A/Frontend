@@ -21,6 +21,28 @@ export interface carouselProps {
   BtnLink: string;
 }
 
+export interface ProductData {
+  id: number;
+  name: string;
+  subname: string;
+  tags: string[];
+  previewImage: string;
+  price: number;
+  status: string;
+  stock: number;
+}
+export interface ProductItemGetResponse extends ProductData {
+  images: string[];
+}
+
+export interface ProductGetResponse {
+  content: ProductData[];
+  hasNextPages: boolean;
+  numberOfElements: number;
+  pageNumber: number;
+  totalElements: number;
+  tatalPages: number;
+}
 export interface categoryProps {
   img: string;
   text: string;
@@ -32,3 +54,26 @@ export interface SiteReviewProps {
   description: string;
   example?: string;
 }
+
+export interface DetailCategoryProps {
+  category: string;
+  location: number;
+}
+export interface GetDto<T> {
+  content: T[];
+  hasNextPages: boolean;
+  numberOfElements: number;
+  pageNumber: number;
+  totalElements: number;
+  totalPages: number;
+}
+
+export interface QnAData {
+  answer: string;
+  category: string;
+  id: number;
+  question: string;
+}
+
+export type GetQnaResponse = GetDto<QnAData>;
+

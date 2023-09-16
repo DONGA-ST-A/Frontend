@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { styled } from "styled-components";
 
 import SearchIcon from "@/assets/icon/search_icon.svg";
@@ -7,6 +7,8 @@ import { Inner } from "@/style/commonStyle";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  console.log(pathname);
   return (
     <Container>
       <Inner>
@@ -19,10 +21,12 @@ const Header = () => {
               onClick={() => navigate("/")}
             />
             <ul>
-              <li>하이카디란?</li>
-              <li>제품 소개</li>
-              <li>FAQ</li>
-              <li>공지사항</li>
+              <li className={pathname === "/" ? "active" : ""}>하이카디란?</li>
+              <li className={pathname === "/product" ? "active" : ""}>
+                <Link to="/product">제품 소개</Link>
+              </li>
+              <li className={pathname === "/faq" ? "active" : ""}>FAQ</li>
+              <li className={pathname === "/notice" ? "active" : ""}>공지사항</li>
             </ul>
           </LeftNav>
           <RightNav>
@@ -45,11 +49,20 @@ const Header = () => {
 
 const Container = styled.div`
   background-color: #ffffff;
-  margin: 64px auto 35px;
+  margin: 0 auto;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-use-select: none;
   user-select: none;
+  border-bottom: 1px solid var(--color_sub1);
+
+  li:hover {
+    color: var(--color_main_skyblue);
+    opacity: 0.5;
+  }
+  li.active {
+    color: var(--color_main_skyblue);
+  }
 `;
 const Nav = styled.div`
   display: flex;
@@ -59,6 +72,7 @@ const Nav = styled.div`
   color: var(--color_font);
   font-size: var(--text_body1);
   line-height: 1.6em;
+  margin: 64px auto 35px;
 `;
 
 const LeftNav = styled.div`
