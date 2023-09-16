@@ -1,21 +1,47 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { styled } from "styled-components";
 
-const categories: string[] = ["상품 상세정보", "상품 사용법", "상품 구성", "상품구매안내"];
+import { DetailCategoryProps } from "@/types";
+
+const categories: DetailCategoryProps[] = [
+  { category: "상품 상세정보", location: 0 },
+  { category: "상품 사용법", location: 2975 },
+  { category: "상품 구성", location: 4029 },
+  { category: "상품구매안내", location: 6910 },
+];
 
 const DetailCategory = () => {
-  const [selectCategory, setSelectCategory] = useState<string>("상품 상세정보");
+  const [scrollLocation, setScrollLocation] = useState<number>(0);
+  const onScroll = () => {
+    setScrollLocation(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [scrollLocation]);
   return (
     <Container>
       <div className="category">
-        {categories.map((category, idx) => (
+        {categories.map((item, idx, arr) => (
           <li
-            className={selectCategory === category ? "active" : ""}
+            className={
+              item.location < scrollLocation + 5 &&
+              scrollLocation < (arr[idx + 1]?.location || item.location + 1000)
+                ? "active"
+                : ""
+            }
             key={idx}
-            onClick={() => setSelectCategory(category)}
+            onClick={() => {
+              window.scrollTo({
+                top: item.category === "상품 상세정보" ? 745 : item.location,
+                behavior: "smooth",
+              });
+            }}
           >
-            {category}
+            {item.category}
           </li>
         ))}
       </div>
@@ -26,6 +52,10 @@ const DetailCategory = () => {
 const Container = styled.div`
   background-color: var(--color_background);
   padding: 26px 297px 0;
+  position: -webkit-sticky; /* 사파리 브라우저 지원 */
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 
   .category {
     max-width: 935px;

@@ -19,9 +19,13 @@ const Banner = () => {
 
 const Container = styled.div`
   position: relative;
+  margin-top: 30px;
 
   img {
     width: 100%;
+    transform: translateX(-175px);
+    border-bottom-right-radius: 140px;
+    border-top-right-radius: 70px;
   }
 
   .text-container {

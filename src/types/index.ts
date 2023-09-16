@@ -55,6 +55,10 @@ export interface SiteReviewProps {
   example?: string;
 }
 
+export interface DetailCategoryProps {
+  category: string;
+  location: number;
+}
 export interface GetDto<T> {
   content: T[];
   hasNextPages: boolean;
@@ -64,7 +68,6 @@ export interface GetDto<T> {
   totalPages: number;
 }
 
-/** QnA */
 export interface QnAData {
   answer: string;
   category: string;
@@ -73,3 +76,4 @@ export interface QnAData {
 }
 
 export type GetQnaResponse = GetDto<QnAData>;
+

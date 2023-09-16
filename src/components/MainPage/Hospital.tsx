@@ -19,17 +19,17 @@ const Hospital = () => {
           <HospitalContainer>
             <HospitalBanner>
               <img
-                alt="원주세브란스기독병원"
-                src={WonjuLogo}
-              />
-              <div>강원 원주세브란스기독병원</div>
-            </HospitalBanner>
-            <HospitalBanner>
-              <img
                 alt="서울대학교병원"
                 src={SeoulLogo}
               />
               <div>종로구 서울대학교병원</div>
+            </HospitalBanner>
+            <HospitalBanner>
+              <img
+                alt="원주세브란스기독병원"
+                src={WonjuLogo}
+              />
+              <div>강원 원주세브란스기독병원</div>
             </HospitalBanner>
             <HospitalBanner>
               <img

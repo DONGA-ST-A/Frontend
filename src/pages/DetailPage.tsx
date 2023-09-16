@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import styled from "styled-components";
+
 import { getAddProductItem, getProductItem } from "@/API";
 import AddProductAutoPlay from "@/components/DeatailPage/AddProductAutoPlay";
 import DetailCategory from "@/components/DeatailPage/DetailCategory";
@@ -43,6 +45,7 @@ const DetailPage = () => {
         message={"first"}
         productImage={productItem.images}
       />
+      <Background></Background>
       <AddProductAutoPlay productAddItem={productAddItem} />
       <DetailProduct
         message={"last"}
@@ -51,5 +54,13 @@ const DetailPage = () => {
     </>
   );
 };
+
+const Background = styled.div`
+  background-color: var(--color_sub5);
+  width: 100%;
+  height: 787px;
+  position: absolute;
+  top: 5707px;
+`;
 
 export default DetailPage;
