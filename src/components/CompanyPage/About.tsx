@@ -17,7 +17,7 @@ const About = () => {
   return (
     <Container>
       <Inner>
-        <InnerContainer>
+        <AboutContainer>
           <TextContainer>
             <span>동아ST는 </span>
             <span className="point">글로벌 제약기업</span>
@@ -34,7 +34,7 @@ const About = () => {
               </div>
             ))}
           </IconContainer>
-        </InnerContainer>
+        </AboutContainer>
       </Inner>
     </Container>
   );
@@ -45,7 +45,7 @@ const Container = styled.div`
   margin-bottom: 80px;
 `;
 
-const InnerContainer = styled.div`
+const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

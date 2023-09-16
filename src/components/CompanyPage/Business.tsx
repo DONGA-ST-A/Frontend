@@ -37,9 +37,9 @@ const Business = () => {
     <Container>
       <Inner>
         <CompanyTitle title="사업 분야" />
-        <InnerContainer>
+        <BusinessContainer>
           {businessList.map((item) => (
-            <BusinessContainer>
+            <BusinessItem>
               <img
                 alt={item.title}
                 src={item.img}
@@ -48,9 +48,9 @@ const Business = () => {
                 <h1>{item.title}</h1>
                 <p>{item.description}</p>
               </div>
-            </BusinessContainer>
+            </BusinessItem>
           ))}
-        </InnerContainer>
+        </BusinessContainer>
       </Inner>
     </Container>
   );
@@ -62,7 +62,7 @@ const Container = styled.div`
   padding: 86px 0px;
 `;
 
-const InnerContainer = styled.div`
+const BusinessContainer = styled.div`
   height: 700px;
   display: flex;
   flex-direction: row;
@@ -71,7 +71,7 @@ const InnerContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-const BusinessContainer = styled.div`
+const BusinessItem = styled.div`
   position: relative;
 
   img {
