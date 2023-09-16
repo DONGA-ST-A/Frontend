@@ -80,6 +80,7 @@ export interface NoticeData {
   file: string | null;
   isTop: boolean;
   createdDate: string;
+  views: number;
 }
 
 export type GetNoticeResponse = GetDto<NoticeData>;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GetNoticeResponse, GetQnaResponse } from "@/types";
+import { GetNoticeResponse, GetQnaResponse, NoticeData } from "@/types";
 import { ProductGetResponse } from "@/types";
 
 const baseURL = "https://dev-api.dongahicardi.site";
@@ -63,7 +63,13 @@ export const getNotice = async ({ page }: { page: number }) => {
   return response.data;
 };
 
-// 공지사항 키워드 검색 조회 (아직 구현 안됨)
+// 공지사항 상세 조회
+export const getNoticeItem = async ({ id }: { id: number }) => {
+  const response = await client.get<NoticeData[]>(`/notices/${id}`);
+  return response.data;
+};
+
+// 공지사항 키워드 검색 조회
 export const getKeywordNotice = async ({ keyword, page }: { keyword: string; page: number }) => {
   const response = await client.get<GetNoticeResponse>("/notices/keyword", {
     params: {
@@ -75,7 +81,7 @@ export const getKeywordNotice = async ({ keyword, page }: { keyword: string; pag
   return response.data;
 };
 
-// 공지사항 카테고리 조회 (아직 구현 안됨)
+// 공지사항 카테고리 조회
 export const getCategoryNotice = async ({ category, page }: { category: string; page: number }) => {
   const response = await client.get<GetNoticeResponse>("/notices/category", {
     params: {
