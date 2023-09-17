@@ -21,6 +21,11 @@ export interface carouselProps {
   BtnLink: string;
 }
 
+export interface LoginData {
+  userId: string;
+  password: string;
+}
+
 export interface ProductData {
   id: number;
   name: string;
