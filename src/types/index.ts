@@ -17,8 +17,12 @@ export interface carouselProps {
   title: string;
   semiTitle: string;
   description: string;
+  image: string;
   BtnText: string;
   BtnLink: string;
+}
+export interface carouselItemProps extends carouselProps {
+  idx: number;
 }
 
 export interface ProductData {
@@ -90,3 +94,4 @@ export interface NoticeData {
 }
 
 export type GetNoticeResponse = GetDto<NoticeData>;
+

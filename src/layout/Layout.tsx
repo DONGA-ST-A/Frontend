@@ -27,7 +27,7 @@ const Layout = () => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         style={{
-          transform: scrollLocation > 500 ? "translateX(0)" : "",
+          transform: scrollLocation > 200 ? "translateX(0)" : "",
         }}
       />
     </>

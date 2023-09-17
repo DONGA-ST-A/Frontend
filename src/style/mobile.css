@@ -1,0 +1,8 @@
+:root {
+  zoom: 0.75;
+}
+@media (max-width: 740px) {
+  :root {
+    zoom: 0.26;
+  }
+}
