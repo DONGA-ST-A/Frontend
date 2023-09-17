@@ -9,13 +9,6 @@
 }
 @media (max-width: 640px) {
   :root {
-    transform: scale(0.4);
-    transform-origin: center center; /* 변환 기준점을 요소의 중심으로 설정 */
-    display: flex;
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center;
-    margin: 0;
-    width: 100%; /* 부모 요소의 가로폭 100%로 설정 */
-    height: 373vh;
+    zoom: 0.26;
   }
 }
