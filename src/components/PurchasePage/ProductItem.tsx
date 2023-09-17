@@ -1,18 +1,38 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled, { css } from "styled-components";
 
+import { toastState } from "@/Atoms";
 import CartIcon from "@/assets/icon/icon_cart.svg";
 import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
 import { ProductData } from "@/types";
+
+import Toast from "../etc/Toast";
 
 const ProductItem = ({ product, addProduct }: { product: ProductData; addProduct: string }) => {
   const handleIconClick = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
   };
+  const [toast, setToast] = useRecoilState(toastState);
+  const navigate = useNavigate();
+  const DetailPageRouting = () => {
+    if (product.id !== 9) {
+      navigate(`/product/${product.id}`);
+    } else {
+      setToast(true);
+      setTimeout(() => {
+        setToast(false);
+      }, 1000);
+    }
+  };
 
   return (
     <Container $addProduct={addProduct}>
-      <Link to={`/product/${product.id}`}>
+      {toast ? <Toast message="품절된 상품입니다." /> : ""}
+      <div
+        className="link"
+        onClick={DetailPageRouting}
+      >
         <ImgContainer
           $main={product.tags.includes("기기 본체")}
           $addProduct={addProduct}
@@ -33,15 +53,18 @@ const ProductItem = ({ product, addProduct }: { product: ProductData; addProduct
             ))}
           </div>
         </ImgContainer>
-      </Link>
+      </div>
       <InfoContainer
         $main={product.tags.includes("기기 본체")}
         $addProduct={addProduct}
       >
         <div className="product-name-container">
-          <Link to={`/product/${product.id}`}>
+          <div
+            className="link"
+            onClick={DetailPageRouting}
+          >
             <h1>{product.name}</h1>
-          </Link>
+          </div>
           <div className="description">{product.subname}</div>
         </div>
         <div className="product-container">
@@ -71,6 +94,9 @@ const Container = styled.div<{ $addProduct: string }>`
   position: relative;
   margin-right: ${(props) => (props.$addProduct === "addProduct" ? "60px" : "")};
   border: ${(props) => (props.$addProduct === "addProduct" ? "5px solid var(--color_sub1)" : "")};
+  .link {
+    cursor: pointer;
+  }
 `;
 
 const SoldOut = styled.div`
