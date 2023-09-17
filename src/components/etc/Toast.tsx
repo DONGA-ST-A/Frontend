@@ -33,7 +33,7 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 20;
+  z-index: 99999;
 `;
 
 const Box = styled.div`

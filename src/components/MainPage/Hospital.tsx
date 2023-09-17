@@ -39,6 +39,7 @@ const Hospital = () => {
               <div>부산 고신대학교복음병원</div>
             </HospitalBanner>
           </HospitalContainer>
+          <div className="text">외 29개의 병원과 함께 하고 있습니다.</div>
         </InnerContainer>
       </Inner>
     </Container>
@@ -53,7 +54,13 @@ const InnerContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 336px;
+  height: 440px;
+
+  .text {
+    font-family: NotoSansMedium;
+    font-size: 24px;
+    text-align: center;
+  }
 `;
 
 const HospitalContainer = styled.div`
@@ -73,7 +80,6 @@ const HospitalBanner = styled.div`
   height: 120px;
   line-height: 1.6em;
   text-align: center;
-
   img {
     height: 73px;
     margin-bottom: 24px;

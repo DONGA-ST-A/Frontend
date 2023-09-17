@@ -1,5 +1,3 @@
-// 전역 스타일 내용 들어갈 예정
-
 import { createGlobalStyle } from "styled-components";
 
 import "./color.css";
@@ -59,17 +57,17 @@ a{
 }
 
 
-@font-face { //font-weight 400
+@font-face {
   font-family: NotoSansRegular;
   src: url(${NotoSansRegular}) format('woff');
   font-style: normal;
 }
-@font-face { //font-weight 500
+@font-face {
   font-family: NotoSansMedium;
   src: url(${NotoSansMedium}) format('woff');
   font-style: normal;
 }
-@font-face { //font-weight 700
+@font-face {
   font-family: NotoSansBold;
   src: url(${NotoSansBold}) format('woff');
   font-style: normal;

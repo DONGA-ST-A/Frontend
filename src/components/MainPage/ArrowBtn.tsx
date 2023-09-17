@@ -1,15 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
+import { carouselState } from "@/Atoms";
 import arrow from "@/assets/icon/icon_right_arrow.svg";
 import { ArrowBtnProps } from "@/types";
 
 const ArrowBtn = ({ text, link }: ArrowBtnProps) => {
   const navigate = useNavigate();
+  const setCarousel = useSetRecoilState(carouselState);
   return (
     <Btn
       onClick={() => {
         window.scrollTo({ top: 0, behavior: "smooth" });
+        if (link === "/product/1" && text === "사용법 보기") {
+          setCarousel(true);
+        }
         navigate(link);
       }}
       text={text}
@@ -37,7 +43,7 @@ const Btn = styled.div<{ text: string }>`
   align-items: center;
   margin: ${(props) => (props.text !== "1:1 문의하기" ? "0 0 0 30px" : "0 auto")};
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   gap: 12px;
   text-align: center;
   cursor: pointer;
