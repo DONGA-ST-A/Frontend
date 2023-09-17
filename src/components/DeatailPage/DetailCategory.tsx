@@ -76,7 +76,7 @@ const Container = styled.div`
     color: var(--color_font);
     text-align: center;
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
     line-height: 1.6em;
     cursor: pointer;
   }

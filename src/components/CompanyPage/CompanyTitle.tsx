@@ -6,7 +6,7 @@ const CompanyTitle = ({ title }: { title: string }) => {
 
 const Title = styled.h1`
   font-family: NotoSansBold;
-  font-size: var(--text_title1);
+  font-size: 40px;
   color: var(--color_font);
   margin-bottom: 60px;
 `;

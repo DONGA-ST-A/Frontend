@@ -72,7 +72,7 @@ const TitleContainer = styled.div`
   .description {
     font-family: NotoSansMedium;
     color: var(--color_font);
-    font-size: var(--text_body1);
+    font-size: 20px;
     margin: 64px 0 80px;
     margin-left: 30px;
     line-height: 1.6em;
@@ -90,7 +90,7 @@ const Title = styled.div`
 
 const SemiTitle = styled.div`
   color: var(--color_font);
-  font-size: var(--text_subtitle1);
+  font-size: 32px;
   font-family: NotoSansBold;
   line-height: 1.6em;
 `;

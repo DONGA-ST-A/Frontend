@@ -136,7 +136,7 @@ const Container = styled.div`
   li p {
     white-space: pre-wrap;
     font-family: NotoSansMedium;
-    font-size: var(--text_caption1);
+    font-size: 16px;
     line-height: 1.6em;
     color: var(--color_sub2);
   }

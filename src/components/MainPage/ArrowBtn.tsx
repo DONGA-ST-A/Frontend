@@ -37,7 +37,7 @@ const Btn = styled.div<{ text: string }>`
   align-items: center;
   margin: ${(props) => (props.text !== "1:1 문의하기" ? "0 0 0 30px" : "0 auto")};
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   gap: 12px;
   text-align: center;
   cursor: pointer;

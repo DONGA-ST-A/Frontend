@@ -58,7 +58,7 @@ const AboutContainer = styled.div`
 
 const TextContainer = styled.h1`
   font-family: NotoSansMedium;
-  font-size: var(--text_title1);
+  font-size: 40px;
   color: var(--color_font);
 
   .point {
@@ -83,7 +83,7 @@ const IconContainer = styled.div`
 
     p {
       font-family: NotoSansBold;
-      font-size: var(--text_body1);
+      font-size: 20px;
       color: var(--color_font);
     }
   }

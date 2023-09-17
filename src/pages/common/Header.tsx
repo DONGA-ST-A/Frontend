@@ -126,7 +126,7 @@ const Nav = styled.div`
   height: 56px;
   font-family: NotoSansBold;
   color: var(--color_font);
-  font-size: var(--text_body1);
+  font-size: 20px;
   line-height: 1.6em;
   margin: 64px auto 35px;
 `;
@@ -181,7 +181,7 @@ const RightNav = styled.div`
     border: none;
     font-family: NotoSansBold;
     color: var(--color_font);
-    font-size: var(--text_body1);
+    font-size: 20px;
     line-height: 1.6em;
     cursor: pointer;
   }

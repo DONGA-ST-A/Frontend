@@ -79,7 +79,7 @@ const HistoryItem = styled.div`
 
   p {
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
   }
 `;
 

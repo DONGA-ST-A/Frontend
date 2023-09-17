@@ -220,13 +220,13 @@ const ProductDetailInfo = styled.div`
   gap: 15px;
   .name {
     font-family: NotoSansBold;
-    font-size: var(--text_subtitle1);
+    font-size: 32px;
     line-height: 1.6em;
     color: var(--color_font);
   }
   .subName {
     font-family: NotoSansMedium;
-    font-size: var(--text_caption1);
+    font-size: 16px;
     line-height: 1.6em;
     color: var(--color_sub3);
     white-space: pre-wrap;
@@ -238,7 +238,7 @@ const ProductDetailInfo = styled.div`
   .tag {
     border-radius: 36px;
     border: 1px solid var(--color_sub1);
-    font-size: var(--text_caption1);
+    font-size: 16px;
     font-family: NotoSansMedium;
     color: var(--color_font);
     line-height: 1.6em;
@@ -247,7 +247,7 @@ const ProductDetailInfo = styled.div`
   }
   .price {
     font-family: NotoSansBold;
-    font-size: var(--text_title1);
+    font-size: 40px;
     line-height: 1.6em;
     color: var(--color_main_skyblue);
   }
@@ -259,7 +259,7 @@ const ProductDetailInfo = styled.div`
   .allPrice {
     font-family: NotoSansMedium;
     color: var(--color_sub3);
-    font-size: var(--text_body1);
+    font-size: 20px;
     line-height: 1.6em;
     position: absolute;
     bottom: 0;
@@ -267,7 +267,7 @@ const ProductDetailInfo = styled.div`
   .allNumberPrice {
     font-family: NotoSansBold;
     color: var(--color_font);
-    font-size: var(--text_subtitle1);
+    font-size: 32px;
     position: absolute;
     left: 110px;
   }
@@ -275,7 +275,7 @@ const ProductDetailInfo = styled.div`
     width: 100%;
     border-radius: 36px;
     font-family: NotoSansBold;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_white);
     line-height: 1.6em;
     background-color: var(--color_main_skyblue);
@@ -291,7 +291,7 @@ const ProductDetailInfo = styled.div`
     width: 279px;
     border-radius: 36px;
     font-family: NotoSansBold;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_font);
     line-height: 1.6em;
     background-color: var(--color_white);
@@ -361,7 +361,7 @@ const ListToggle = styled.div<{ $text: string }>`
   -ms-use-select: none;
   user-select: none;
   .defaultList {
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_sub3);
     font-family: NotoSansMedium;
     width: 496px;
@@ -370,7 +370,7 @@ const ListToggle = styled.div<{ $text: string }>`
   }
   ul {
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_font);
     position: absolute;
     top: 0;

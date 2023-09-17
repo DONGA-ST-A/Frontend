@@ -69,7 +69,7 @@ const HospitalBanner = styled.div`
   align-items: center;
   color: var(--color_sub2);
   font-family: NotoSansMedium;
-  font-size: var(--text_body1);
+  font-size: 20px;
   height: 120px;
   line-height: 1.6em;
   text-align: center;

@@ -95,14 +95,14 @@ const Container = styled.div`
     text-align: center;
     h1 {
       font-family: NotoSansBold;
-      font-size: var(--text_title1);
+      font-size: 40px;
       color: var(--color_font);
       margin-bottom: 20px;
     }
 
     .description {
       font-family: NotoSansMedium;
-      font-size: var(--text_body1);
+      font-size: 20px;
       color: var(--color_sub2);
     }
   }
@@ -115,7 +115,7 @@ const Container = styled.div`
 
     span {
       font-family: NotoSansMedium;
-      font-size: var(--text_body1);
+      font-size: 20px;
       color: var(--color_sub3);
       cursor: pointer;
     }
@@ -144,7 +144,7 @@ const LoginContainer = styled.div`
       border: none;
       border-radius: 30px;
       font-family: NotoSansMedium;
-      font-size: var(--text_body1);
+      font-size: 20px;
       color: var(--color_font);
 
       &::placeholder {
@@ -158,7 +158,7 @@ const LoginContainer = styled.div`
 
     button {
       font-family: NotoSansBold;
-      font-size: var(--text_body1);
+      font-size: 20px;
       border-radius: 30px;
       padding: 20px 0px;
       cursor: pointer;

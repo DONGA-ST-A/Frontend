@@ -33,7 +33,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   font-family: NotoSansMedium;
-  font-size: var(--text_body1);
+  font-size: 20px;
   margin-bottom: 75px;
 
   thead {

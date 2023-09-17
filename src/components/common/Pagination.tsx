@@ -54,7 +54,7 @@ const Container = styled.div`
 
   .page-btn {
     background-color: var(--color_white);
-    font-size: var(--text_body1);
+    font-size: 20px;
     font-family: NotoSansBold;
     color: var(--color_font);
     width: 44px;

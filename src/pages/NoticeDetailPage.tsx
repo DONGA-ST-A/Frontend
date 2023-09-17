@@ -158,7 +158,7 @@ const NoticeInner = styled.div`
 
   h1 {
     font-family: NotoSansBold;
-    font-size: var(--text_title1);
+    font-size: 40px;
     color: var(color_font);
     padding: 30px 0px;
   }
@@ -167,7 +167,7 @@ const NoticeInner = styled.div`
     display: flex;
     gap: 16px;
     font-family: NotoSansMedium;
-    font-size: var(--text_caption1);
+    font-size: 16px;
     color: var(--color_sub3);
   }
 
@@ -200,7 +200,7 @@ const NoticeInfo = styled.div`
 const NoticeTable = styled.table`
   width: 100%;
   font-family: NotoSansMedium;
-  font-size: var(--text_body1);
+  font-size: 20px;
   color: var(--color_sub3);
 
   tbody {
@@ -240,7 +240,7 @@ const ListButton = styled.button`
   justify-content: center;
   align-items: center;
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   color: var(--color_font);
   margin: 50px 0px;
   cursor: pointer;

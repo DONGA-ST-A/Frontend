@@ -41,13 +41,13 @@ const Container = styled.div`
 
     .title {
       font-family: NotoSansBold;
-      font-size: var(--text_headline1);
+      font-size: 48px;
       color: var(--color_main_skyblue);
     }
 
     .description {
       font-family: NotoSansMedium;
-      font-size: var(--text_body1);
+      font-size: 20px;
       color: var(--color_sub3);
     }
   }

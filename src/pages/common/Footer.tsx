@@ -70,7 +70,7 @@ const InformationContainer = styled.div`
 const TextContainer = styled.div`
   flex-direction: column;
   font-family: NotoSansMedium;
-  font-size: var(--text_caption1);
+  font-size: 16px;
   color: var(--color_white);
   line-height: 1.6em;
 `;
@@ -81,7 +81,7 @@ const TermContainer = styled.div`
   align-items: flex-end;
   color: var(--color_white);
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
 `;
 
 const RadiusLine = styled.div`

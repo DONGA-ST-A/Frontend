@@ -99,14 +99,14 @@ const Section = styled.div`
 
   .text-title {
     font-family: NotoSansBold;
-    font-size: var(--text_subtitle1);
+    font-size: 32px;
     line-height: 1.6em;
     margin-bottom: 10px;
   }
 
   ul {
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
     line-height: 1.6em;
     list-style: "⦁";
     list-style-position: outside;

@@ -149,7 +149,7 @@ const Container = styled.div`
     width: auto;
     height: auto;
     display: block;
-    font-size: var(--text_title1);
+    font-size: 40px;
     color: var(--color_font);
     font-family: NotoSansBold;
     margin-left: 175px;
@@ -160,7 +160,7 @@ const Container = styled.div`
     width: auto;
     height: auto;
     display: block;
-    font-size: var(--text_subtitle1);
+    font-size: 32px;
     color: var(--color_sub3);
     font-family: NotoSansMedium;
     position: absolute;

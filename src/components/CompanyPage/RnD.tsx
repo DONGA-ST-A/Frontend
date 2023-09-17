@@ -78,7 +78,7 @@ const RnDItem = styled.div`
 
     .title {
       font-family: NotoSansBold;
-      font-size: var(--text_caption1);
+      font-size: 16px;
     }
 
     p {

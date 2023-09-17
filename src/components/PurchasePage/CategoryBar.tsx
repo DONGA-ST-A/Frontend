@@ -78,7 +78,7 @@ const Button = styled.button<{ $active: boolean }>`
   border-radius: 30px;
   color: ${(props) => (props.$active ? "var(--color_white)" : "var(--color_font)")};
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   padding: 12px 40px;
   margin-right: 16px;
   cursor: pointer;
@@ -103,7 +103,7 @@ const DropButton = styled.div`
   border-radius: 12px;
   color: var(--color_font);
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   background-color: var(--color_white);
   padding: 15px 33px;
 `;
@@ -120,7 +120,7 @@ const DropDownContent = styled.div`
 
 const DropDownItem = styled.div<{ $active: boolean }>`
   font-family: NotoSansMedium;
-  font-size: var(--text_caption1);
+  font-size: 16px;
   color: ${(props) => (props.$active ? "var(--color_white)" : "var(--color_font)")};
   padding: 5px 8px;
   margin: 1.5px 0px;

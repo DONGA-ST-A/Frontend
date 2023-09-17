@@ -30,7 +30,7 @@ const Container = styled.div`
     border-radius: 36px;
     background-color: var(--color_white);
     font-family: NotoSansBold;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_font);
     padding: 12px 67px;
     cursor: pointer;

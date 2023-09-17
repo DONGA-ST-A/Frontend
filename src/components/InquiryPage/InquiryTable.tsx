@@ -182,7 +182,7 @@ const Container = styled.form`
 const SectionTitle = styled.td`
   padding: 22px 33px;
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   color: var(--color_sub3);
   vertical-align: middle;
   background-color: var(--color_background);
@@ -191,7 +191,7 @@ const SectionTitle = styled.td`
 const Section = styled.td`
   padding: 14px 25px;
   font-family: NotoSansMedium;
-  font-size: var(--text_caption1);
+  font-size: 16px;
   color: var(--color_sub3);
 
   display: flex;
@@ -202,7 +202,7 @@ const Section = styled.td`
     border: solid 1px;
     border-color: var(--color_background);
     padding: 10px;
-    font-size: var(--text_caption1);
+    font-size: 16px;
 
     &:focus {
       outline: none;
@@ -229,7 +229,7 @@ const Section = styled.td`
     resize: none;
     padding: 15px;
     color: var(--color_font);
-    font-size: var(--text_caption1);
+    font-size: 16px;
 
     &:focus {
       outline: none;
@@ -263,7 +263,7 @@ const DropButton = styled.div`
   border-color: var(--color_background);
   color: var(--color_sub3);
   font-family: NotoSansMedium;
-  font-size: var(--text_caption1);
+  font-size: 16px;
   background-color: var(--color_white);
   padding: 10px;
 `;
@@ -279,7 +279,7 @@ const DropDownContent = styled.div`
 
 const DropDownItem = styled.div<{ $active: boolean }>`
   font-family: NotoSansMedium;
-  font-size: var(--text_caption1);
+  font-size: 16px;
   color: var(--color_font);
   padding: 5px 15px;
   margin: 1.5px 0px;
@@ -309,7 +309,7 @@ const Button = styled.div`
     border-color: var(--color_sub1);
     border-radius: 25px;
     font-family: NotoSansBold;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_font);
     padding: 12px 40px;
     cursor: pointer;

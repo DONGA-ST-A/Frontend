@@ -103,7 +103,7 @@ const Answer = styled.tr`
   td {
     padding: 20px 35px;
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_font);
     line-height: 1.6em;
 

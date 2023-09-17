@@ -14,14 +14,14 @@ const Banner = styled.div`
 
   h1 {
     font-family: NotoSansBold;
-    font-size: var(--text_title1);
+    font-size: 40px;
     color: var(color_font);
     margin-bottom: 40px;
   }
 
   div {
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
     color: var(--color_sub3);
   }
 `;

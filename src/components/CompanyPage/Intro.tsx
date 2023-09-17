@@ -40,12 +40,12 @@ const TextContainer = styled.div`
 
   h1 {
     font-family: NotoSansBold;
-    font-size: var(--text_title1);
+    font-size: 40px;
   }
 
   p {
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
   }
 `;
 export default Intro;

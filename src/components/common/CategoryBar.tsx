@@ -87,7 +87,7 @@ const Button = styled.button<{ $active: boolean }>`
   border-radius: 30px;
   color: ${(props) => (props.$active ? "var(--color_white)" : "var(--color_font)")};
   font-family: NotoSansBold;
-  font-size: var(--text_body1);
+  font-size: 20px;
   padding: 12px 32px;
   margin-right: 16px;
   cursor: pointer;
@@ -107,7 +107,7 @@ const Input = styled.form`
     width: 350px;
     color: var(--color_font);
     font-family: NotoSansMedium;
-    font-size: var(--text_body1);
+    font-size: 20px;
     caret-width: 1px;
 
     &:focus {

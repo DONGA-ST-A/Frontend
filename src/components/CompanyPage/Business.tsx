@@ -96,12 +96,12 @@ const BusinessItem = styled.div`
 
     h1 {
       font-family: NotoSansBold;
-      font-size: var(--text_title1);
+      font-size: 40px;
     }
 
     p {
       font-family: NotoSansmMedium;
-      font-size: var(--text_body1);
+      font-size: 20px;
       white-space: pre-line;
       line-height: 1.6em;
     }

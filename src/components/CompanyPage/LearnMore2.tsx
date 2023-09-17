@@ -41,13 +41,13 @@ const TextContainer = styled.div`
   div {
     color: var(--color_white);
     font-family: NotoSansMedium;
-    font-size: var(--text_subtitle1);
+    font-size: 32px;
   }
 
   button {
     color: var(--color_font);
     font-family: NotoSansBold;
-    font-size: var(--text_body1);
+    font-size: 20px;
     background-color: var(--color_white);
     border: solid 1px;
     border-color: var(--color_sub1);
