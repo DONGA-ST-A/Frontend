@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled, { css } from "styled-components";
 
 import { toastState } from "@/Atoms";
@@ -7,28 +7,25 @@ import CartIcon from "@/assets/icon/icon_cart.svg";
 import FavoriteIcon from "@/assets/icon/icon_favorite.svg";
 import { ProductData } from "@/types";
 
-import Toast from "../etc/Toast";
-
 const ProductItem = ({ product, addProduct }: { product: ProductData; addProduct: string }) => {
   const handleIconClick = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
   };
-  const [toast, setToast] = useRecoilState(toastState);
+  const setToast = useSetRecoilState(toastState);
   const navigate = useNavigate();
   const DetailPageRouting = () => {
     if (product.id !== 9) {
       navigate(`/product/${product.id}`);
     } else {
-      setToast(true);
+      setToast("품절된 상품입니다.");
       setTimeout(() => {
-        setToast(false);
+        setToast("");
       }, 1000);
     }
   };
 
   return (
     <Container $addProduct={addProduct}>
-      {toast ? <Toast message="품절된 상품입니다." /> : ""}
       <div
         className="link"
         onClick={DetailPageRouting}
