@@ -94,4 +94,3 @@ export interface NoticeData {
 }
 
 export type GetNoticeResponse = GetDto<NoticeData>;
-
