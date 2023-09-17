@@ -21,7 +21,7 @@ const Footer = () => {
               <div>전화번호 | 02-920-8406</div>
               <div>주소 | 서울특별시 동대문구 천호대로 64</div>
               <div>통신판매업신고번호 | 제2022-서울동대문-1374호</div>
-              <div>의료기기판매업번호 | 제2003-3050034-00003호</div>
+              <div>의료기기판매업번호 | 제 2003-3050034-00003 호</div>
               <div>&nbsp;</div>
               <div>Copyright ⓒ 2022 DongA ST Inc.All Rights Reserved.</div>
               <div>Hosting by cafe24</div>
