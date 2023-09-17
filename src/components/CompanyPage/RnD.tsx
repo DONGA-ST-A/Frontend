@@ -35,7 +35,7 @@ const RnD = () => {
         <CompanyTitle title="R&D" />
         <RnDContainer>
           {RnDList.map((item) => (
-            <RnDItem>
+            <RnDItem key={item.title}>
               <img
                 alt={item.description}
                 src={item.img}
