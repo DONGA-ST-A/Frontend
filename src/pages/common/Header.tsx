@@ -1,9 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { useRecoilState, useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
-import { toastState } from "@/Atoms";
 import { toastState } from "@/Atoms";
 import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
@@ -14,7 +12,6 @@ const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [currentUser, setCurrentUser] = useRecoilState(userState);
-  const setToast = useSetRecoilState(toastState);
   const setToast = useSetRecoilState(toastState);
   return (
     <Container>
@@ -43,15 +40,6 @@ const Header = () => {
             </ul>
           </LeftNav>
           <RightNav>
-            <div
-              className="search"
-              onClick={() => {
-                setToast(true);
-                setTimeout(() => {
-                  setToast(false);
-                }, 1100);
-              }}
-            >
             <div
               className="search"
               onClick={() => {
