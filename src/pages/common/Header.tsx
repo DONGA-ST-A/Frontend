@@ -56,17 +56,20 @@ const Header = () => {
               />
             </div>
             {currentUser ? (
-              <button
-                className="logoutBtn"
-                onClick={() => {
-                  setCurrentUser(undefined);
-                }}
-              >
-                로그아웃
-              </button>
+              <div className="button-container">
+                <button
+                  className="whiteBtn"
+                  onClick={() => {
+                    setCurrentUser(undefined);
+                  }}
+                >
+                  로그아웃
+                </button>
+                <button className="blueBtn">마이페이지</button>
+              </div>
             ) : (
               <div className="button-container">
-                <button className="loginBtn">
+                <button className="whiteBtn">
                   <Link to="/login">로그인</Link>
                 </button>
                 <button
@@ -162,7 +165,7 @@ const RightNav = styled.div`
   }
 
   button {
-    width: 136px;
+    padding: 12px 40px;
     border-radius: 36px;
     border: none;
     font-family: NotoSansBold;
@@ -171,19 +174,14 @@ const RightNav = styled.div`
     line-height: 1.6em;
     cursor: pointer;
   }
-  .loginBtn {
+  .whiteBtn {
     border: 1px solid var(--color_sub1);
     background-color: var(--color_white);
     margin: 0 12px;
   }
-  .registerBtn {
+  .blueBtn {
     color: var(--color_white);
     background-color: var(--color_main_skyblue);
-  }
-  .logoutBtn {
-    color: var(--color_white);
-    background-color: var(--color_main_skyblue);
-    margin-left: 12px;
   }
 `;
 export default Header;
