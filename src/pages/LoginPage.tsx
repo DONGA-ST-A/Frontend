@@ -1,12 +1,15 @@
 import { ChangeEvent, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { login } from "@/API";
+import { userState } from "@/states/userState";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const setCurrentUser = useSetRecoilState(userState);
   const [userData, setUserData] = useState({
     userId: "",
     password: "",
@@ -23,6 +26,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setCurrentUser(userData);
     handleLogin();
   };
   return (
