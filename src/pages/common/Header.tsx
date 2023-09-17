@@ -54,7 +54,9 @@ const Header = () => {
               />
             </div>
 
-            <button className="loginBtn">로그인</button>
+            <button className="loginBtn">
+              <Link to="/login">로그인</Link>
+            </button>
             <button
               className="registerBtn"
               onClick={() => {
