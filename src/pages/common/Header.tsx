@@ -44,9 +44,9 @@ const Header = () => {
             <div
               className="search"
               onClick={() => {
-                setToast(true);
+                setToast("기능 준비중입니다.");
                 setTimeout(() => {
-                  setToast(false);
+                  setToast("");
                 }, 1100);
               }}
             >
@@ -69,9 +69,9 @@ const Header = () => {
                 <button
                   className="blueBtn"
                   onClick={() => {
-                    setToast(true);
+                    setToast("페이지 준비중입니다.");
                     setTimeout(() => {
-                      setToast(false);
+                      setToast("");
                     }, 1100);
                   }}
                 >
@@ -86,9 +86,9 @@ const Header = () => {
                 <button
                   className="blueBtn"
                   onClick={() => {
-                    setToast(true);
+                    setToast("페이지 준비중입니다.");
                     setTimeout(() => {
-                      setToast(false);
+                      setToast("");
                     }, 1100);
                   }}
                 >
