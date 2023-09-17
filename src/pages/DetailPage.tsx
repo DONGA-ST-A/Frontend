@@ -46,7 +46,7 @@ const DetailPage = () => {
   return (
     <>
       <ProductInfo productItem={productItem} />
-      <DetailCategory />
+      {pathname === "/product/1" ? <DetailCategory /> : ""}
       <DetailProduct
         message={"first"}
         productImage={productItem.images}
@@ -64,9 +64,9 @@ const DetailPage = () => {
 const Background = styled.div`
   background-color: var(--color_sub5);
   width: 100%;
-  height: 787px;
+  height: 810px;
   position: absolute;
-  top: 5707px;
+  top: 5717px;
 `;
 
 export default DetailPage;

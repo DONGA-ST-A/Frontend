@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { BiPlus, BiMinus } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
 import { useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
@@ -19,6 +20,9 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
   const [activetoggle, setActiveToggle] = useState<boolean>(false);
   const [toggleName, setToggleName] = useState<string>(toggleText[0]);
   const setToast = useSetRecoilState(toastState);
+  const [count, setCount] = useState<number>(1);
+
+
   const toggleBtn = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     setActiveToggle(!activetoggle);
@@ -71,7 +75,10 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
                   </li>
                   <li
                     className={toggleText[1] === toggleName ? "active1" : ""}
-                    onClick={() => setToggleName(toggleText[1])}
+                    onClick={() => {
+                      setToggleName(toggleText[1]);
+                      setCount(1);
+                    }}
                   >
                     {toggleText[1]}
                     <img
@@ -82,7 +89,10 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
                   </li>
                   <li
                     className={toggleText[2] === toggleName ? "active2" : ""}
-                    onClick={() => setToggleName(toggleText[2])}
+                    onClick={() => {
+                      setToggleName(toggleText[2]);
+                      setCount(1);
+                    }}
                   >
                     {toggleText[2]}
                     <img
@@ -94,6 +104,46 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
                 </ul>
               )}
             </ListToggle>
+            {toggleName !== toggleText[0] ? (
+              <div className="count">
+                <div className="innerCount">
+                  <div className="text">
+                    하이카디플러스 HiCardi+
+                    <br />
+                    {toggleName === toggleText[1]
+                      ? "갤럭시 A13 (+275,000원)"
+                      : toggleName === toggleText[2]
+                      ? "-선택 안 함"
+                      : ""}
+                  </div>
+                  <div className="countingBtn">
+                    {count > 1 ? (
+                      <BiMinus
+                        onClick={() => setCount(count - 1)}
+                        style={{ width: "25px", height: "25px", cursor: "pointer" }}
+                      />
+                    ) : (
+                      <BiMinus style={{ width: "25px", height: "25px" }} />
+                    )}
+                    {count}
+                    <BiPlus
+                      onClick={() => setCount(count + 1)}
+                      style={{ width: "25px", height: "25px", cursor: "pointer" }}
+                    />
+                  </div>
+                  <div className="countPrice">
+                    {toggleName === toggleText[1]
+                      ? ((productItem.price + 275000) * count).toLocaleString()
+                      : toggleName === toggleText[2]
+                      ? (productItem.price * count).toLocaleString()
+                      : ""}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+
             <div className="allPurchase">
               <div className="allPrice"> 총 구매금액 : </div>
               <div className="allNumberPrice">
@@ -101,8 +151,8 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
                 {toggleName === toggleText[0]
                   ? "0"
                   : toggleName === toggleText[1]
-                  ? (productItem?.price + 275000)?.toLocaleString()
-                  : productItem?.price?.toLocaleString()}
+                  ? ((productItem.price + 275000) * count).toLocaleString()
+                  : (productItem.price * count).toLocaleString()}
                 원
               </div>
             </div>
@@ -249,6 +299,53 @@ const ProductDetailInfo = styled.div`
     border: 1px solid var(--color_sub1);
     padding: 12px 0;
   }
+
+  .count {
+    width: calc(100% - 10px);
+    height: 96px;
+    border-radius: 8px;
+    background-color: var(--color_background);
+    padding: 22px 26px 22px 33px;
+    box-sizing: border-box;
+  }
+  .innerCount {
+    width: 531px;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .text {
+    font-family: NotoSansBold;
+    font-size: 16px;
+    line-height: 1.6em;
+    color: var(--color_font);
+  }
+  .countingBtn {
+    width: 95px;
+    border-radius: 36px;
+    padding: 8px 12px;
+    font-family: NotoSansMedium;
+    font-size: 16px;
+    line-height: 1.6em;
+    color: var(--color_font);
+    border: 1px solid var(--color_sub1);
+    background-color: var(--color_white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-use-select: none;
+    user-select: none;
+  }
+  .countPrice {
+    color: var(--color_font);
+    text-align: right;
+    font-family: NotoSansBold;
+    font-size: 16px;
+    line-height: 1.6em;
+  }
 `;
 
 const ListToggle = styled.div<{ $text: string }>`
@@ -257,7 +354,7 @@ const ListToggle = styled.div<{ $text: string }>`
   border: 1px solid var(--color_background);
   box-sizing: border-box;
   border-radius: 8px;
-  margin-bottom: 98px;
+  margin-bottom: ${(props) => (props.$text === "[필수] 상품을 선택해주세요." ? "98px" : 0)};
   position: relative;
   cursor: pointer;
   -webkit-user-select: none;
