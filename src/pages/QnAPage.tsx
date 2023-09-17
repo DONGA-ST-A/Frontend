@@ -51,8 +51,8 @@ const QnAPage = () => {
       <Container>
         <Inner>
           <TitleBanner
-            title="QnA"
-            subTitle="구매하시려는 제품에 대해 궁금한 점이 있으면 문의해주세요."
+            title="FAQ"
+            subTitle="구매하시려는 제품에 대한 궁금증을 해결해보세요."
           />
           <CategoryBar
             categoryList={categoryList}
