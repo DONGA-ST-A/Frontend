@@ -1,7 +1,5 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-
 import { useRecoilState, useSetRecoilState } from "recoil";
-
 import { styled } from "styled-components";
 
 import { toastState } from "@/Atoms";
