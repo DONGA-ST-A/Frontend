@@ -1,13 +1,16 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import { styled } from "styled-components";
 
 import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
+import { userState } from "@/states/userState";
 import { Inner } from "@/style/commonStyle";
 
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [currentUser] = useRecoilState(userState);
   return (
     <Container>
       <Inner>
@@ -43,10 +46,21 @@ const Header = () => {
               />
             </div>
 
-            <button className="loginBtn">
+            {/* <button className="loginBtn">
               <Link to="/login">로그인</Link>
             </button>
             <button className="registerBtn">회윈가입</button>
+ */}
+            {currentUser ? (
+              <button className="logoutBtn">로그아웃</button>
+            ) : (
+              <div className="button-container">
+                <button className="loginBtn">
+                  <Link to="/login">로그인</Link>
+                </button>
+                <button className="registerBtn">회윈가입</button>
+              </div>
+            )}
           </RightNav>
         </Nav>
       </Inner>
@@ -122,6 +136,10 @@ const RightNav = styled.div`
     margin: auto;
   }
 
+  .button-container {
+    display: flex;
+  }
+
   button {
     width: 136px;
     border-radius: 36px;
@@ -140,6 +158,11 @@ const RightNav = styled.div`
   .registerBtn {
     color: var(--color_white);
     background-color: var(--color_main_skyblue);
+  }
+  .logoutBtn {
+    color: var(--color_white);
+    background-color: var(--color_main_skyblue);
+    margin-left: 12px;
   }
 `;
 export default Header;
