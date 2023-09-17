@@ -77,3 +77,16 @@ export interface QnAData {
 
 export type GetQnaResponse = GetDto<QnAData>;
 
+/** notice */
+export interface NoticeData {
+  id: number;
+  category: string;
+  title: string;
+  content: string;
+  file: string | null;
+  isTop: boolean;
+  createdDate: string;
+  views: number;
+}
+
+export type GetNoticeResponse = GetDto<NoticeData>;

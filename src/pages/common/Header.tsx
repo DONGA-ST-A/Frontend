@@ -21,12 +21,18 @@ const Header = () => {
               onClick={() => navigate("/")}
             />
             <ul>
-              <li className={pathname === "/" ? "active" : ""}>하이카디란?</li>
+              <li className={pathname === "/company" ? "active" : ""}>
+                <Link to="/company">회사 소개</Link>
+              </li>
               <li className={pathname === "/product" ? "active" : ""}>
                 <Link to="/product">제품 소개</Link>
               </li>
-              <li className={pathname === "/faq" ? "active" : ""}>FAQ</li>
-              <li className={pathname === "/notice" ? "active" : ""}>공지사항</li>
+              <li className={pathname === "/faq" ? "active" : ""}>
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li className={pathname === "/notice" ? "active" : ""}>
+                <Link to="/notice">공지사항</Link>
+              </li>
             </ul>
           </LeftNav>
           <RightNav>
