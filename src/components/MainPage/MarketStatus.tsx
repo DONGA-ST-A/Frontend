@@ -25,6 +25,7 @@ const MarketStatus = () => {
         />
         <InnerContainer>
           <GraphContainer>
+            <div className="graph-title">최근 5년간 심전도 침상감지 실시 건수</div>
             <img
               alt="최근 5년간 심전도 침상감시 실시 건수"
               src={UsageGraph}
@@ -70,6 +71,15 @@ const InnerContainer = styled.div`
 `;
 
 const GraphContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  .graph-title {
+    font-family: NotoSansBold;
+    font-size: var(--text_body1);
+    color: var(--color_font);
+  }
+
   .graph-explanation {
     font-family: NotoSansBold;
     font-size: 24px;
