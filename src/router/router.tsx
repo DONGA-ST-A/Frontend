@@ -7,6 +7,7 @@ import Toast from "@/components/etc/Toast";
 import Layout from "@/layout/Layout";
 import CompanyPage from "@/pages/CompanyPage";
 import DetailPage from "@/pages/DetailPage";
+import InquiryPage from "@/pages/InquiryPage";
 import MainPage from "@/pages/MainPage";
 import NoticeDetailPage from "@/pages/NoticeDetailPage";
 import NoticePage from "@/pages/NoticePage";
@@ -44,6 +45,10 @@ const Router = () => {
           <Route
             path="/product/:id"
             element={<DetailPage />}
+          />
+          <Route
+            path="/inquiry"
+            element={<InquiryPage />}
           />
           <Route
             path="/company"

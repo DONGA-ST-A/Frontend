@@ -39,7 +39,7 @@ const Business = () => {
         <CompanyTitle title="사업 분야" />
         <BusinessContainer>
           {businessList.map((item) => (
-            <BusinessItem>
+            <BusinessItem key={item.title}>
               <img
                 alt={item.title}
                 src={item.img}

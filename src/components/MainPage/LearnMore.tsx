@@ -13,7 +13,7 @@ const LearnMore = () => {
           <p>하이카디에 대해 더 알아 볼까요?</p>
           <ArrowBtn
             text="1:1 문의하기"
-            link="/"
+            link="/inquiry"
           />
         </div>
       </InnerLearnMore>

@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Inquiry = () => {
   return (
     <Container>
       <div>궁금증이 해결되지 않았다면?</div>
-      <button>1:1 문의하기</button>
+      <button>
+        <Link to="/inquiry">1:1 문의하기</Link>
+      </button>
     </Container>
   );
 };
