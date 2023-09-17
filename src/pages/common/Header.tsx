@@ -65,7 +65,17 @@ const Header = () => {
                 >
                   로그아웃
                 </button>
-                <button className="blueBtn">마이페이지</button>
+                <button
+                  className="blueBtn"
+                  onClick={() => {
+                    setToast(true);
+                    setTimeout(() => {
+                      setToast(false);
+                    }, 1100);
+                  }}
+                >
+                  마이페이지
+                </button>
               </div>
             ) : (
               <div className="button-container">
