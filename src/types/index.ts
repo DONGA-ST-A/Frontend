@@ -25,6 +25,11 @@ export interface carouselItemProps extends carouselProps {
   idx: number;
 }
 
+export interface LoginData {
+  userId: string;
+  password: string;
+}
+
 export interface ProductData {
   id: number;
   name: string;

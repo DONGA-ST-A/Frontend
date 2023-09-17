@@ -1,12 +1,20 @@
 import { ChangeEvent, useState } from "react";
 
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
+import { login } from "@/API";
+
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
-    id: "",
+    userId: "",
     password: "",
   });
+
+  const handleLogin = async () => {
+    login(userData).then(() => navigate("/"));
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -14,7 +22,8 @@ const LoginPage = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault;
+    e.preventDefault();
+    handleLogin();
   };
   return (
     <Container>
@@ -24,27 +33,40 @@ const LoginPage = () => {
           회원이 되시면 다양한 혜택과 서비스를 받으실 수 있습니다.
         </span>
       </div>
-      <LoginForm onSubmit={handleSubmit}>
+      <LoginContainer>
+        <form
+          className="login"
+          onSubmit={handleSubmit}
+        >
+          <fieldset>
+            <input
+              name="userId"
+              value={userData.userId}
+              placeholder="아이디"
+              onChange={handleChange}
+            />
+            <input
+              type="password"
+              name="password"
+              value={userData.password}
+              placeholder="비밀번호"
+              onChange={handleChange}
+            />
+          </fieldset>
+          <fieldset>
+            <button className="login-btn">로그인</button>
+          </fieldset>
+        </form>
         <fieldset>
-          <input
-            name="id"
-            value={userData.id}
-            placeholder="아이디"
-            onChange={handleChange}
-          />
-          <input
-            type="password"
-            name="password"
-            value={userData.password}
-            placeholder="비밀번호"
-            onChange={handleChange}
-          />
+          <button
+            type="submit"
+            className="register-btn"
+          >
+            회원가입
+          </button>
         </fieldset>
-        <fieldset>
-          <button className="login-btn">로그인</button>
-          <button className="register-btn">회원가입</button>
-        </fieldset>
-      </LoginForm>
+      </LoginContainer>
+
       <div className="find">
         <span>아이디 찾기</span>
         <div>|</div>
@@ -96,10 +118,16 @@ const Container = styled.div`
   }
 `;
 
-const LoginForm = styled.form`
+const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 18px;
+
+  .login {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 
   fieldset {
     display: flex;
