@@ -1,16 +1,19 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
+import { toastState, userState } from "@/Atoms";
 import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
-import { userState } from "@/states/userState";
 import { Inner } from "@/style/commonStyle";
 
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [currentUser, setCurrentUser] = useRecoilState(userState);
+
+  const setToast = useSetRecoilState(toastState);
+
   return (
     <Container>
       <Inner>
@@ -38,7 +41,15 @@ const Header = () => {
             </ul>
           </LeftNav>
           <RightNav>
-            <div className="search">
+            <div
+              className="search"
+              onClick={() => {
+                setToast(true);
+                setTimeout(() => {
+                  setToast(false);
+                }, 1100);
+              }}
+            >
               <img
                 src={SearchIcon}
                 alt="검색"
@@ -55,14 +66,34 @@ const Header = () => {
                 >
                   로그아웃
                 </button>
-                <button className="blueBtn">마이페이지</button>
+                <button
+                  className="blueBtn"
+                  onClick={() => {
+                    setToast(true);
+                    setTimeout(() => {
+                      setToast(false);
+                    }, 1100);
+                  }}
+                >
+                  마이페이지
+                </button>
               </div>
             ) : (
               <div className="button-container">
                 <button className="whiteBtn">
                   <Link to="/login">로그인</Link>
                 </button>
-                <button className="blueBtn">회윈가입</button>
+                <button
+                  className="blueBtn"
+                  onClick={() => {
+                    setToast(true);
+                    setTimeout(() => {
+                      setToast(false);
+                    }, 1100);
+                  }}
+                >
+                  회윈가입
+                </button>
               </div>
             )}
           </RightNav>

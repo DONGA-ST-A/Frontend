@@ -86,7 +86,6 @@ export interface QnAData {
 
 export type GetQnaResponse = GetDto<QnAData>;
 
-
 export interface UsingGif {
   img: string;
   gif: string;

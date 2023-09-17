@@ -2,8 +2,10 @@ import { useState } from "react";
 
 import { BiPlus, BiMinus } from "react-icons/bi";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
+import { toastState } from "@/Atoms";
 import Check from "@/assets/icon/check_icon.svg";
 import { Inner } from "@/style/commonStyle";
 import { ProductData } from "@/types";
@@ -17,6 +19,7 @@ const toggleText: string[] = [
 const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
   const [activetoggle, setActiveToggle] = useState<boolean>(false);
   const [toggleName, setToggleName] = useState<string>(toggleText[0]);
+  const setToast = useSetRecoilState(toastState);
   const [count, setCount] = useState<number>(1);
 
   const toggleBtn = (e: { stopPropagation: () => void }) => {
@@ -29,16 +32,16 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
         <div className="product">
           <ProductImg>
             <img
-              src={productItem.previewImage}
+              src={productItem?.previewImage}
               alt="상품이미지"
               width={538}
             />
           </ProductImg>
           <ProductDetailInfo>
-            <div className="name">{productItem.name}</div>
-            <div className="subName">{productItem.subname}</div>
+            <div className="name">{productItem?.name}</div>
+            <div className="subName">{productItem?.subname}</div>
             <div className="tags">
-              {productItem.tags.map((tag, idx) => (
+              {productItem?.tags.map((tag, idx) => (
                 <div
                   className="tag"
                   key={idx}
@@ -47,7 +50,7 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
                 </div>
               ))}
             </div>
-            <div className="price">{productItem.price.toLocaleString()}원</div>
+            <div className="price">{productItem?.price?.toLocaleString()}원</div>
             <ListToggle
               $text={toggleName}
               onClick={toggleBtn}
@@ -153,10 +156,40 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
               </div>
             </div>
 
-            <button className="purchaseBtn">구매하기</button>
+            <button
+              className="purchaseBtn"
+              onClick={() => {
+                setToast(true);
+                setTimeout(() => {
+                  setToast(false);
+                }, 1100);
+              }}
+            >
+              구매하기
+            </button>
             <div className="subBtn">
-              <button className="basket">장바구니 추가</button>
-              <button className="wish">위시리스트에 담기</button>
+              <button
+                className="basket"
+                onClick={() => {
+                  setToast(true);
+                  setTimeout(() => {
+                    setToast(false);
+                  }, 1100);
+                }}
+              >
+                장바구니 추가
+              </button>
+              <button
+                className="wish"
+                onClick={() => {
+                  setToast(true);
+                  setTimeout(() => {
+                    setToast(false);
+                  }, 1100);
+                }}
+              >
+                위시리스트에 담기
+              </button>
             </div>
           </ProductDetailInfo>
         </div>

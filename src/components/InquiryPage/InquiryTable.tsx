@@ -1,11 +1,18 @@
 import React, { ChangeEvent, useState } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled, { css } from "styled-components";
+
+import { toastState } from "@/Atoms";
+
+import Toast from "../etc/Toast";
 
 const mailList = ["naver.com", "gmail.com", "daum.net", "hanmail.net", "nate.com", "직접 입력"];
 
 const InquiryTable = () => {
+  const navigate = useNavigate();
   const [inquiry, setInquiry] = useState({
     title: "",
     mailFirst: "",
@@ -15,6 +22,7 @@ const InquiryTable = () => {
   const [received, setReceived] = useState<boolean>(true);
   const [dropdown, setDropdown] = useState<string>("직접 입력");
   const [activeDropdown, setActvieDropdown] = useState<boolean>(false);
+  const [toast, setToast] = useRecoilState(toastState);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,6 +31,7 @@ const InquiryTable = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setToast(true);
     setInquiry({
       title: "",
       mailFirst: "",
@@ -31,12 +40,16 @@ const InquiryTable = () => {
     });
     setDropdown("직접 입력");
     setReceived(true);
-    // TODO: 잘 등록되었다고 알려주는 토스트 넣기
-    // 토스트 뜨고 이전 페이지로 이동?
+
+    setTimeout(() => {
+      setToast(false);
+      navigate("/");
+    }, 1300);
   };
 
   return (
     <Container onSubmit={handleSubmit}>
+      {toast ? <Toast message="문의가 정상적으로 등록 되었습니다." /> : ""}
       <table>
         <tbody>
           <tr>
