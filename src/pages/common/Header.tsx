@@ -1,6 +1,8 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
+import { toastState } from "@/Atoms";
 import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
 import { Inner } from "@/style/commonStyle";
@@ -8,6 +10,7 @@ import { Inner } from "@/style/commonStyle";
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const setToast = useSetRecoilState(toastState);
   return (
     <Container>
       <Inner>
@@ -44,7 +47,17 @@ const Header = () => {
             </div>
 
             <button className="loginBtn">로그인</button>
-            <button className="registerBtn">회윈가입</button>
+            <button
+              className="registerBtn"
+              onClick={() => {
+                setToast(true);
+                setTimeout(() => {
+                  setToast(false);
+                }, 1100);
+              }}
+            >
+              회윈가입
+            </button>
           </RightNav>
         </Nav>
       </Inner>
