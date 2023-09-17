@@ -1,5 +1,7 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+
 import { useRecoilState, useSetRecoilState } from "recoil";
+
 import { styled } from "styled-components";
 
 import { toastState } from "@/Atoms";
@@ -12,7 +14,9 @@ const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [currentUser, setCurrentUser] = useRecoilState(userState);
+
   const setToast = useSetRecoilState(toastState);
+
   return (
     <Container>
       <Inner>
