@@ -101,27 +101,31 @@ const InquiryTable = () => {
               </div>
               <div className="mail-container">
                 <span>답변여부를 메일로 받으시겠습니까?</span>
-                <div className="radio-container">
+                <div
+                  className="radio-container"
+                  onClick={() => {
+                    setReceived(true);
+                  }}
+                >
                   <input
                     className="radio"
                     type="radio"
                     name="mail"
                     checked={received}
-                    onClick={() => {
-                      setReceived(true);
-                    }}
                   />
                   <span>예</span>
                 </div>
-                <div className="radio-container">
+                <div
+                  className="radio-container"
+                  onClick={() => {
+                    setReceived(false);
+                  }}
+                >
                   <input
                     className="radio"
                     type="radio"
                     name="mail"
                     checked={!received}
-                    onClick={() => {
-                      setReceived(false);
-                    }}
                   />
                   <span>아니오</span>
                 </div>
@@ -227,9 +231,9 @@ const Section = styled.td`
     gap: 10px;
 
     .radio-container {
+      cursor: pointer;
       .radio {
         accent-color: var(--color_sub3);
-        cursor: pointer;
       }
     }
   }
