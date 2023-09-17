@@ -8,7 +8,6 @@ import { Inner } from "@/style/commonStyle";
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname);
   return (
     <Container>
       <Inner>
