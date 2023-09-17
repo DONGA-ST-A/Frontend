@@ -21,7 +21,10 @@ const History = () => {
         <CompanyTitle title="연혁" />
         <HistoryContainer>
           {historyList.map((item, idx) => (
-            <div className="history-container">
+            <div
+              className="history-container"
+              key={item.title}
+            >
               <HistoryItem>
                 <img
                   alt={item.title}
