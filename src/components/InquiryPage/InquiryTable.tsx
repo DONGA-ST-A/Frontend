@@ -2,12 +2,10 @@ import React, { ChangeEvent, useState } from "react";
 
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styled, { css } from "styled-components";
 
 import { toastState } from "@/Atoms";
-
-import Toast from "../etc/Toast";
 
 const mailList = ["naver.com", "gmail.com", "daum.net", "hanmail.net", "nate.com", "직접 입력"];
 
@@ -22,7 +20,7 @@ const InquiryTable = () => {
   const [received, setReceived] = useState<boolean>(true);
   const [dropdown, setDropdown] = useState<string>("직접 입력");
   const [activeDropdown, setActvieDropdown] = useState<boolean>(false);
-  const [toast, setToast] = useRecoilState(toastState);
+  const setToast = useSetRecoilState(toastState);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -31,7 +29,7 @@ const InquiryTable = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setToast(true);
+    setToast("문의가 정상적으로 등록 되었습니다.");
     setInquiry({
       title: "",
       mailFirst: "",
@@ -42,14 +40,13 @@ const InquiryTable = () => {
     setReceived(true);
 
     setTimeout(() => {
-      setToast(false);
+      setToast("");
       navigate("/");
     }, 1300);
   };
 
   return (
     <Container onSubmit={handleSubmit}>
-      {toast ? <Toast message="문의가 정상적으로 등록 되었습니다." /> : ""}
       <table>
         <tbody>
           <tr>
