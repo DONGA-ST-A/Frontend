@@ -17,8 +17,17 @@ export interface carouselProps {
   title: string;
   semiTitle: string;
   description: string;
+  image: string;
   BtnText: string;
   BtnLink: string;
+}
+export interface carouselItemProps extends carouselProps {
+  idx: number;
+}
+
+export interface LoginData {
+  userId: string;
+  password: string;
 }
 
 export interface ProductData {
@@ -77,3 +86,23 @@ export interface QnAData {
 
 export type GetQnaResponse = GetDto<QnAData>;
 
+export interface UsingGif {
+  img: string;
+  gif: string;
+  text: string;
+  subText?: string;
+}
+
+/** notice */
+export interface NoticeData {
+  id: number;
+  category: string;
+  title: string;
+  content: string;
+  file: string | null;
+  isTop: boolean;
+  createdDate: string;
+  views: number;
+}
+
+export type GetNoticeResponse = GetDto<NoticeData>;

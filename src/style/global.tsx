@@ -7,6 +7,7 @@ import "./font.css";
 import NotoSansBold from "@/style/fonts/NotoSansKR-Bold.woff";
 import NotoSansMedium from "@/style/fonts/NotoSansKR-Medium.woff";
 import NotoSansRegular from "@/style/fonts/NotoSansKR-Regular.woff";
+import "./mobile.css";
 
 export const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,

@@ -43,6 +43,7 @@ const QnAPage = () => {
     if (keyword !== "") fetchKeywordQnA(keyword);
     else if (category === "전체") fetchQnA();
     else fetchCategoryQnA(category);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return (
@@ -80,7 +81,7 @@ const QnAPage = () => {
 const Container = styled.div`
   padding-top: 123px;
   padding-bottom: 100px;
-  min-height: 1200px;
+  min-height: 900px;
 `;
 
 export default QnAPage;

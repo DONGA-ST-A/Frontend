@@ -1,6 +1,8 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
+import { toastState, userState } from "@/Atoms";
 import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
 import { Inner } from "@/style/commonStyle";
@@ -8,7 +10,10 @@ import { Inner } from "@/style/commonStyle";
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(pathname);
+  const [currentUser, setCurrentUser] = useRecoilState(userState);
+
+  const setToast = useSetRecoilState(toastState);
+
   return (
     <Container>
       <Inner>
@@ -21,25 +26,76 @@ const Header = () => {
               onClick={() => navigate("/")}
             />
             <ul>
-              <li className={pathname === "/" ? "active" : ""}>하이카디란?</li>
-              <li className={pathname === "/product" ? "active" : ""}>
-                <Link to="/product">제품 소개</Link>
+              <li className={pathname.includes("/company") ? "active" : ""}>
+                <Link to="/company">회사 소개</Link>
               </li>
-              <li className={pathname === "/faq" ? "active" : ""}>FAQ</li>
-              <li className={pathname === "/notice" ? "active" : ""}>공지사항</li>
+              <li className={pathname.includes("/product") ? "active" : ""}>
+                <Link to="/product">제품 구매</Link>
+              </li>
+              <li className={pathname.includes("/faq") ? "active" : ""}>
+                <Link to="/faq">FAQ</Link>
+              </li>
+              <li className={pathname.includes("/notice") ? "active" : ""}>
+                <Link to="/notice">공지사항</Link>
+              </li>
             </ul>
           </LeftNav>
           <RightNav>
-            <div className="search">
+            <div
+              className="search"
+              onClick={() => {
+                setToast(true);
+                setTimeout(() => {
+                  setToast(false);
+                }, 1100);
+              }}
+            >
               <img
                 src={SearchIcon}
                 alt="검색"
                 width={15}
               />
             </div>
-
-            <button className="loginBtn">로그인</button>
-            <button className="registerBtn">회윈가입</button>
+            {currentUser ? (
+              <div className="button-container">
+                <button
+                  className="whiteBtn"
+                  onClick={() => {
+                    setCurrentUser(undefined);
+                  }}
+                >
+                  로그아웃
+                </button>
+                <button
+                  className="blueBtn"
+                  onClick={() => {
+                    setToast(true);
+                    setTimeout(() => {
+                      setToast(false);
+                    }, 1100);
+                  }}
+                >
+                  마이페이지
+                </button>
+              </div>
+            ) : (
+              <div className="button-container">
+                <button className="whiteBtn">
+                  <Link to="/login">로그인</Link>
+                </button>
+                <button
+                  className="blueBtn"
+                  onClick={() => {
+                    setToast(true);
+                    setTimeout(() => {
+                      setToast(false);
+                    }, 1100);
+                  }}
+                >
+                  회윈가입
+                </button>
+              </div>
+            )}
           </RightNav>
         </Nav>
       </Inner>
@@ -115,8 +171,12 @@ const RightNav = styled.div`
     margin: auto;
   }
 
+  .button-container {
+    display: flex;
+  }
+
   button {
-    width: 136px;
+    padding: 12px 40px;
     border-radius: 36px;
     border: none;
     font-family: NotoSansBold;
@@ -125,12 +185,12 @@ const RightNav = styled.div`
     line-height: 1.6em;
     cursor: pointer;
   }
-  .loginBtn {
+  .whiteBtn {
     border: 1px solid var(--color_sub1);
     background-color: var(--color_white);
     margin: 0 12px;
   }
-  .registerBtn {
+  .blueBtn {
     color: var(--color_white);
     background-color: var(--color_main_skyblue);
   }

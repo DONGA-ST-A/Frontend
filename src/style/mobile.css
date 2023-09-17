@@ -1,0 +1,14 @@
+:root {
+  zoom: 0.75;
+}
+@media (max-width: 850px) {
+  :root {
+    overflow: auto;
+    zoom: 0.58;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    zoom: 0.26;
+  }
+}

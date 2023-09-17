@@ -13,27 +13,27 @@ const categoryBtn: categoryProps[] = [
   {
     img: MarketStatusIcon,
     text: "심전도 침상감지 현황",
-    location: 924,
+    location: 1340,
   },
   {
     img: AdvantageIcon,
     text: "하이카디만의 장점",
-    location: 1536,
+    location: 1950,
   },
   {
     img: ExpectedEffectIcon,
     text: "기대 효과",
-    location: 2348,
+    location: 2750,
   },
   {
     img: ReviewIcon,
     text: "실제 현장 후기",
-    location: 3280,
+    location: 3680,
   },
   {
     img: HospitalIcon,
     text: "  현재 하이카디를\n사용하고 있는 병원",
-    location: 3964,
+    location: 4380,
   },
 ];
 
@@ -57,10 +57,10 @@ const MainCategory = () => {
         <li
           key={idx}
           className={
-            item.location < scrollLocation + 10 &&
+            item.location < scrollLocation + 5 &&
             scrollLocation < (arr[idx + 1]?.location || item.location + 600)
               ? "active"
-              : scrollLocation > 4444
+              : scrollLocation > 4864
               ? "lastActive"
               : ""
           }
