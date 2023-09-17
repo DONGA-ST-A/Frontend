@@ -11,7 +11,7 @@ import { Inner } from "@/style/commonStyle";
 const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const [currentUser] = useRecoilState(userState);
+  const [currentUser, setCurrentUser] = useRecoilState(userState);
   const setToast = useSetRecoilState(toastState);
   return (
     <Container>
@@ -55,14 +55,15 @@ const Header = () => {
                 width={15}
               />
             </div>
-
-            {/* <button className="loginBtn">
-              <Link to="/login">로그인</Link>
-            </button>
-            <button className="registerBtn">회윈가입</button>
- */}
             {currentUser ? (
-              <button className="logoutBtn">로그아웃</button>
+              <button
+                className="logoutBtn"
+                onClick={() => {
+                  setCurrentUser(undefined);
+                }}
+              >
+                로그아웃
+              </button>
             ) : (
               <div className="button-container">
                 <button className="loginBtn">
