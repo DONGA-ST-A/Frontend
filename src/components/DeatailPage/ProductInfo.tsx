@@ -22,7 +22,6 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
   const setToast = useSetRecoilState(toastState);
   const [count, setCount] = useState<number>(1);
 
-
   const toggleBtn = (e: { stopPropagation: () => void }) => {
     e.stopPropagation();
     setActiveToggle(!activetoggle);
