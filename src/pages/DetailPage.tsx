@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { getAddProductItem, getProductItem } from "@/API";
@@ -12,6 +12,7 @@ import { ProductItemGetResponse, ProductData } from "@/types";
 
 const DetailPage = () => {
   const { pathname } = useLocation();
+  const { id } = useParams() as { id: string };
   const [productItem, setProductItem] = useState<ProductItemGetResponse>({
     id: 0,
     name: "",
@@ -25,8 +26,8 @@ const DetailPage = () => {
   });
   const [productAddItem, setProductAddItem] = useState<ProductData[]>([]);
 
-  const productItemData = async () => {
-    const productData = await getProductItem();
+  const productItemData = async (id: string) => {
+    const productData = await getProductItem(id);
     setProductItem(productData);
   };
 
@@ -36,9 +37,9 @@ const DetailPage = () => {
   };
 
   useEffect(() => {
-    productItemData();
+    productItemData(id);
     productAddItemData();
-    if (pathname === "/product/9") {
+    if (pathname === "/product/10") {
       window.scrollTo({ top: 2975, behavior: "smooth" });
     }
   }, [pathname]);
@@ -50,7 +51,7 @@ const DetailPage = () => {
         message={"first"}
         productImage={productItem.images}
       />
-      <Background></Background>
+      {pathname === "/product/1" ? <Background></Background> : ""}
       <AddProductAutoPlay productAddItem={productAddItem} />
       <DetailProduct
         message={"last"}
