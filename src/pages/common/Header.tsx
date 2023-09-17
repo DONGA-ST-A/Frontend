@@ -23,16 +23,16 @@ const Header = () => {
               onClick={() => navigate("/")}
             />
             <ul>
-              <li className={pathname === "/company" ? "active" : ""}>
+              <li className={pathname.includes("/company") ? "active" : ""}>
                 <Link to="/company">회사 소개</Link>
               </li>
-              <li className={pathname === "/product" ? "active" : ""}>
+              <li className={pathname.includes("/product") ? "active" : ""}>
                 <Link to="/product">제품 구매</Link>
               </li>
-              <li className={pathname === "/faq" ? "active" : ""}>
+              <li className={pathname.includes("/faq") ? "active" : ""}>
                 <Link to="/faq">FAQ</Link>
               </li>
-              <li className={pathname === "/notice" ? "active" : ""}>
+              <li className={pathname.includes("/notice") ? "active" : ""}>
                 <Link to="/notice">공지사항</Link>
               </li>
             </ul>
