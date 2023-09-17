@@ -46,7 +46,6 @@ const MainCategory = () => {
     setScrollLocation(window.scrollY);
   };
   useEffect(() => {
-    console.log(scrollLocation);
     window.addEventListener("scroll", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
