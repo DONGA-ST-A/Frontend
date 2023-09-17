@@ -2,6 +2,7 @@
 
 import { createGlobalStyle } from "styled-components";
 
+import "./mobile.css";
 import "./color.css";
 import "./font.css";
 import NotoSansBold from "@/style/fonts/NotoSansKR-Bold.woff";

@@ -12,8 +12,8 @@ const LearnMore = () => {
           <h1>하이카디가 당신의 환자를 24시간 돌봐드립니다.</h1>
           <p>하이카디에 대해 더 알아 볼까요?</p>
           <ArrowBtn
-            text="더 알아보기"
-            link="/"
+            text="1:1 문의하기"
+            link="/inquiry"
           />
         </div>
       </InnerLearnMore>

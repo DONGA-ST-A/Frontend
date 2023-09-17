@@ -1,11 +1,18 @@
 import styled from "styled-components";
 
-import carouselImg from "@/assets/carousel/example_carousel.svg";
-import { carouselProps } from "@/types";
+import { carouselItemProps } from "@/types";
 
 import ArrowBtn from "./ArrowBtn";
 
-const CarouselElement = ({ title, semiTitle, description, BtnText, BtnLink }: carouselProps) => {
+const CarouselElement = ({
+  title,
+  semiTitle,
+  description,
+  image,
+  BtnText,
+  BtnLink,
+  idx,
+}: carouselItemProps) => {
   return (
     <Container>
       <ElementInner>
@@ -25,9 +32,9 @@ const CarouselElement = ({ title, semiTitle, description, BtnText, BtnLink }: ca
         </TitleContainer>
         <img
           className="carouselImg"
-          src={carouselImg}
+          src={image}
           alt="케러셀 이미지"
-          width={439}
+          width={1 === idx ? 500 : 439}
         />
       </ElementInner>
     </Container>

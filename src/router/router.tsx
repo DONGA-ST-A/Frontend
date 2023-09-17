@@ -4,6 +4,7 @@ import ScrollToTop from "@/components/etc/ScrollToTop";
 import Layout from "@/layout/Layout";
 import CompanyPage from "@/pages/CompanyPage";
 import DetailPage from "@/pages/DetailPage";
+import InquiryPage from "@/pages/InquiryPage";
 import LoginPage from "@/pages/LoginPage";
 import MainPage from "@/pages/MainPage";
 import NoticeDetailPage from "@/pages/NoticeDetailPage";
@@ -40,6 +41,10 @@ const Router = () => {
           <Route
             path="/product/:id"
             element={<DetailPage />}
+          />
+          <Route
+            path="/inquiry"
+            element={<InquiryPage />}
           />
           <Route
             path="/company"

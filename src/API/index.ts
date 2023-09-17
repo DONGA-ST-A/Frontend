@@ -104,8 +104,8 @@ export const getCategoryNotice = async ({ category, page }: { category: string; 
 };
 
 // 상세 상품 조회 (디테일 페이지)
-export const getProductItem = async () => {
-  const response = await client.get<ProductItemGetResponse>("/items/1");
+export const getProductItem = async (id: string) => {
+  const response = await client.get<ProductItemGetResponse>(`/items/${id}`);
   return response.data;
 };
 
