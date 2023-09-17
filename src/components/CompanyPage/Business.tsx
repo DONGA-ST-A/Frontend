@@ -100,7 +100,7 @@ const BusinessItem = styled.div`
     }
 
     p {
-      font-family: NotoSansmMedium;
+      font-family: NotoSansMedium;
       font-size: var(--text_body1);
       white-space: pre-line;
       line-height: 1.6em;
