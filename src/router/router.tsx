@@ -20,7 +20,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      {toast && <Toast message="페이지 및 기능 준비중입니다." />}
+      {toast && <Toast message={toast} />}
       <Routes>
         <Route element={<Layout />}>
           <Route

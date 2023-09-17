@@ -6,7 +6,7 @@ import persistAtom from "./persisAtoms";
 
 export const toastState = atom({
   key: "src/ATOM/index.tsx-toastState",
-  default: false,
+  default: "",
 });
 
 export const userState = atom<LoginData | undefined>({

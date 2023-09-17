@@ -159,9 +159,9 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
             <button
               className="purchaseBtn"
               onClick={() => {
-                setToast(true);
+                setToast("페이지 준비중입니다.");
                 setTimeout(() => {
-                  setToast(false);
+                  setToast("");
                 }, 1100);
               }}
             >
@@ -171,9 +171,9 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
               <button
                 className="basket"
                 onClick={() => {
-                  setToast(true);
+                  setToast("기능 준비중입니다.");
                   setTimeout(() => {
-                    setToast(false);
+                    setToast("");
                   }, 1100);
                 }}
               >
@@ -182,9 +182,9 @@ const ProductInfo = ({ productItem }: { productItem: ProductData }) => {
               <button
                 className="wish"
                 onClick={() => {
-                  setToast(true);
+                  setToast("기능 준비중입니다.");
                   setTimeout(() => {
-                    setToast(false);
+                    setToast("");
                   }, 1100);
                 }}
               >
