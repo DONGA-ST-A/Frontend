@@ -40,8 +40,6 @@ const InquiryTable = () => {
     });
     setDropdown("직접 입력");
     setReceived(true);
-    // TODO: 잘 등록되었다고 알려주는 토스트 넣기
-    // 토스트 뜨고 이전 페이지로 이동?
 
     setTimeout(() => {
       setToast(false);

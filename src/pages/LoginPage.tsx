@@ -5,7 +5,7 @@ import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { login } from "@/API";
-import { userState } from "@/states/userState";
+import { userState } from "@/Atoms";
 
 const LoginPage = () => {
   const navigate = useNavigate();

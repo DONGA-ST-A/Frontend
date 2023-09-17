@@ -2,10 +2,9 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { styled } from "styled-components";
 
-import { toastState } from "@/Atoms";
+import { toastState, userState } from "@/Atoms";
 import SearchIcon from "@/assets/icon/search_icon.svg";
 import Logo from "@/assets/logo/logo_blue.svg";
-import { userState } from "@/states/userState";
 import { Inner } from "@/style/commonStyle";
 
 const Header = () => {
