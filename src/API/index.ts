@@ -3,6 +3,7 @@ import axios from "axios";
 import {
   GetNoticeResponse,
   GetQnaResponse,
+  LoginData,
   NoticeData,
   ProductGetResponse,
   ProductItemGetResponse,
@@ -14,6 +15,11 @@ const client = axios.create({
 
 const QNA_SIZE = 5;
 export const NOTICE_SIZE = 10;
+
+// 로그인
+export const login = (loginData: LoginData) => {
+  return client.post<GetQnaResponse>("/auth/login", loginData);
+};
 
 // QnA 조회
 export const getQna = async ({ page }: { page: number }) => {
