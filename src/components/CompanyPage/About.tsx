@@ -25,7 +25,10 @@ const About = () => {
           </TextContainer>
           <IconContainer>
             {AboutList.map((item) => (
-              <div className="icon-section">
+              <div
+                className="icon-section"
+                key={item.icon}
+              >
                 <img
                   alt={item.description}
                   src={item.icon}
