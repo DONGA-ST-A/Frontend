@@ -38,7 +38,15 @@ const Header = () => {
             </ul>
           </LeftNav>
           <RightNav>
-            <div className="search">
+            <div
+              className="search"
+              onClick={() => {
+                setToast(true);
+                setTimeout(() => {
+                  setToast(false);
+                }, 1100);
+              }}
+            >
               <img
                 src={SearchIcon}
                 alt="검색"
