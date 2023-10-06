@@ -37,6 +37,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 81px;
+    margin-top: 10px;
   }
 `;
 const Title = styled.div`
