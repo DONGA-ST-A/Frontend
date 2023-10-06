@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 
 import { useLocation, useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import { getAddProductItem, getProductItem } from "@/API";
+import { carouselState } from "@/Atoms";
 import AddProductAutoPlay from "@/components/DeatailPage/AddProductAutoPlay";
 import DetailCategory from "@/components/DeatailPage/DetailCategory";
 import DetailProduct from "@/components/DeatailPage/DetailProduct";
@@ -25,7 +27,7 @@ const DetailPage = () => {
     images: [],
   });
   const [productAddItem, setProductAddItem] = useState<ProductData[]>([]);
-
+  const [carousel, setCarousel] = useRecoilState(carouselState);
   const productItemData = async (id: string) => {
     const productData = await getProductItem(id);
     setProductItem(productData);
@@ -39,10 +41,12 @@ const DetailPage = () => {
   useEffect(() => {
     productItemData(id);
     productAddItemData();
-    if (pathname === "/product/10") {
+
+    if (carousel) {
       window.scrollTo({ top: 2975, behavior: "smooth" });
+      setCarousel(false);
     }
-  }, [pathname]);
+  }, []);
   return (
     <>
       <ProductInfo productItem={productItem} />
